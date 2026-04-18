@@ -45,8 +45,8 @@ const PRODUCTS = [
       fitur: "Soft texture, Breathable, Foldable cuff"
     },
     gambar: {
-      depan: "https://images.unsplash.com/photo-1576871333021-d14f4949540b?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1629130832314-8c83f6f1416d?q=80&w=1000&auto=format&fit=crop",
+      depan: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1000&auto=format&fit=crop",
       belakang: "https://images.unsplash.com/photo-1459156212016-c812468e2115?q=80&w=1000&auto=format&fit=crop"
     }
   },
@@ -63,7 +63,7 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1618354771074-318e30b8865c?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1611601322175-ef8ec8c85f01?q=80&w=1000&auto=format&fit=crop",
       belakang: "https://images.unsplash.com/photo-1534215754734-18e55d13e346?q=80&w=1000&auto=format&fit=crop"
     }
   },
@@ -406,13 +406,13 @@ const App = () => {
                   <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center">
                     <LucideIcon name="mail" className="w-5 h-5" />
                   </div>
-                  <span>halo@tktm.com</span>
+                  <span>machie8910@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-4 text-gray-400">
                   <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center">
                     <LucideIcon name="map-pin" className="w-5 h-5" />
                   </div>
-                  <span>Jakarta, Indonesia</span>
+                  <span>Banten, Indonesia</span>
                 </div>
             </div>
           </div>
