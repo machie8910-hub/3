@@ -23,6 +23,15 @@
   width: 4px;
 }
 
+/* Scrollbar Hide Utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Parallax Container */
 .parallax-wrapper {
   perspective: 1000px;

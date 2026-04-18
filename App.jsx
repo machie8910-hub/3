@@ -137,7 +137,7 @@ const PRODUCTS = [
   },
   {
     id: 8,
-    nama: "Corduroy Cap",
+    nama: "Premium Corduroy",
     harga: 185000,
     kategori: "Lifestyle",
     deskripsi: "Topi corduroy dengan tekstur unik yang memberikan kesan retro namun tetap modern. Pilihan gaya untuk semua musim.",
@@ -147,9 +147,9 @@ const PRODUCTS = [
       fitur: "Soft texture, Durable, Retro design"
     },
     gambar: {
-      depan: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
+      depan: "https://images.unsplash.com/photo-1582791694770-badca10da688?q=80&w=1000&auto=format&fit=crop",
       samping: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
+      belakang: "https://images.unsplash.com/photo-1582791694770-badca10da688?q=80&w=1000&auto=format&fit=crop"
     }
   }
 ];
@@ -311,24 +311,27 @@ const App = () => {
         </div>
       </section>
 
-      {/* Fitur Rekomendasi Topi */}
+      {/* Fitur Rekomendasi Topi - SLIDER VERSION */}
       <section className="py-24 px-6 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-accent font-bold tracking-widest uppercase text-sm">Pilihan Terbaik</span>
             <h3 className="text-4xl md:text-5xl font-black mt-3 text-brand">Rekomendasi Minggu Ini</h3>
             <div className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full" />
+            <p className="mt-4 text-gray-400 text-sm md:hidden flex items-center justify-center gap-2">
+              <LucideIcon name="move-horizontal" className="w-4 h-4" /> Geser untuk melihat lebih banyak
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {PRODUCTS.slice(0, 3).map((product, idx) => (
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-3">
+            {PRODUCTS.slice(0, 6).map((product, idx) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.2 }}
-                className="relative group cursor-pointer"
+                transition={{ delay: idx * 0.1 }}
+                className="snap-center min-w-[85%] md:min-w-0 relative group cursor-pointer"
                 onClick={() => setSelectedProduct(product)}
               >
                 <div className="overflow-hidden rounded-[2.5rem] aspect-[4/5] relative shadow-xl group-hover:shadow-2xl transition-all duration-500">
@@ -345,7 +348,7 @@ const App = () => {
                     <p className="text-lg font-medium opacity-90">Rp {product.harga.toLocaleString('id-ID')}</p>
                   </div>
 
-                  <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+                  <div className="absolute top-6 right-6 opacity-0 md:group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
                      <div className="bg-white text-brand p-4 rounded-full shadow-xl">
                         <LucideIcon name="arrow-up-right" className="w-6 h-6" />
                      </div>
@@ -357,7 +360,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Daftar Produk */}
+      {/* Daftar Produk - 3 COLS VERSION */}
       <section id="produk" className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
@@ -376,7 +379,7 @@ const App = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map(product => (
               <motion.div
                 layout
