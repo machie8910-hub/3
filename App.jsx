@@ -94,7 +94,6 @@ const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [selectedAngle, setSelectedAngle] = useState("depan");
   const [scrollPos, setScrollPos] = useState(0);
 
   useEffect(() => {
@@ -244,60 +243,48 @@ const App = () => {
         </div>
       </section>
 
-      {/* Fitur Ganti Sudut Topi */}
-      <section className="py-20 px-6 bg-white overflow-hidden">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative group">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={selectedAngle}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-                src={PRODUCTS[0].gambar[selectedAngle]}
-                alt="Product Preview"
-                className="w-full h-auto rounded-3xl shadow-2xl aspect-square object-cover"
-              />
-            </AnimatePresence>
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 md:gap-4 glass p-2 rounded-2xl">
-              {["depan", "samping", "belakang"].map(angle => (
-                <button
-                  key={angle}
-                  onClick={() => setSelectedAngle(angle)}
-                  className={`px-3 md:px-4 py-2 rounded-xl text-[10px] md:text-xs font-bold transition-all ${selectedAngle === angle ? 'bg-brand text-white' : 'hover:bg-gray-100'}`}
-                >
-                  {angle.toUpperCase()}
-                </button>
-              ))}
-            </div>
+      {/* Fitur Rekomendasi Topi */}
+      <section className="py-24 px-6 bg-white overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-accent font-bold tracking-widest uppercase text-sm">Pilihan Terbaik</span>
+            <h3 className="text-4xl md:text-5xl font-black mt-3 text-brand">Rekomendasi Minggu Ini</h3>
+            <div className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full" />
           </div>
-          <div>
-            <span className="text-accent font-bold tracking-widest uppercase">Fitur Unggulan</span>
-            <h3 className="text-4xl font-bold mt-2 mb-6 text-brand">Lihat Dari Segala Sudut</h3>
-            <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-              Kami memastikan setiap detail terlihat sempurna. Dengan fitur ganti sudut pandang, Anda bisa melihat material dan bentuk topi secara detail sebelum membeli.
-            </p>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3 font-semibold text-gray-700">
-                <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
-                   <LucideIcon name="check" className="w-5 h-5" />
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {PRODUCTS.slice(0, 3).map((product, idx) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.2 }}
+                className="relative group cursor-pointer"
+                onClick={() => setSelectedProduct(product)}
+              >
+                <div className="overflow-hidden rounded-[2.5rem] aspect-[4/5] relative shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                  <img
+                    src={product.gambar.depan}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    alt={product.nama}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+
+                  <div className="absolute bottom-8 left-8 right-8 text-white">
+                    <p className="text-xs font-bold uppercase tracking-widest text-accent mb-2">{product.kategori}</p>
+                    <h4 className="text-2xl font-black mb-1">{product.nama}</h4>
+                    <p className="text-lg font-medium opacity-90">Rp {product.harga.toLocaleString('id-ID')}</p>
+                  </div>
+
+                  <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+                     <div className="bg-white text-brand p-4 rounded-full shadow-xl">
+                        <LucideIcon name="arrow-up-right" className="w-6 h-6" />
+                     </div>
+                  </div>
                 </div>
-                Bahan Premium Durabel
-              </li>
-              <li className="flex items-center gap-3 font-semibold text-gray-700">
-                <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
-                   <LucideIcon name="check" className="w-5 h-5" />
-                </div>
-                Desain Ergonomis
-              </li>
-              <li className="flex items-center gap-3 font-semibold text-gray-700">
-                <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
-                   <LucideIcon name="check" className="w-5 h-5" />
-                </div>
-                Pilihan Warna Eksklusif
-              </li>
-            </ul>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
