@@ -83,6 +83,74 @@ const PRODUCTS = [
       samping: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
       belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
     }
+  },
+  {
+    id: 5,
+    nama: "Explorer Bucket Hat",
+    harga: 160000,
+    kategori: "Bucket Hat",
+    deskripsi: "Topi bucket yang trendi dan serbaguna, memberikan perlindungan maksimal dari sinar matahari dengan gaya yang santai.",
+    info: {
+      bahan: "Canvas Cotton",
+      ukuran: "Medium/Large",
+      fitur: "Wide brim, Foldable, Lightweight"
+    },
+    gambar: {
+      depan: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1621072156002-e2fcced0b170?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
+    }
+  },
+  {
+    id: 6,
+    nama: "Classic Fedora",
+    harga: 250000,
+    kategori: "Fedora",
+    deskripsi: "Sentuhan klasik untuk penampilan formal maupun semi-formal. Dibuat dengan presisi untuk kenyamanan sepanjang hari.",
+    info: {
+      bahan: "Wool Felt",
+      ukuran: "Fixed (58cm)",
+      fitur: "Stiff brim, Ribbon band, Elegant lining"
+    },
+    gambar: {
+      depan: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1517423568366-8b83523034fd?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
+    }
+  },
+  {
+    id: 7,
+    nama: "Performance Sport Cap",
+    harga: 175000,
+    kategori: "Sport",
+    deskripsi: "Topi olahraga dengan teknologi 'moisture-wicking' untuk menjaga kepala tetap kering saat beraktivitas berat.",
+    info: {
+      bahan: "Micro-Polyester",
+      ukuran: "All Size (Adjustable)",
+      fitur: "Breathable, Sweatband, Reflective detail"
+    },
+    gambar: {
+      depan: "https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?q=80&w=1000&auto=format&fit=crop"
+    }
+  },
+  {
+    id: 8,
+    nama: "Corduroy Cap",
+    harga: 185000,
+    kategori: "Lifestyle",
+    deskripsi: "Topi corduroy dengan tekstur unik yang memberikan kesan retro namun tetap modern. Pilihan gaya untuk semua musim.",
+    info: {
+      bahan: "Premium Corduroy",
+      ukuran: "All Size (Metal Buckle)",
+      fitur: "Soft texture, Durable, Retro design"
+    },
+    gambar: {
+      depan: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
+    }
   }
 ];
 
