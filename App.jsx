@@ -6,19 +6,27 @@ const Motion = window.Motion || {
     div: (props) => <div {...props} />,
     h2: (props) => <h2 {...props} />,
     p: (props) => <p {...props} />,
-    img: (props) => <img {...props} />
+    img: (props) => <img {...props} />,
+    button: (props) => <button {...props} />,
+    nav: (props) => <nav {...props} />
   },
   AnimatePresence: ({ children }) => <>{children}</>
 };
 const { motion, AnimatePresence } = Motion;
 
-// Mock Data Produk
+// Mock Data Produk dengan Detail Tambahan
 const PRODUCTS = [
   {
     id: 1,
     nama: "Classic Snapback",
     harga: 150000,
     kategori: "Snapback",
+    deskripsi: "Topi snapback klasik dengan desain minimalis namun elegan. Cocok untuk penggunaan sehari-hari maupun acara kasual.",
+    info: {
+      bahan: "Cotton Twill Premium",
+      ukuran: "All Size (Adjustable)",
+      fitur: "Flat brim, 6 panels, Adjustable snap closure"
+    },
     gambar: {
       depan: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
       samping: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
@@ -30,6 +38,12 @@ const PRODUCTS = [
     nama: "Urban Beanie",
     harga: 120000,
     kategori: "Beanie",
+    deskripsi: "Beanie rajut hangat dengan material lembut yang tidak gatal di kulit. Pilihan tepat untuk cuaca dingin atau gaya streetwear.",
+    info: {
+      bahan: "Acrylic Knit Wool",
+      ukuran: "Stretch (One size fits most)",
+      fitur: "Soft texture, Breathable, Foldable cuff"
+    },
     gambar: {
       depan: "https://images.unsplash.com/photo-1576871333021-d14f4949540b?q=80&w=1000&auto=format&fit=crop",
       samping: "https://images.unsplash.com/photo-1629130832314-8c83f6f1416d?q=80&w=1000&auto=format&fit=crop",
@@ -41,6 +55,12 @@ const PRODUCTS = [
     nama: "Trucker Mesh",
     harga: 135000,
     kategori: "Trucker",
+    deskripsi: "Topi trucker dengan jaring di bagian belakang untuk sirkulasi udara maksimal. Nyaman digunakan di bawah sinar matahari.",
+    info: {
+      bahan: "Polyester Mesh & Cotton",
+      ukuran: "All Size (Adjustable)",
+      fitur: "Breathable mesh back, Curved brim, Snap closure"
+    },
     gambar: {
       depan: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
       samping: "https://images.unsplash.com/photo-1618354771074-318e30b8865c?q=80&w=1000&auto=format&fit=crop",
@@ -52,6 +72,12 @@ const PRODUCTS = [
     nama: "Vintage Dad Hat",
     harga: 145000,
     kategori: "Dad Hat",
+    deskripsi: "Topi bergaya vintage dengan kesan 'washed' yang memberikan karakter unik. Material katun berkualitas tinggi.",
+    info: {
+      bahan: "Washed Cotton",
+      ukuran: "All Size (Metal strap)",
+      fitur: "Unstructured crown, Curved peak, Vintage look"
+    },
     gambar: {
       depan: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
       samping: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
@@ -60,10 +86,14 @@ const PRODUCTS = [
   }
 ];
 
+const WA_NUMBER = "+6288973262022";
+
 const App = () => {
   const [search, setSearch] = useState("");
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedAngle, setSelectedAngle] = useState("depan");
   const [scrollPos, setScrollPos] = useState(0);
 
@@ -91,14 +121,26 @@ const App = () => {
     setCart(prev => prev.filter(item => item.id !== id));
   };
 
+  const buyNowWA = (product) => {
+    const message = `Halo TKTM, saya ingin membeli produk berikut:\n\nNama: ${product.nama}\nHarga: Rp ${product.harga.toLocaleString('id-ID')}\n\nTerima kasih!`;
+    const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   const totalHarga = cart.reduce((acc, item) => acc + (item.harga * item.qty), 0);
 
   return (
     <div className="min-h-screen">
       {/* Navbar */}
       <nav className="fixed top-0 w-full z-50 glass py-4 px-6 flex justify-between items-center">
-        <h1 className="text-2xl font-black tracking-tighter text-brand">TKTM</h1>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
+          <button onClick={() => setIsMenuOpen(true)} className="p-2 md:hidden">
+            <LucideIcon name="menu" className="w-6 h-6" />
+          </button>
+          <h1 className="text-2xl font-black tracking-tighter text-brand">TKTM</h1>
+        </div>
+
+        <div className="flex items-center gap-4 md:gap-6">
           <div className="relative hidden md:block">
             <input
               type="text"
@@ -119,7 +161,51 @@ const App = () => {
         </div>
       </nav>
 
-      {/* Hero Section with Parallax */}
+      {/* Navigation Drawer (Mobile & WA Info) */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMenuOpen(false)}
+              className="fixed inset-0 bg-black/60 z-[80] backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              className="fixed left-0 top-0 h-full w-full max-w-xs bg-white z-[90] shadow-2xl p-8 flex flex-col"
+            >
+              <div className="flex justify-between items-center mb-10">
+                <h3 className="text-2xl font-black">TKTM</h3>
+                <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-gray-100 rounded-full">
+                   <LucideIcon name="x" className="w-6 h-6" />
+                </button>
+              </div>
+              <ul className="space-y-6 text-xl font-bold">
+                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Beranda</a></li>
+                <li><a href="#produk" onClick={() => setIsMenuOpen(false)}>Katalog</a></li>
+                <li><a href="#tentang" onClick={() => setIsMenuOpen(false)}>Tentang Kami</a></li>
+              </ul>
+              <div className="mt-auto pt-10 border-t">
+                <p className="text-sm text-gray-500 mb-4 font-medium uppercase tracking-widest">Hubungi Kami</p>
+                <a
+                  href={`https://wa.me/${WA_NUMBER.replace('+', '')}`}
+                  target="_blank"
+                  className="flex items-center gap-3 bg-green-500 text-white p-4 rounded-2xl font-bold hover:bg-green-600 transition-colors"
+                >
+                  <LucideIcon name="phone" className="w-5 h-5" />
+                  WhatsApp Kami
+                </a>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         <div
           className="absolute inset-0 opacity-50"
@@ -159,7 +245,7 @@ const App = () => {
       </section>
 
       {/* Fitur Ganti Sudut Topi */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="relative group">
             <AnimatePresence mode="wait">
@@ -174,12 +260,12 @@ const App = () => {
                 className="w-full h-auto rounded-3xl shadow-2xl aspect-square object-cover"
               />
             </AnimatePresence>
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-4 glass p-2 rounded-2xl">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 md:gap-4 glass p-2 rounded-2xl">
               {["depan", "samping", "belakang"].map(angle => (
                 <button
                   key={angle}
                   onClick={() => setSelectedAngle(angle)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${selectedAngle === angle ? 'bg-brand text-white' : 'hover:bg-gray-100'}`}
+                  className={`px-3 md:px-4 py-2 rounded-xl text-[10px] md:text-xs font-bold transition-all ${selectedAngle === angle ? 'bg-brand text-white' : 'hover:bg-gray-100'}`}
                 >
                   {angle.toUpperCase()}
                 </button>
@@ -189,20 +275,26 @@ const App = () => {
           <div>
             <span className="text-accent font-bold tracking-widest uppercase">Fitur Unggulan</span>
             <h3 className="text-4xl font-bold mt-2 mb-6 text-brand">Lihat Dari Segala Sudut</h3>
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            <p className="text-gray-600 mb-8 leading-relaxed text-lg">
               Kami memastikan setiap detail terlihat sempurna. Dengan fitur ganti sudut pandang, Anda bisa melihat material dan bentuk topi secara detail sebelum membeli.
             </p>
             <ul className="space-y-4">
-              <li className="flex items-center gap-3 font-medium">
-                <div className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center">✓</div>
+              <li className="flex items-center gap-3 font-semibold text-gray-700">
+                <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                   <LucideIcon name="check" className="w-5 h-5" />
+                </div>
                 Bahan Premium Durabel
               </li>
-              <li className="flex items-center gap-3 font-medium">
-                <div className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center">✓</div>
+              <li className="flex items-center gap-3 font-semibold text-gray-700">
+                <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                   <LucideIcon name="check" className="w-5 h-5" />
+                </div>
                 Desain Ergonomis
               </li>
-              <li className="flex items-center gap-3 font-medium">
-                <div className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center">✓</div>
+              <li className="flex items-center gap-3 font-semibold text-gray-700">
+                <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                   <LucideIcon name="check" className="w-5 h-5" />
+                </div>
                 Pilihan Warna Eksklusif
               </li>
             </ul>
@@ -222,7 +314,7 @@ const App = () => {
                <input
                 type="text"
                 placeholder="Cari topi..."
-                className="w-full bg-white border border-gray-200 rounded-xl py-3 px-4 text-sm focus:outline-none"
+                className="w-full bg-white border border-gray-200 rounded-xl py-3 px-4 text-sm focus:outline-none shadow-sm"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -234,23 +326,41 @@ const App = () => {
               <motion.div
                 layout
                 key={product.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all group flex flex-col"
               >
                 <div className="relative overflow-hidden aspect-square">
-                  <img src={product.gambar.depan} alt={product.nama} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button
-                      onClick={() => addToCart(product)}
-                      className="bg-white text-brand px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform"
-                    >
-                      Tambah ke Keranjang
-                    </button>
+                  <img src={product.gambar.depan} alt={product.nama} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute top-4 right-4">
+                     <button
+                        onClick={() => setSelectedProduct(product)}
+                        className="bg-white/90 backdrop-blur p-2 rounded-full shadow-lg hover:bg-brand hover:text-white transition-colors"
+                        title="Info Produk"
+                     >
+                        <LucideIcon name="info" className="w-5 h-5" />
+                     </button>
                   </div>
                 </div>
-                <div className="p-6">
-                  <span className="text-xs text-gray-400 uppercase tracking-widest">{product.kategori}</span>
-                  <h4 className="text-lg font-bold mt-1">{product.nama}</h4>
-                  <p className="text-accent font-black mt-2">Rp {product.harga.toLocaleString('id-ID')}</p>
+                <div className="p-6 flex-1 flex flex-col">
+                  <span className="text-xs text-gray-400 uppercase tracking-widest font-bold">{product.kategori}</span>
+                  <h4 className="text-lg font-bold mt-1 mb-2">{product.nama}</h4>
+                  <p className="text-accent font-black text-xl mb-4">Rp {product.harga.toLocaleString('id-ID')}</p>
+
+                  <div className="mt-auto space-y-2">
+                    <button
+                      onClick={() => addToCart(product)}
+                      className="w-full bg-gray-100 text-brand py-2.5 rounded-xl font-bold text-sm hover:bg-brand hover:text-white transition-all flex items-center justify-center gap-2"
+                    >
+                      <LucideIcon name="plus" className="w-4 h-4" />
+                      Keranjang
+                    </button>
+                    <button
+                      onClick={() => buyNowWA(product)}
+                      className="w-full bg-green-500 text-white py-2.5 rounded-xl font-bold text-sm hover:bg-green-600 transition-all flex items-center justify-center gap-2"
+                    >
+                      <LucideIcon name="phone" className="w-4 h-4" />
+                      Beli Sekarang
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -258,34 +368,57 @@ const App = () => {
 
           {filteredProducts.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-gray-400 text-xl">Topi tidak ditemukan...</p>
+              <p className="text-gray-400 text-xl font-medium">Topi tidak ditemukan...</p>
             </div>
           )}
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-brand text-white py-12 px-6">
+      <footer className="bg-brand text-white py-16 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
           <div>
-            <h4 className="text-2xl font-black mb-4">TKTM</h4>
-            <p className="text-gray-400">Topiku Topimu. Platform e-commerce topi nomor satu dengan kualitas tanpa kompromi.</p>
+            <h4 className="text-3xl font-black mb-6 tracking-tighter">TKTM</h4>
+            <p className="text-gray-400 leading-relaxed">Topiku Topimu. Platform e-commerce topi nomor satu dengan kualitas tanpa kompromi untuk gaya hidup urban.</p>
           </div>
           <div>
-            <h5 className="font-bold mb-4">Navigasi</h5>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">Beranda</a></li>
-              <li><a href="#produk" className="hover:text-white transition-colors">Katalog</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Tentang Kami</a></li>
+            <h5 className="font-bold mb-6 text-lg">Navigasi</h5>
+            <ul className="space-y-4 text-gray-400">
+              <li><a href="#" className="hover:text-accent transition-colors flex items-center gap-2"><LucideIcon name="chevron-right" className="w-4 h-4" /> Beranda</a></li>
+              <li><a href="#produk" className="hover:text-accent transition-colors flex items-center gap-2"><LucideIcon name="chevron-right" className="w-4 h-4" /> Katalog</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors flex items-center gap-2"><LucideIcon name="chevron-right" className="w-4 h-4" /> Tentang Kami</a></li>
             </ul>
           </div>
           <div>
-            <h5 className="font-bold mb-4">Kontak</h5>
-            <p className="text-gray-400">halo@tktm.com<br/>Jakarta, Indonesia</p>
+            <h5 className="font-bold mb-6 text-lg">Kontak & WA</h5>
+            <div className="space-y-4">
+               <a
+                  href={`https://wa.me/${WA_NUMBER.replace('+', '')}`}
+                  target="_blank"
+                  className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-all">
+                    <LucideIcon name="phone" className="w-5 h-5" />
+                  </div>
+                  <span>{WA_NUMBER}</span>
+                </a>
+                <div className="flex items-center gap-4 text-gray-400">
+                  <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center">
+                    <LucideIcon name="mail" className="w-5 h-5" />
+                  </div>
+                  <span>halo@tktm.com</span>
+                </div>
+                <div className="flex items-center gap-4 text-gray-400">
+                  <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center">
+                    <LucideIcon name="map-pin" className="w-5 h-5" />
+                  </div>
+                  <span>Jakarta, Indonesia</span>
+                </div>
+            </div>
           </div>
         </div>
-        <div className="max-w-6xl mx-auto border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-          &copy; 2025 TKTM. Dibuat dengan cinta untuk pecinta topi.
+        <div className="max-w-6xl mx-auto border-t border-gray-800 mt-16 pt-8 text-center text-gray-500 text-sm">
+          &copy; 2025 TKTM. Dibuat dengan cinta untuk pecinta topi di Indonesia.
         </div>
       </footer>
 
@@ -313,20 +446,23 @@ const App = () => {
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto space-y-6">
+              <div className="flex-1 overflow-y-auto space-y-6 pr-2">
                 {cart.length === 0 ? (
-                  <div className="text-center py-20 text-gray-400">
-                    Keranjang masih kosong nih.
+                  <div className="text-center py-20">
+                    <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <LucideIcon name="shopping-bag" className="w-10 h-10 text-gray-300" />
+                    </div>
+                    <p className="text-gray-400">Keranjang masih kosong nih.</p>
                   </div>
                 ) : (
                   cart.map(item => (
-                    <div key={item.id} className="flex gap-4 items-center border-b pb-4">
-                      <img src={item.gambar.depan} className="w-20 h-20 object-cover rounded-xl" />
+                    <div key={item.id} className="flex gap-4 items-center border-b border-gray-50 pb-4">
+                      <img src={item.gambar.depan} className="w-20 h-20 object-cover rounded-xl shadow-sm" />
                       <div className="flex-1">
-                        <h5 className="font-bold">{item.nama}</h5>
+                        <h5 className="font-bold text-brand">{item.nama}</h5>
                         <p className="text-sm text-gray-500">{item.qty} x Rp {item.harga.toLocaleString('id-ID')}</p>
                       </div>
-                      <button onClick={() => removeFromCart(item.id)} className="text-red-500 hover:bg-red-50 p-2 rounded-lg">
+                      <button onClick={() => removeFromCart(item.id)} className="text-red-400 hover:text-red-600 hover:bg-red-50 p-2 rounded-lg transition-all">
                         <LucideIcon name="trash-2" className="w-5 h-5" />
                       </button>
                     </div>
@@ -337,14 +473,91 @@ const App = () => {
               {cart.length > 0 && (
                 <div className="border-t pt-6 mt-6">
                   <div className="flex justify-between text-xl font-bold mb-6">
-                    <span>Total</span>
-                    <span>Rp {totalHarga.toLocaleString('id-ID')}</span>
+                    <span className="text-gray-500">Total</span>
+                    <span className="text-brand">Rp {totalHarga.toLocaleString('id-ID')}</span>
                   </div>
-                  <button className="w-full bg-brand text-white py-4 rounded-2xl font-bold hover:bg-gray-800 transition-colors">
+                  <button className="w-full bg-brand text-white py-4 rounded-2xl font-bold hover:bg-black shadow-lg transition-all active:scale-95">
                     Checkout Sekarang
                   </button>
                 </div>
               )}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Product Info Modal */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedProduct(null)}
+              className="fixed inset-0 bg-black/80 z-[100] backdrop-blur-md"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl max-h-[90vh] bg-white z-[110] rounded-[2rem] shadow-2xl overflow-hidden flex flex-col md:flex-row"
+            >
+              <button
+                onClick={() => setSelectedProduct(null)}
+                className="absolute top-6 right-6 z-[120] bg-white/90 p-2 rounded-full shadow-lg hover:bg-brand hover:text-white transition-colors"
+              >
+                 <LucideIcon name="x" className="w-6 h-6" />
+              </button>
+
+              <div className="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+                <img src={selectedProduct.gambar.depan} className="w-full h-full object-cover" alt={selectedProduct.nama} />
+              </div>
+
+              <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto">
+                <span className="text-accent font-bold tracking-widest uppercase text-sm">{selectedProduct.kategori}</span>
+                <h3 className="text-3xl md:text-4xl font-black text-brand mt-2 mb-4">{selectedProduct.nama}</h3>
+                <p className="text-2xl font-black text-accent mb-6">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
+
+                <div className="space-y-6 mb-8">
+                  <div>
+                    <h5 className="font-bold text-gray-400 uppercase text-xs tracking-widest mb-2">Deskripsi</h5>
+                    <p className="text-gray-600 leading-relaxed">{selectedProduct.deskripsi}</p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                      <h5 className="font-bold text-xs text-gray-400 uppercase mb-1">Bahan</h5>
+                      <p className="text-sm font-bold text-brand">{selectedProduct.info.bahan}</p>
+                    </div>
+                    <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                      <h5 className="font-bold text-xs text-gray-400 uppercase mb-1">Ukuran</h5>
+                      <p className="text-sm font-bold text-brand">{selectedProduct.info.ukuran}</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h5 className="font-bold text-xs text-gray-400 uppercase mb-2">Fitur Utama</h5>
+                    <p className="text-sm text-gray-600 italic">{selectedProduct.info.fitur}</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-3">
+                  <button
+                    onClick={() => { addToCart(selectedProduct); setSelectedProduct(null); }}
+                    className="w-full bg-brand text-white py-4 rounded-2xl font-bold hover:bg-black transition-all"
+                  >
+                    Tambah ke Keranjang
+                  </button>
+                  <button
+                    onClick={() => buyNowWA(selectedProduct)}
+                    className="w-full bg-green-500 text-white py-4 rounded-2xl font-bold hover:bg-green-600 transition-all flex items-center justify-center gap-2"
+                  >
+                    <LucideIcon name="phone" className="w-5 h-5" />
+                    Beli via WhatsApp
+                  </button>
+                </div>
+              </div>
             </motion.div>
           </>
         )}
