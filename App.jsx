@@ -348,6 +348,42 @@ const App = () => {
         </div>
       </footer>
 
+      {/* Menu Drawer (Mobile) */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsMenuOpen(false)} className="fixed inset-0 bg-black/60 z-[80] backdrop-blur-sm md:hidden" />
+            <motion.div initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} className="fixed left-0 top-0 h-full w-full max-w-xs bg-white z-[90] shadow-2xl p-8 flex flex-col md:hidden">
+              <div className="flex justify-between items-center mb-10">
+                <h1 className="text-2xl font-black tracking-tighter text-brand">TKTM</h1>
+                <button onClick={() => setIsMenuOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
+              </div>
+
+              <nav className="flex flex-col gap-6 mb-auto">
+                <a href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Beranda</a>
+                <a href="#produk" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Koleksi</a>
+                <a href="#footer" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Tentang Kami</a>
+              </nav>
+
+              <div className="pt-10 border-t">
+                <h5 className="font-bold mb-4 text-sm uppercase tracking-widest text-gray-400">Hubungi Kami</h5>
+                <div className="space-y-4 text-brand">
+                  <a href={`https://wa.me/${WA_NUMBER.replace('+', '')}`} className="flex items-center gap-3 font-medium hover:text-accent">
+                    <LucideIcon name="phone" className="w-5 h-5 text-accent" /> {WA_NUMBER}
+                  </a>
+                  <p className="flex items-center gap-3 font-medium">
+                    <LucideIcon name="mail" className="w-5 h-5 text-accent" /> machie8910@gmail.com
+                  </p>
+                  <p className="flex items-center gap-3 font-medium">
+                    <LucideIcon name="map-pin" className="w-5 h-5 text-accent" /> Banten, Indonesia
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
       {/* Cart Drawer */}
       <AnimatePresence>
         {isCartOpen && (
