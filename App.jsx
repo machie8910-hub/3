@@ -209,7 +209,7 @@ const App = () => {
       {/* Navbar */}
       <nav className="fixed top-0 w-full z-50 glass py-4 px-6 flex justify-between items-center">
         <div className="flex items-center gap-4">
-          <button onClick={() => setIsMenuOpen(true)} className="p-2 md:hidden">
+          <button onClick={() => setIsMenuOpen(true)} className="p-2 md:hidden" aria-label="Menu">
             <LucideIcon name="menu" className="w-6 h-6" />
           </button>
           <h1 className="text-2xl font-black tracking-tighter text-brand">TKTM</h1>
@@ -225,7 +225,7 @@ const App = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <button onClick={() => setIsCartOpen(true)} className="relative p-2">
+          <button onClick={() => setIsCartOpen(true)} className="relative p-2" aria-label="Keranjang Belanja">
             <LucideIcon name="shopping-cart" className="w-6 h-6" />
             {cart.length > 0 && (
               <span className="absolute top-0 right-0 bg-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
@@ -356,7 +356,7 @@ const App = () => {
             <motion.div initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} className="fixed left-0 top-0 h-full w-full max-w-xs bg-white z-[90] shadow-2xl p-8 flex flex-col md:hidden">
               <div className="flex justify-between items-center mb-10">
                 <h1 className="text-2xl font-black tracking-tighter text-brand">TKTM</h1>
-                <button onClick={() => setIsMenuOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
+                <button onClick={() => setIsMenuOpen(false)} aria-label="Tutup"><LucideIcon name="x" className="w-6 h-6" /></button>
               </div>
 
               <nav className="flex flex-col gap-6 mb-auto">
@@ -392,7 +392,7 @@ const App = () => {
             <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} className="fixed right-0 top-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl p-8 flex flex-col">
               <div className="flex justify-between items-center mb-8">
                 <h3 className="text-2xl font-bold">Keranjang</h3>
-                <button onClick={() => setIsCartOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
+                <button onClick={() => setIsCartOpen(false)} aria-label="Tutup"><LucideIcon name="x" className="w-6 h-6" /></button>
               </div>
               <div className="flex-1 overflow-y-auto space-y-4">
                 {cart.length === 0 ? <p className="text-gray-400 text-center py-10">Keranjang kosong</p> : cart.map(item => (
@@ -442,7 +442,7 @@ const App = () => {
                 </div>
               </div>
               <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto relative bg-white">
-                <button onClick={() => setSelectedProduct(null)} className="absolute top-4 right-4 bg-gray-100 p-2 rounded-full"><LucideIcon name="x" className="w-6 h-6" /></button>
+                <button onClick={() => setSelectedProduct(null)} className="absolute top-4 right-4 bg-gray-100 p-2 rounded-full" aria-label="Tutup"><LucideIcon name="x" className="w-6 h-6" /></button>
                 <span className="text-accent font-bold uppercase text-xs tracking-widest">{selectedProduct.kategori}</span>
                 <h3 className="text-3xl font-black mt-2 text-brand">{selectedProduct.nama}</h3>
                 <p className="text-2xl font-black text-accent my-4">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
