@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TKTM - Topiku Topimu</title>
-    <!-- Tailwind CSS v4 -->
+    
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
@@ -18,23 +18,20 @@
 <body class="bg-gray-50 text-gray-900">
     <div id="root"></div>
 
-    <!-- React & ReactDOM -->
+    
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-    <!-- Babel for JSX transpilation in browser -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Framer Motion -->
     <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-
-    <!-- Lucide Icons -->
+    
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script type="text/babel">
 const { useState, useEffect, useMemo, useRef } = React;
 
-// Helper to handle Framer Motion UMD
+
 const Motion = window.Motion || {
   motion: {
     div: (props) => <div {...props} />,
@@ -48,7 +45,7 @@ const Motion = window.Motion || {
 };
 const { motion, AnimatePresence } = Motion;
 
-// Mock Data Produk
+
 const PRODUCTS = [
   {
     id: 1,
@@ -199,7 +196,7 @@ const App = () => {
   const [activeAngle, setActiveAngle] = useState("depan");
   const [scrollPos, setScrollPos] = useState(0);
 
-  // Recommendations Loop Logic (3 items)
+  
   const recs = useMemo(() => PRODUCTS.slice(0, 3), []);
   const [activeRec, setActiveRec] = useState(0);
 
@@ -240,7 +237,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Navbar */}
+      
       <nav className="fixed top-0 w-full z-50 glass py-4 px-6 flex justify-between items-center">
         <div className="flex items-center gap-4">
           <button onClick={() => setIsMenuOpen(true)} className="p-2 md:hidden" aria-label="Menu">
@@ -270,7 +267,7 @@ const App = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 opacity-50" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`, backgroundPosition: 'center', backgroundSize: 'cover', transform: `translateY(${scrollPos * 0.5}px)` }} />
         <div className="relative z-10 text-center px-4">
@@ -282,7 +279,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Rekomendasi 3 - Loop Slider */}
+      
       <section className="py-24 px-6 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -327,7 +324,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Katalog Produk (3 Kolom) */}
+      
       <section id="produk" className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
@@ -363,7 +360,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      
       <footer className="bg-brand text-white py-16 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
           <div><h4 className="text-3xl font-black mb-6">TKTM</h4><p className="text-gray-400">Topiku Topimu. Platform e-commerce topi nomor satu dengan kualitas tanpa kompromi.</p></div>
@@ -382,7 +379,7 @@ const App = () => {
         </div>
       </footer>
 
-      {/* Menu Drawer (Mobile) */}
+      
       <AnimatePresence>
         {isMenuOpen && (
           <>
@@ -418,7 +415,7 @@ const App = () => {
         )}
       </AnimatePresence>
 
-      {/* Cart Drawer */}
+      
       <AnimatePresence>
         {isCartOpen && (
           <>
@@ -448,7 +445,7 @@ const App = () => {
         )}
       </AnimatePresence>
 
-      {/* Product Modal (With Angle Change) */}
+      
       <AnimatePresence>
         {selectedProduct && (
           <>
