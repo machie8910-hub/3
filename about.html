@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - TKTM</title>
+    <!-- Tailwind CSS v4 -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <div id="root"></div>
+
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX transpilation in browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+// Helper to handle Framer Motion UMD
+const Motion = window.Motion || {
+  motion: {
+    div: (props) => <div {...props} />,
+    h2: (props) => <h2 {...props} />,
+    p: (props) => <p {...props} />,
+    section: (props) => <section {...props} />,
+    header: (props) => <header {...props} />
+  },
+  AnimatePresence: ({ children }) => <>{children}</>
+};
+const { motion, AnimatePresence } = Motion;
+
+const TEAM_MEMBERS = [
+  {
+    name: "Martin Chrystian lie",
+    role: "Founder & CEO",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
+    bio: "Visioner di balik TKTM, berdedikasi untuk membawa kualitas topi terbaik ke pasar Indonesia."
+  },
+  {
+    name: "Rafiansyah",
+    role: "Head of Operations",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
+    bio: "Memastikan setiap pesanan sampai ke tangan pelanggan dengan sempurna dan tepat waktu."
+  },
+  {
+    name: "Najwa pitri",
+    role: "Creative Director",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
+    bio: "Sosok kreatif yang menentukan arah estetika dan desain produk unik TKTM."
+  },
+  {
+    name: "Raihan Pratama Mubarok",
+    role: "Lead Developer",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop",
+    bio: "Membangun pengalaman belanja digital yang mulus dan modern bagi komunitas TKTM."
+  }
+];
+
+const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen">
+      {/* Navbar */}
+      <nav className="fixed top-0 w-full z-50 glass py-4 px-6 flex justify-between items-center">
+        <div className="flex items-center gap-4 md:gap-8">
+          <button onClick={() => setIsMenuOpen(true)} className="p-2 md:hidden" aria-label="Menu">
+            <LucideIcon name="menu" className="w-6 h-6" />
+          </button>
+          <h1 className="text-2xl font-black tracking-tighter text-gray-900">TKTM</h1>
+          <nav className="hidden md:flex items-center gap-6">
+            <a href="index.html" className="text-sm font-bold hover:text-amber-500 transition-colors">Beranda</a>
+            <a href="index.html#produk" className="text-sm font-bold hover:text-amber-500 transition-colors">Koleksi</a>
+            <a href="#" className="text-sm font-bold text-amber-500">Tentang Kami</a>
+          </nav>
+        </div>
+      </nav>
+
+      {/* Hero Header */}
+      <header className="pt-32 pb-20 px-6 bg-gray-900 text-white text-center">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-6xl font-black mb-6">Cerita Di Balik TKTM</h2>
+          <p className="text-gray-400 text-lg md:text-xl leading-relaxed">
+            Berawal dari kecintaan terhadap gaya streetwear, TKTM lahir untuk menghadirkan mahakarya penutup kepala
+            yang tidak hanya fungsional, tetapi juga mencerminkan karakter unik penggunanya.
+          </p>
+        </motion.div>
+      </header>
+
+      {/* Team Section */}
+      <section className="py-24 px-6 max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="text-amber-500 font-bold tracking-widest uppercase text-sm">Tim Kami</span>
+          <h3 className="text-4xl font-black mt-3 text-gray-900 text-brand-title">Pilar Kreatif TKTM</h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {TEAM_MEMBERS.map((member, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 text-center p-6 border border-gray-100"
+            >
+              <div className="relative w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-gray-50 group-hover:ring-amber-500 transition-all duration-500">
+                <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h4>
+              <p className="text-amber-500 font-bold text-sm uppercase tracking-wider mb-4">{member.role}</p>
+              <p className="text-gray-500 text-sm leading-relaxed">{member.bio}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20 bg-gray-100 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg mb-6 text-amber-500">
+              <LucideIcon name="award" className="w-8 h-8" />
+            </div>
+            <h5 className="text-xl font-bold mb-3">Kualitas Premium</h5>
+            <p className="text-gray-500 text-sm">Setiap benang dan material dipilih dengan standar tertinggi untuk ketahanan maksimal.</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg mb-6 text-amber-500">
+              <LucideIcon name="palette" className="w-8 h-8" />
+            </div>
+            <h5 className="text-xl font-bold mb-3">Desain Ikonik</h5>
+            <p className="text-gray-500 text-sm">Gaya yang tidak akan pernah lekang oleh waktu, memadukan modernitas dan tradisi.</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg mb-6 text-amber-500">
+              <LucideIcon name="users" className="w-8 h-8" />
+            </div>
+            <h5 className="text-xl font-bold mb-3">Komunitas TKTM</h5>
+            <p className="text-gray-500 text-sm">Kami tidak hanya menjual topi, kami membangun komunitas bagi para pencinta fashion.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-16 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 text-center md:text-left">
+          <div><h4 className="text-3xl font-black mb-6">TKTM</h4><p className="text-gray-400">Topiku Topimu. Membangun identitas lewat mahakarya penutup kepala.</p></div>
+          <div>
+            <h5 className="font-bold mb-6">Navigasi Cepat</h5>
+            <div className="space-y-4 text-gray-400 text-sm flex flex-col">
+              <a href="index.html" className="hover:text-amber-500">Beranda</a>
+              <a href="index.html#produk" className="hover:text-amber-500">Koleksi</a>
+              <a href="#" className="hover:text-amber-500">Tentang Kami</a>
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold mb-6">Lokasi</h5>
+            <p className="text-gray-400 text-sm flex items-center justify-center md:justify-start gap-2">
+              <LucideIcon name="map-pin" className="w-4 h-4 text-amber-500" /> Banten, Indonesia
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Menu Drawer (Mobile) */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsMenuOpen(false)} className="fixed inset-0 bg-black/60 z-[80] backdrop-blur-sm md:hidden" />
+            <motion.div initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} className="fixed left-0 top-0 h-full w-full max-w-xs bg-white z-[90] shadow-2xl p-8 flex flex-col md:hidden">
+              <div className="flex justify-between items-center mb-10">
+                <h1 className="text-2xl font-black tracking-tighter text-brand">TKTM</h1>
+                <button onClick={() => setIsMenuOpen(false)} aria-label="Tutup"><LucideIcon name="x" className="w-6 h-6" /></button>
+              </div>
+
+              <nav className="flex flex-col gap-6 mb-auto">
+                <a href="index.html" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-amber-500 transition-colors">Beranda</a>
+                <a href="index.html#produk" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-amber-500 transition-colors">Koleksi</a>
+                <a href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold text-amber-500 transition-colors">Tentang Kami</a>
+              </nav>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const LucideIcon = ({ name, className }) => {
+  const iconRef = useRef(null);
+  useEffect(() => { if (window.lucide && iconRef.current) window.lucide.createIcons({ targets: [iconRef.current] }); }, [name]);
+  return <i ref={iconRef} data-lucide={name} className={className}></i>;
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+    </script>
+</body>
+</html>
