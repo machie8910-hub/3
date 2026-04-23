@@ -199,6 +199,13 @@ const App = () => {
     window.open(url, '_blank');
   };
 
+  const checkoutCartWA = () => {
+    const itemsList = cart.map(item => `- ${item.nama} (${item.qty}x)`).join('\n');
+    const message = `Halo TKTM, saya ingin memesan produk berikut:\n\n${itemsList}\n\nTotal Harga: Rp ${totalHarga.toLocaleString('id-ID')}\n\nTerima kasih!`;
+    const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   const totalHarga = cart.reduce((acc, item) => acc + (item.harga * item.qty), 0);
 
   const nextRec = () => setActiveRec((prev) => (prev + 1) % recs.length);
@@ -330,7 +337,7 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-brand text-white py-16 px-6">
+      <footer id="footer" className="bg-brand text-white py-16 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
           <div><h4 className="text-3xl font-black mb-6">TKTM</h4><p className="text-gray-400">Topiku Topimu. Platform e-commerce topi nomor satu dengan kualitas tanpa kompromi.</p></div>
           <div>
@@ -362,7 +369,7 @@ const App = () => {
               <nav className="flex flex-col gap-6 mb-auto">
                 <a href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Beranda</a>
                 <a href="#produk" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Koleksi</a>
-                <a href="#footer" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Tentang Kami</a>
+                <a href="#footer" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Kontak</a>
               </nav>
 
               <div className="pt-10 border-t">
@@ -406,7 +413,7 @@ const App = () => {
               {cart.length > 0 && (
                 <div className="pt-6 border-t mt-auto">
                   <div className="flex justify-between text-xl font-bold mb-4"><span>Total</span><span>Rp {totalHarga.toLocaleString('id-ID')}</span></div>
-                  <button className="w-full bg-brand text-white py-4 rounded-xl font-bold">Checkout via WhatsApp</button>
+                  <button onClick={checkoutCartWA} className="w-full bg-brand text-white py-4 rounded-xl font-bold hover:bg-black transition-all">Checkout via WhatsApp</button>
                 </div>
               )}
             </motion.div>
