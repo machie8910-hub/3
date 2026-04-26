@@ -199,6 +199,13 @@ const App = () => {
     window.open(url, '_blank');
   };
 
+  const checkoutCartWA = () => {
+    const itemsList = cart.map(item => `- ${item.nama} (${item.qty}x)`).join('\n');
+    const message = `Halo TKTM, saya ingin memesan:\n\n${itemsList}\n\nTotal: Rp ${totalHarga.toLocaleString('id-ID')}\n\nTerima kasih!`;
+    const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   const totalHarga = cart.reduce((acc, item) => acc + (item.harga * item.qty), 0);
 
   const nextRec = () => setActiveRec((prev) => (prev + 1) % recs.length);
@@ -240,7 +247,7 @@ const App = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 opacity-50" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`, backgroundPosition: 'center', backgroundSize: 'cover', transform: `translateY(${scrollPos * 0.5}px)` }} />
         <div className="relative z-10 text-center px-4">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-white text-5xl md:text-8xl font-black mb-4">TOPIKU TOPIMU</motion.h2>
+          <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-white text-5xl md:text-8xl font-black mb-4">TKTM - TOPIKU TOPIMU</motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-gray-300 text-lg md:text-2xl max-w-2xl mx-auto">Koleksi eksklusif untuk melengkapi gaya harianmu. TKTM hadir untuk kenyamanan dan estetika.</motion.p>
           <div className="mt-8">
             <a href="#produk" className="bg-accent hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full transition-all">Jelajahi Koleksi</a>
@@ -406,7 +413,7 @@ const App = () => {
               {cart.length > 0 && (
                 <div className="pt-6 border-t mt-auto">
                   <div className="flex justify-between text-xl font-bold mb-4"><span>Total</span><span>Rp {totalHarga.toLocaleString('id-ID')}</span></div>
-                  <button className="w-full bg-brand text-white py-4 rounded-xl font-bold">Checkout via WhatsApp</button>
+                  <button onClick={checkoutCartWA} className="w-full bg-brand text-white py-4 rounded-xl font-bold">Checkout via WhatsApp</button>
                 </div>
               )}
             </motion.div>
@@ -436,7 +443,7 @@ const App = () => {
                       onClick={() => setActiveAngle(angle)}
                       className={`w-16 h-16 rounded-xl overflow-hidden border-2 transition-all ${activeAngle === angle ? 'border-accent scale-110 shadow-lg' : 'border-transparent opacity-60'}`}
                     >
-                      <img src={selectedProduct.gambar[angle]} className="w-full h-full object-cover" />
+                      <img src={selectedProduct.gambar[angle]} alt={`${selectedProduct.nama} - sudut ${angle}`} className="w-full h-full object-cover" />
                     </button>
                   ))}
                 </div>
