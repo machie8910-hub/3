@@ -199,6 +199,13 @@ const App = () => {
     window.open(url, '_blank');
   };
 
+  const checkoutCartWA = () => {
+    const itemsList = cart.map(item => `- ${item.nama} (${item.qty}x) : Rp ${(item.harga * item.qty).toLocaleString('id-ID')}`).join('\n');
+    const message = `Halo TKTM, saya ingin memesan produk berikut:\n\n${itemsList}\n\nTotal: Rp ${totalHarga.toLocaleString('id-ID')}\n\nMohon informasi selanjutnya. Terima kasih!`;
+    const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   const totalHarga = cart.reduce((acc, item) => acc + (item.harga * item.qty), 0);
 
   const nextRec = () => setActiveRec((prev) => (prev + 1) % recs.length);
@@ -330,7 +337,7 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-brand text-white py-16 px-6">
+      <footer id="kontak" className="bg-brand text-white py-16 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
           <div><h4 className="text-3xl font-black mb-6">TKTM</h4><p className="text-gray-400">Topiku Topimu. Platform e-commerce topi nomor satu dengan kualitas tanpa kompromi.</p></div>
           <div>
@@ -351,9 +358,9 @@ const App = () => {
       {/* Menu Drawer (Mobile) */}
       <AnimatePresence>
         {isMenuOpen && (
-          <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsMenuOpen(false)} className="fixed inset-0 bg-black/60 z-[80] backdrop-blur-sm md:hidden" />
-            <motion.div initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} className="fixed left-0 top-0 h-full w-full max-w-xs bg-white z-[90] shadow-2xl p-8 flex flex-col md:hidden">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key="menu-overlay" className="fixed inset-0 z-[80] md:hidden">
+            <div onClick={() => setIsMenuOpen(false)} className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+            <motion.div initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} className="absolute left-0 top-0 h-full w-full max-w-xs bg-white shadow-2xl p-8 flex flex-col">
               <div className="flex justify-between items-center mb-10">
                 <h1 className="text-2xl font-black tracking-tighter text-brand">TKTM</h1>
                 <button onClick={() => setIsMenuOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
@@ -362,7 +369,7 @@ const App = () => {
               <nav className="flex flex-col gap-6 mb-auto">
                 <a href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Beranda</a>
                 <a href="#produk" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Koleksi</a>
-                <a href="#footer" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Tentang Kami</a>
+                <a href="#kontak" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Kontak</a>
               </nav>
 
               <div className="pt-10 border-t">
@@ -380,16 +387,16 @@ const App = () => {
                 </div>
               </div>
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
 
       {/* Cart Drawer */}
       <AnimatePresence>
         {isCartOpen && (
-          <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsCartOpen(false)} className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm" />
-            <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} className="fixed right-0 top-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl p-8 flex flex-col">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key="cart-overlay" className="fixed inset-0 z-[60]">
+            <div onClick={() => setIsCartOpen(false)} className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+            <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl p-8 flex flex-col">
               <div className="flex justify-between items-center mb-8">
                 <h3 className="text-2xl font-bold">Keranjang</h3>
                 <button onClick={() => setIsCartOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
@@ -406,20 +413,20 @@ const App = () => {
               {cart.length > 0 && (
                 <div className="pt-6 border-t mt-auto">
                   <div className="flex justify-between text-xl font-bold mb-4"><span>Total</span><span>Rp {totalHarga.toLocaleString('id-ID')}</span></div>
-                  <button className="w-full bg-brand text-white py-4 rounded-xl font-bold">Checkout via WhatsApp</button>
+                  <button onClick={checkoutCartWA} className="w-full bg-brand text-white py-4 rounded-xl font-bold">Checkout via WhatsApp</button>
                 </div>
               )}
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
 
       {/* Product Modal (With Angle Change) */}
       <AnimatePresence>
         {selectedProduct && (
-          <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedProduct(null)} className="fixed inset-0 bg-black/80 z-[100] backdrop-blur-md" />
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl max-h-[90vh] bg-white z-[110] rounded-[2rem] overflow-hidden flex flex-col md:flex-row">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key="modal-overlay" className="fixed inset-0 z-[100]">
+            <div onClick={() => setSelectedProduct(null)} className="absolute inset-0 bg-black/80 backdrop-blur-md" />
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} className="absolute inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl max-h-[90vh] bg-white rounded-[2rem] overflow-hidden flex flex-col md:flex-row shadow-2xl">
               <div className="w-full md:w-1/2 flex flex-col bg-gray-100">
                 <div className="flex-1 overflow-hidden">
                   <motion.img
@@ -442,7 +449,7 @@ const App = () => {
                 </div>
               </div>
               <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto relative bg-white">
-                <button onClick={() => setSelectedProduct(null)} className="absolute top-4 right-4 bg-gray-100 p-2 rounded-full"><LucideIcon name="x" className="w-6 h-6" /></button>
+                <button onClick={() => setSelectedProduct(null)} className="absolute top-4 right-4 bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors"><LucideIcon name="x" className="w-6 h-6" /></button>
                 <span className="text-accent font-bold uppercase text-xs tracking-widest">{selectedProduct.kategori}</span>
                 <h3 className="text-3xl font-black mt-2 text-brand">{selectedProduct.nama}</h3>
                 <p className="text-2xl font-black text-accent my-4">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
@@ -458,7 +465,7 @@ const App = () => {
                 </div>
               </div>
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
