@@ -46,9 +46,7 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1459156212016-c812468e2115?q=80&w=1000&auto=format&fit=crop"
-    }
+      }
   },
   {
     id: 3,
@@ -63,9 +61,7 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1611601322175-ef8ec8c85f01?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1534215754734-18e55d13e346?q=80&w=1000&auto=format&fit=crop"
-    }
+      }
   },
   {
     id: 4,
@@ -80,9 +76,7 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
-    }
+      }
   },
   {
     id: 5,
@@ -97,9 +91,7 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1621072156002-e2fcced0b170?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
-    }
+      }
   },
   {
     id: 6,
@@ -114,9 +106,7 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1517423568366-8b83523034fd?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
-    }
+      }
   },
   {
     id: 7,
@@ -131,9 +121,7 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
-    }
+      }
   },
   {
     id: 8,
@@ -148,9 +136,7 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
-    }
+      }
   }
 ];
 
@@ -413,8 +399,7 @@ const App = () => {
           </>
         )}
       </AnimatePresence>
-
-      {/* Product Modal (With Angle Change) */}
+      
       <AnimatePresence>
         {selectedProduct && (
           <>
