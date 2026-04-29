@@ -165,6 +165,7 @@ const App = () => {
   const [activeAngle, setActiveAngle] = useState("depan");
   const [scrollPos, setScrollPos] = useState(0);
   const [notifications, setNotifications] = useState([]);
+  const [userName, setUserName] = useState("");
 
   // Recommendations Loop Logic (3 items)
   const recs = useMemo(() => PRODUCTS.slice(0, 3), []);
@@ -199,6 +200,16 @@ const App = () => {
     showNotification(`${product.nama} ditambahkan ke keranjang!`);
   };
 
+  const updateQuantity = (id, delta) => {
+    setCart(prev => prev.map(item => {
+      if (item.id === id) {
+        const newQty = Math.max(0, item.qty + delta);
+        return { ...item, qty: newQty };
+      }
+      return item;
+    }).filter(item => item.qty > 0));
+  };
+
   const removeFromCart = (id) => {
     setCart(prev => prev.filter(item => item.id !== id));
   };
@@ -211,9 +222,13 @@ const App = () => {
 
   const checkoutCartWA = () => {
     if (cart.length === 0) return;
+    if (!userName.trim()) {
+      showNotification("Silakan masukkan nama Anda!");
+      return;
+    }
     let list = cart.map(item => `- ${item.nama} (${item.qty}x)`).join('\n');
     const total = totalHarga.toLocaleString('id-ID');
-    const message = `Halo TKTM, saya ingin memesan:\n\n${list}\n\nTotal: Rp ${total}\n\nTerima kasih!`;
+    const message = `Halo TKTM, saya ingin memesan:\n\nNama Pembeli: ${userName}\n\n${list}\n\nTotal: Rp ${total}\n\nTerima kasih!`;
     const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
@@ -327,23 +342,34 @@ const App = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map(product => (
-              <motion.div layout key={product.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
-                <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); setActiveAngle("depan"); }}>
-                  <img src={product.gambar.depan} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-full shadow-lg"><LucideIcon name="info" className="w-5 h-5" /></div>
-                </div>
-                <div className="p-6">
-                  <p className="text-xs text-gray-400 font-bold uppercase">{product.kategori}</p>
-                  <h4 className="text-lg font-bold mt-1 mb-2">{product.nama}</h4>
-                  <p className="text-accent font-black text-xl mb-4">Rp {product.harga.toLocaleString('id-ID')}</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    <button onClick={() => addToCart(product)} className="bg-gray-100 text-brand py-2.5 rounded-xl font-bold text-sm hover:bg-brand hover:text-white transition-all">Keranjang</button>
-                    <button onClick={() => buyNowWA(product)} className="bg-green-500 text-white py-2.5 rounded-xl font-bold text-sm hover:bg-green-600 transition-all">Beli Sekarang</button>
+            {filteredProducts.map(product => {
+              const inCart = cart.find(item => item.id === product.id);
+              return (
+                <motion.div layout key={product.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+                  <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); setActiveAngle("depan"); }}>
+                    <img src={product.gambar.depan} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-full shadow-lg"><LucideIcon name="info" className="w-5 h-5" /></div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                  <div className="p-6">
+                    <p className="text-xs text-gray-400 font-bold uppercase">{product.kategori}</p>
+                    <h4 className="text-lg font-bold mt-1 mb-2">{product.nama}</h4>
+                    <p className="text-accent font-black text-xl mb-4">Rp {product.harga.toLocaleString('id-ID')}</p>
+                    <div className="flex flex-col gap-2">
+                      {inCart ? (
+                        <div className="flex items-center justify-between bg-gray-100 rounded-xl p-1">
+                          <button onClick={() => updateQuantity(product.id, -1)} className="p-2 bg-white rounded-lg shadow-sm hover:text-red-500 transition-colors"><LucideIcon name="minus" className="w-4 h-4" /></button>
+                          <span className="font-bold text-brand">{inCart.qty}</span>
+                          <button onClick={() => updateQuantity(product.id, 1)} className="p-2 bg-white rounded-lg shadow-sm hover:text-accent transition-colors"><LucideIcon name="plus" className="w-4 h-4" /></button>
+                        </div>
+                      ) : (
+                        <button onClick={() => addToCart(product)} className="w-full bg-gray-100 text-brand py-2.5 rounded-xl font-bold text-sm hover:bg-brand hover:text-white transition-all">Tambah ke Keranjang</button>
+                      )}
+                      <button onClick={() => buyNowWA(product)} className="w-full bg-green-500 text-white py-2.5 rounded-xl font-bold text-sm hover:bg-green-600 transition-all">Beli Sekarang</button>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -413,19 +439,40 @@ const App = () => {
                 <h3 className="text-2xl font-bold">Keranjang</h3>
                 <button onClick={() => setIsCartOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
               </div>
-              <div className="flex-1 overflow-y-auto space-y-4">
+              <div className="flex-1 overflow-y-auto space-y-6">
                 {cart.length === 0 ? <p className="text-gray-400 text-center py-10">Keranjang kosong</p> : cart.map(item => (
-                  <div key={item.id} className="flex gap-4 items-center border-b pb-4">
-                    <img src={item.gambar.depan} className="w-16 h-16 object-cover rounded-lg" />
-                    <div className="flex-1"><h5 className="font-bold">{item.nama}</h5><p className="text-sm text-gray-500">{item.qty} x Rp {item.harga.toLocaleString('id-ID')}</p></div>
-                    <button onClick={() => removeFromCart(item.id)} className="text-red-500"><LucideIcon name="trash-2" className="w-5 h-5" /></button>
+                  <div key={item.id} className="flex gap-4 items-center border-b border-gray-50 pb-4">
+                    <img src={item.gambar.depan} className="w-20 h-20 object-cover rounded-xl shadow-sm" />
+                    <div className="flex-1">
+                      <h5 className="font-bold text-brand">{item.nama}</h5>
+                      <p className="text-sm text-accent font-bold mb-2">Rp {item.harga.toLocaleString('id-ID')}</p>
+                      <div className="flex items-center gap-3 bg-gray-100 w-fit rounded-lg p-1">
+                        <button onClick={() => updateQuantity(item.id, -1)} className="p-1.5 bg-white rounded shadow-sm hover:text-red-500"><LucideIcon name="minus" className="w-3 h-3" /></button>
+                        <span className="text-xs font-bold w-4 text-center">{item.qty}</span>
+                        <button onClick={() => updateQuantity(item.id, 1)} className="p-1.5 bg-white rounded shadow-sm hover:text-accent"><LucideIcon name="plus" className="w-3 h-3" /></button>
+                      </div>
+                    </div>
+                    <button onClick={() => removeFromCart(item.id)} className="text-gray-300 hover:text-red-500 transition-colors p-2"><LucideIcon name="trash-2" className="w-5 h-5" /></button>
                   </div>
                 ))}
               </div>
               {cart.length > 0 && (
-                <div className="pt-6 border-t mt-auto">
-                  <div className="flex justify-between text-xl font-bold mb-4"><span>Total</span><span>Rp {totalHarga.toLocaleString('id-ID')}</span></div>
-                  <button onClick={checkoutCartWA} className="w-full bg-brand text-white py-4 rounded-xl font-bold hover:bg-black transition-all">Checkout via WhatsApp</button>
+                <div className="pt-6 border-t space-y-4">
+                  <div>
+                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Nama Lengkap</label>
+                    <input
+                      type="text"
+                      placeholder="Masukkan nama Anda..."
+                      className="w-full bg-gray-50 border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
+                      value={userName}
+                      onChange={(e) => setUserName(e.target.value)}
+                    />
+                  </div>
+                  <div className="flex justify-between items-end pb-2">
+                    <span className="text-gray-400 text-sm">Total Pembayaran</span>
+                    <span className="text-2xl font-black text-brand">Rp {totalHarga.toLocaleString('id-ID')}</span>
+                  </div>
+                  <button onClick={checkoutCartWA} className="w-full bg-brand text-white py-4 rounded-xl font-bold shadow-xl hover:bg-black transition-all active:scale-[0.98]">Checkout via WhatsApp</button>
                 </div>
               )}
             </motion.div>
