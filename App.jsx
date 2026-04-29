@@ -46,7 +46,9 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
-      }
+      samping: "https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1459156212016-c812468e2115?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 3,
@@ -61,7 +63,9 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
-      }
+      samping: "https://images.unsplash.com/photo-1611601322175-ef8ec8c85f01?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1534215754734-18e55d13e346?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 4,
@@ -76,7 +80,9 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
-      }
+      samping: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 5,
@@ -91,7 +97,9 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
-      }
+      samping: "https://images.unsplash.com/photo-1621072156002-e2fcced0b170?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 6,
@@ -106,7 +114,9 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
-      }
+      samping: "https://images.unsplash.com/photo-1517423568366-8b83523034fd?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 7,
@@ -121,7 +131,9 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
-      }
+      samping: "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 8,
@@ -136,7 +148,9 @@ const PRODUCTS = [
     },
     gambar: {
       depan: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
-      }
+      samping: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
+    }
   }
 ];
 
@@ -150,6 +164,7 @@ const App = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeAngle, setActiveAngle] = useState("depan");
   const [scrollPos, setScrollPos] = useState(0);
+  const [notifications, setNotifications] = useState([]);
 
   // Recommendations Loop Logic (3 items)
   const recs = useMemo(() => PRODUCTS.slice(0, 3), []);
@@ -165,6 +180,14 @@ const App = () => {
     return PRODUCTS.filter(p => p.nama.toLowerCase().includes(search.toLowerCase()));
   }, [search]);
 
+  const showNotification = (message) => {
+    const id = Date.now();
+    setNotifications(prev => [...prev, { id, message }]);
+    setTimeout(() => {
+      setNotifications(prev => prev.filter(n => n.id !== id));
+    }, 3000);
+  };
+
   const addToCart = (product) => {
     setCart(prev => {
       const existing = prev.find(item => item.id === product.id);
@@ -173,6 +196,7 @@ const App = () => {
       }
       return [...prev, { ...product, qty: 1 }];
     });
+    showNotification(`${product.nama} ditambahkan ke keranjang!`);
   };
 
   const removeFromCart = (id) => {
@@ -181,6 +205,15 @@ const App = () => {
 
   const buyNowWA = (product) => {
     const message = `Halo TKTM, saya ingin membeli produk berikut:\n\nNama: ${product.nama}\nHarga: Rp ${product.harga.toLocaleString('id-ID')}\n\nTerima kasih!`;
+    const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
+  const checkoutCartWA = () => {
+    if (cart.length === 0) return;
+    let list = cart.map(item => `- ${item.nama} (${item.qty}x)`).join('\n');
+    const total = totalHarga.toLocaleString('id-ID');
+    const message = `Halo TKTM, saya ingin memesan:\n\n${list}\n\nTotal: Rp ${total}\n\nTerima kasih!`;
     const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
@@ -348,7 +381,8 @@ const App = () => {
               <nav className="flex flex-col gap-6 mb-auto">
                 <a href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Beranda</a>
                 <a href="#produk" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Koleksi</a>
-                </nav>
+                <a href="#footer" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Tentang Kami</a>
+              </nav>
 
               <div className="pt-10 border-t">
                 <h5 className="font-bold mb-4 text-sm uppercase tracking-widest text-gray-400">Hubungi Kami</h5>
@@ -391,14 +425,15 @@ const App = () => {
               {cart.length > 0 && (
                 <div className="pt-6 border-t mt-auto">
                   <div className="flex justify-between text-xl font-bold mb-4"><span>Total</span><span>Rp {totalHarga.toLocaleString('id-ID')}</span></div>
-                  <button className="w-full bg-brand text-white py-4 rounded-xl font-bold">Checkout via WhatsApp</button>
+                  <button onClick={checkoutCartWA} className="w-full bg-brand text-white py-4 rounded-xl font-bold hover:bg-black transition-all">Checkout via WhatsApp</button>
                 </div>
               )}
             </motion.div>
           </>
         )}
       </AnimatePresence>
-      
+
+      {/* Product Modal (With Angle Change) */}
       <AnimatePresence>
         {selectedProduct && (
           <>
@@ -445,6 +480,26 @@ const App = () => {
           </>
         )}
       </AnimatePresence>
+
+      {/* Notifications (Toasts) */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] flex flex-col gap-3 items-center pointer-events-none w-full max-w-xs">
+        <AnimatePresence>
+          {notifications.map(n => (
+            <motion.div
+              key={n.id}
+              initial={{ opacity: 0, y: 50, scale: 0.3 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+              className="bg-brand text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 pointer-events-auto border border-white/10"
+            >
+              <div className="bg-accent rounded-full p-1">
+                <LucideIcon name="check" className="w-4 h-4 text-white" />
+              </div>
+              <span className="text-sm font-bold">{n.message}</span>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
