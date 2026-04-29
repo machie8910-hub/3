@@ -27,11 +27,7 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Flat brim, 6 panels, Adjustable snap closure"
     },
-    gambar: {
-      depan: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
-    }
+    gambar: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 2,
@@ -44,11 +40,7 @@ const PRODUCTS = [
       ukuran: "Stretch (One size fits most)",
       fitur: "Soft texture, Breathable, Foldable cuff"
     },
-    gambar: {
-      depan: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1459156212016-c812468e2115?q=80&w=1000&auto=format&fit=crop"
-    }
+    gambar: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 3,
@@ -61,11 +53,7 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable mesh back, Curved brim, Snap closure"
     },
-    gambar: {
-      depan: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1611601322175-ef8ec8c85f01?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1534215754734-18e55d13e346?q=80&w=1000&auto=format&fit=crop"
-    }
+    gambar: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 4,
@@ -78,11 +66,7 @@ const PRODUCTS = [
       ukuran: "All Size (Metal strap)",
       fitur: "Unstructured crown, Curved peak, Vintage look"
     },
-    gambar: {
-      depan: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
-    }
+    gambar: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 5,
@@ -95,11 +79,7 @@ const PRODUCTS = [
       ukuran: "Medium/Large",
       fitur: "Wide brim, Foldable, Lightweight"
     },
-    gambar: {
-      depan: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1621072156002-e2fcced0b170?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
-    }
+    gambar: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 6,
@@ -112,11 +92,7 @@ const PRODUCTS = [
       ukuran: "Fixed (58cm)",
       fitur: "Stiff brim, Ribbon band, Elegant lining"
     },
-    gambar: {
-      depan: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1517423568366-8b83523034fd?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
-    }
+    gambar: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 7,
@@ -129,11 +105,7 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable, Sweatband, Reflective detail"
     },
-    gambar: {
-      depan: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
-    }
+    gambar: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 8,
@@ -146,11 +118,7 @@ const PRODUCTS = [
       ukuran: "All Size (Metal Buckle)",
       fitur: "Soft texture, Durable, Retro design"
     },
-    gambar: {
-      depan: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
-      samping: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
-      belakang: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
-    }
+    gambar: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
   }
 ];
 
@@ -162,7 +130,6 @@ const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [activeAngle, setActiveAngle] = useState("depan");
   const [scrollPos, setScrollPos] = useState(0);
   const [notifications, setNotifications] = useState([]);
   const [userName, setUserName] = useState("");
@@ -302,8 +269,8 @@ const App = () => {
                 transition={{ type: "spring", stiffness: 200, damping: 25 }}
               >
                 {recs.map((product) => (
-                  <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); setActiveAngle("depan"); }}>
-                    <img src={product.gambar.depan} className="w-full h-full object-cover" />
+                  <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
+                    <img src={product.gambar} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <div className="absolute bottom-10 left-10 text-white">
                       <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">{product.kategori}</p>
@@ -351,8 +318,8 @@ const App = () => {
               const displayPrice = inCart ? product.harga * inCart.qty : product.harga;
               return (
                 <motion.div layout key={product.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
-                  <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); setActiveAngle("depan"); }}>
-                    <img src={product.gambar.depan} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
+                    <img src={product.gambar} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-full shadow-lg"><LucideIcon name="info" className="w-5 h-5" /></div>
                   </div>
                   <div className="p-6">
@@ -409,7 +376,6 @@ const App = () => {
               <nav className="flex flex-col gap-6 mb-auto">
                 <a href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Beranda</a>
                 <a href="#produk" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Koleksi</a>
-                <a href="#footer" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold hover:text-accent transition-colors">Tentang Kami</a>
               </nav>
 
               <div className="pt-10 border-t">
@@ -444,7 +410,7 @@ const App = () => {
               <div className="flex-1 overflow-y-auto space-y-6">
                 {cart.length === 0 ? <p className="text-gray-400 text-center py-10">Keranjang kosong</p> : cart.map(item => (
                   <div key={item.id} className="flex gap-4 items-center border-b border-gray-50 pb-4">
-                    <img src={item.gambar.depan} className="w-20 h-20 object-cover rounded-xl shadow-sm" />
+                    <img src={item.gambar} className="w-20 h-20 object-cover rounded-xl shadow-sm" />
                     <div className="flex-1">
                       <h5 className="font-bold text-brand">{item.nama}</h5>
                       <p className="text-sm text-accent font-bold mb-2">Rp {item.harga.toLocaleString('id-ID')}</p>
@@ -490,23 +456,10 @@ const App = () => {
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl max-h-[90vh] bg-white z-[110] rounded-[2rem] overflow-hidden flex flex-col md:flex-row">
               <div className="w-full md:w-1/2 flex flex-col bg-gray-100">
                 <div className="flex-1 overflow-hidden">
-                  <motion.img
-                    key={activeAngle}
-                    initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                    src={selectedProduct.gambar[activeAngle]}
+                  <img
+                    src={selectedProduct.gambar}
                     className="w-full h-full object-cover"
                   />
-                </div>
-                <div className="p-4 flex justify-center gap-4 bg-white/50 backdrop-blur">
-                  {Object.keys(selectedProduct.gambar).map(angle => (
-                    <button
-                      key={angle}
-                      onClick={() => setActiveAngle(angle)}
-                      className={`w-16 h-16 rounded-xl overflow-hidden border-2 transition-all ${activeAngle === angle ? 'border-accent scale-110 shadow-lg' : 'border-transparent opacity-60'}`}
-                    >
-                      <img src={selectedProduct.gambar[angle]} className="w-full h-full object-cover" />
-                    </button>
-                  ))}
                 </div>
               </div>
               <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto relative bg-white">
