@@ -215,9 +215,13 @@ const App = () => {
   };
 
   const buyNowWA = (product) => {
-    const message = `Halo TKTM, saya ingin membeli produk berikut:\n\nNama: ${product.nama}\nHarga: Rp ${product.harga.toLocaleString('id-ID')}\n\nTerima kasih!`;
+    const inCart = cart.find(item => item.id === product.id);
+    const qty = inCart ? inCart.qty : 1;
+    const total = (product.harga * qty).toLocaleString('id-ID');
+    const message = `Halo TKTM, saya ingin membeli produk berikut:\n\nNama: ${product.nama}\nJumlah: ${qty}\nTotal: Rp ${total}\n\nTerima kasih!`;
     const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
+    setSelectedProduct(null); // Tutup modal jika sedang terbuka
   };
 
   const checkoutCartWA = () => {
@@ -344,6 +348,7 @@ const App = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map(product => {
               const inCart = cart.find(item => item.id === product.id);
+              const displayPrice = inCart ? product.harga * inCart.qty : product.harga;
               return (
                 <motion.div layout key={product.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
                   <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); setActiveAngle("depan"); }}>
@@ -353,17 +358,14 @@ const App = () => {
                   <div className="p-6">
                     <p className="text-xs text-gray-400 font-bold uppercase">{product.kategori}</p>
                     <h4 className="text-lg font-bold mt-1 mb-2">{product.nama}</h4>
-                    <p className="text-accent font-black text-xl mb-4">Rp {product.harga.toLocaleString('id-ID')}</p>
+                    <p className="text-accent font-black text-xl mb-4">
+                      {inCart && <span className="text-xs text-gray-400 block font-normal">Total ({inCart.qty}x)</span>}
+                      Rp {displayPrice.toLocaleString('id-ID')}
+                    </p>
                     <div className="flex flex-col gap-2">
-                      {inCart ? (
-                        <div className="flex items-center justify-between bg-gray-100 rounded-xl p-1">
-                          <button onClick={() => updateQuantity(product.id, -1)} className="p-2 bg-white rounded-lg shadow-sm hover:text-red-500 transition-colors"><LucideIcon name="minus" className="w-4 h-4" /></button>
-                          <span className="font-bold text-brand">{inCart.qty}</span>
-                          <button onClick={() => updateQuantity(product.id, 1)} className="p-2 bg-white rounded-lg shadow-sm hover:text-accent transition-colors"><LucideIcon name="plus" className="w-4 h-4" /></button>
-                        </div>
-                      ) : (
-                        <button onClick={() => addToCart(product)} className="w-full bg-gray-100 text-brand py-2.5 rounded-xl font-bold text-sm hover:bg-brand hover:text-white transition-all">Tambah ke Keranjang</button>
-                      )}
+                      <button onClick={() => addToCart(product)} className="w-full bg-gray-100 text-brand py-2.5 rounded-xl font-bold text-sm hover:bg-brand hover:text-white transition-all">
+                        {inCart ? 'Tambah Lagi' : 'Tambah ke Keranjang'}
+                      </button>
                       <button onClick={() => buyNowWA(product)} className="w-full bg-green-500 text-white py-2.5 rounded-xl font-bold text-sm hover:bg-green-600 transition-all">Beli Sekarang</button>
                     </div>
                   </div>
@@ -519,7 +521,7 @@ const App = () => {
                   <div className="text-sm"><p className="text-gray-400 mb-1">Fitur</p><p className="font-medium text-brand italic">{selectedProduct.info.fitur}</p></div>
                 </div>
                 <div className="grid gap-3">
-                  <button onClick={() => { addToCart(selectedProduct); setSelectedProduct(null); }} className="w-full bg-brand text-white py-4 rounded-xl font-bold shadow-lg hover:bg-black transition-all">Tambah ke Keranjang</button>
+                  <button onClick={() => { addToCart(selectedProduct); }} className="w-full bg-brand text-white py-4 rounded-xl font-bold shadow-lg hover:bg-black transition-all">Tambah ke Keranjang</button>
                   <button onClick={() => buyNowWA(selectedProduct)} className="w-full bg-green-500 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-green-600 transition-all"><LucideIcon name="phone" className="w-5 h-5" /> Beli via WhatsApp</button>
                 </div>
               </div>
