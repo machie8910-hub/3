@@ -472,7 +472,7 @@ const App = () => {
                     <span className="text-gray-400 text-sm">Total Pembayaran</span>
                     <span className="text-2xl font-black text-brand">Rp {totalHarga.toLocaleString('id-ID')}</span>
                   </div>
-                  <button onClick={checkoutCartWA} className="w-full bg-brand text-white py-4 rounded-xl font-bold shadow-xl hover:bg-black transition-all active:scale-[0.98]">Checkout via WhatsApp</button>
+                  <button onClick={checkoutCartWA} className="w-full bg-black text-white py-4 rounded-xl font-bold shadow-xl hover:bg-zinc-800 transition-all active:scale-[0.98]">Checkout via WhatsApp</button>
                 </div>
               )}
             </motion.div>
