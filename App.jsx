@@ -133,6 +133,7 @@ const App = () => {
   const [scrollPos, setScrollPos] = useState(0);
   const [notifications, setNotifications] = useState([]);
   const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const [promoInput, setPromoInput] = useState("");
   const [appliedPromo, setAppliedPromo] = useState(null); // { code: string, discount: number }
 
@@ -195,12 +196,12 @@ const App = () => {
 
   const checkoutCartWA = () => {
     if (cart.length === 0) return;
-    if (!userName.trim()) {
-      showNotification("Silakan masukkan nama Anda!");
+    if (!userName.trim() || !userEmail.trim()) {
+      showNotification("Nama dan Email wajib diisi!");
       return;
     }
     let list = cart.map(item => `- ${item.nama} (${item.qty}x)`).join('\n');
-    let message = `Halo TKTM, saya ingin memesan:\n\nNama Pembeli: ${userName}\n\n${list}\n\nTotal: Rp ${totalHarga.toLocaleString('id-ID')}`;
+    let message = `Halo TKTM, saya ingin memesan:\n\nNama Pembeli: ${userName}\nEmail: ${userEmail}\n\n${list}\n\nTotal: Rp ${totalHarga.toLocaleString('id-ID')}`;
 
     if (appliedPromo) {
       message += `\nPromo: ${appliedPromo.code.toUpperCase()} (-${appliedPromo.discount}%)\nTotal Akhir: Rp ${totalAkhir.toLocaleString('id-ID')}`;
@@ -465,27 +466,39 @@ const App = () => {
               {cart.length > 0 && (
                 <div className="pt-6 border-t space-y-4">
                   <div>
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Kode Promo</label>
+                    <label className="text-xs font-bold text-brand uppercase tracking-widest mb-2 block">Kode Promo</label>
                     <div className="flex gap-2">
                       <input
                         type="text"
                         placeholder="Punya kode promo?"
-                        className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 ring-accent"
+                        className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 ring-accent text-brand font-bold"
                         value={promoInput}
                         onChange={(e) => setPromoInput(e.target.value)}
                       />
                       <button onClick={handleApplyPromo} className="bg-brand text-white px-4 rounded-xl font-bold text-sm">Pasang</button>
                     </div>
                   </div>
-                  <div>
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Nama Lengkap</label>
-                    <input
-                      type="text"
-                      placeholder="Masukkan nama Anda..."
-                      className="w-full bg-gray-50 border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
-                      value={userName}
-                      onChange={(e) => setUserName(e.target.value)}
-                    />
+                  <div className="grid grid-cols-1 gap-4">
+                    <div>
+                      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Nama Lengkap</label>
+                      <input
+                        type="text"
+                        placeholder="Masukkan nama Anda..."
+                        className="w-full bg-gray-50 border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Email</label>
+                      <input
+                        type="email"
+                        placeholder="Masukkan email Anda..."
+                        className="w-full bg-gray-50 border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
+                        value={userEmail}
+                        onChange={(e) => setUserEmail(e.target.value)}
+                      />
+                    </div>
                   </div>
                   <div className="space-y-2 border-t pt-4">
                     <div className="flex justify-between text-sm">
