@@ -326,13 +326,18 @@ const App = () => {
                     <p className="text-xs text-gray-400 font-bold uppercase">{product.kategori}</p>
                     <h4 className="text-lg font-bold mt-1 mb-2">{product.nama}</h4>
                     <p className="text-accent font-black text-xl mb-4">
-                      {inCart && <span className="text-xs text-gray-400 block font-normal">Total ({inCart.qty}x)</span>}
                       Rp {displayPrice.toLocaleString('id-ID')}
                     </p>
                     <div className="flex flex-col gap-2">
-                      <button onClick={() => addToCart(product)} className="w-full bg-gray-100 text-brand py-2.5 rounded-xl font-bold text-sm hover:bg-brand hover:text-white transition-all">
-                        {inCart ? 'Tambah Lagi' : 'Tambah ke Keranjang'}
-                      </button>
+                      {inCart ? (
+                        <div className="flex items-center justify-between bg-gray-100 rounded-xl p-1">
+                          <button onClick={() => updateQuantity(product.id, -1)} className="p-2 bg-white rounded-lg shadow-sm hover:text-red-500 transition-colors"><LucideIcon name="minus" className="w-4 h-4" /></button>
+                          <span className="font-bold text-brand">{inCart.qty}</span>
+                          <button onClick={() => updateQuantity(product.id, 1)} className="p-2 bg-white rounded-lg shadow-sm hover:text-accent transition-colors"><LucideIcon name="plus" className="w-4 h-4" /></button>
+                        </div>
+                      ) : (
+                        <button onClick={() => addToCart(product)} className="w-full bg-gray-100 text-brand py-2.5 rounded-xl font-bold text-sm hover:bg-brand hover:text-white transition-all">Tambah ke Keranjang</button>
+                      )}
                       <button onClick={() => buyNowWA(product)} className="w-full bg-green-500 text-white py-2.5 rounded-xl font-bold text-sm hover:bg-green-600 transition-all">Beli Sekarang</button>
                     </div>
                   </div>
@@ -413,7 +418,7 @@ const App = () => {
                     <img src={item.gambar} className="w-20 h-20 object-cover rounded-xl shadow-sm" />
                     <div className="flex-1">
                       <h5 className="font-bold text-brand">{item.nama}</h5>
-                      <p className="text-sm text-accent font-bold mb-2">Rp {item.harga.toLocaleString('id-ID')}</p>
+                      <p className="text-sm text-accent font-bold mb-2">Rp {(item.harga * item.qty).toLocaleString('id-ID')}</p>
                       <div className="flex items-center gap-3 bg-gray-100 w-fit rounded-lg p-1">
                         <button onClick={() => updateQuantity(item.id, -1)} className="p-1.5 bg-white rounded shadow-sm hover:text-red-500"><LucideIcon name="minus" className="w-3 h-3" /></button>
                         <span className="text-xs font-bold w-4 text-center">{item.qty}</span>
