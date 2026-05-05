@@ -479,7 +479,15 @@ const App = () => {
                   <div className="text-sm"><p className="text-gray-400 mb-1">Fitur</p><p className="font-medium text-brand italic">{selectedProduct.info.fitur}</p></div>
                 </div>
                 <div className="grid gap-3">
-                  <button onClick={() => { addToCart(selectedProduct); }} className="w-full bg-brand text-white py-4 rounded-xl font-bold shadow-lg hover:bg-black transition-all">Tambah ke Keranjang</button>
+                  {cart.find(item => item.id === selectedProduct.id) ? (
+                    <div className="flex items-center justify-between bg-gray-100 rounded-xl p-2 h-[60px]">
+                      <button onClick={() => updateQuantity(selectedProduct.id, -1)} className="p-3 bg-white rounded-lg shadow-sm hover:text-red-500 transition-colors"><LucideIcon name="minus" className="w-5 h-5" /></button>
+                      <span className="font-bold text-xl text-brand">{cart.find(item => item.id === selectedProduct.id).qty}</span>
+                      <button onClick={() => updateQuantity(selectedProduct.id, 1)} className="p-3 bg-white rounded-lg shadow-sm hover:text-accent transition-colors"><LucideIcon name="plus" className="w-5 h-5" /></button>
+                    </div>
+                  ) : (
+                    <button onClick={() => { addToCart(selectedProduct); }} className="w-full bg-brand text-white py-4 rounded-xl font-bold shadow-lg hover:bg-black transition-all">Tambah ke Keranjang</button>
+                  )}
                   <button onClick={() => buyNowWA(selectedProduct)} className="w-full bg-green-500 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-green-600 transition-all"><LucideIcon name="phone" className="w-5 h-5" /> Beli via WhatsApp</button>
                 </div>
               </div>
