@@ -135,6 +135,7 @@ const App = () => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [promoInput, setPromoInput] = useState("");
+  const [checkoutItems, setCheckoutItems] = useState(null); // items to checkout
   const [appliedPromo, setAppliedPromo] = useState(null); // { code: string, discount: number }
 
   // Recommendations Loop Logic (3 items)
@@ -187,29 +188,37 @@ const App = () => {
   const buyNowWA = (product) => {
     const inCart = cart.find(item => item.id === product.id);
     const qty = inCart ? inCart.qty : 1;
-    const total = (product.harga * qty).toLocaleString('id-ID');
-    const message = `Halo TKTM, saya ingin membeli produk berikut:\n\nNama: ${product.nama}\nJumlah: ${qty}\nTotal: Rp ${total}\n\nTerima kasih!`;
-    const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-    setSelectedProduct(null); // Tutup modal jika sedang terbuka
+    setCheckoutItems([{ ...product, qty }]);
+    setSelectedProduct(null);
   };
 
-  const checkoutCartWA = () => {
+  const startCartCheckout = () => {
     if (cart.length === 0) return;
+    setCheckoutItems(cart);
+    setIsCartOpen(false);
+  };
+
+  const handleFinalCheckout = () => {
     if (!userName.trim() || !userEmail.trim()) {
       showNotification("Nama dan Email wajib diisi!");
       return;
     }
-    let list = cart.map(item => `- ${item.nama} (${item.qty}x)`).join('\n');
-    let message = `Halo TKTM, saya ingin memesan:\n\nNama Pembeli: ${userName}\nEmail: ${userEmail}\n\n${list}\n\nTotal: Rp ${totalHarga.toLocaleString('id-ID')}`;
+
+    const itemsTotal = checkoutItems.reduce((acc, item) => acc + (item.harga * item.qty), 0);
+    const discount = appliedPromo ? Math.floor(itemsTotal * (appliedPromo.discount / 100)) : 0;
+    const finalTotal = itemsTotal - discount;
+
+    let list = checkoutItems.map(item => `- ${item.nama} (${item.qty}x)`).join('\n');
+    let message = `Halo TKTM, saya ingin memesan (Metode: COD):\n\nNama Pembeli: ${userName}\nEmail: ${userEmail}\n\n${list}\n\nSubtotal: Rp ${itemsTotal.toLocaleString('id-ID')}`;
 
     if (appliedPromo) {
-      message += `\nPromo: ${appliedPromo.code.toUpperCase()} (-${appliedPromo.discount}%)\nTotal Akhir: Rp ${totalAkhir.toLocaleString('id-ID')}`;
+      message += `\nPromo: ${appliedPromo.code.toUpperCase()} (-${appliedPromo.discount}%)\nDiskon: - Rp ${discount.toLocaleString('id-ID')}`;
     }
 
-    message += `\n\nTerima kasih!`;
+    message += `\nTotal Akhir: Rp ${finalTotal.toLocaleString('id-ID')}\n\nMetode Pembayaran: COD (Bayar di Tempat)\n\nTerima kasih!`;
     const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
+    setCheckoutItems(null);
   };
 
   const totalHarga = cart.reduce((acc, item) => acc + (item.harga * item.qty), 0);
@@ -475,7 +484,7 @@ const App = () => {
                         value={promoInput}
                         onChange={(e) => setPromoInput(e.target.value)}
                       />
-                      <button onClick={handleApplyPromo} className="bg-brand text-white px-4 rounded-xl font-bold text-sm">Pasang</button>
+                      <button onClick={handleApplyPromo} className="bg-black text-white px-4 rounded-xl font-bold text-sm">Pasang</button>
                     </div>
                   </div>
                   <div className="grid grid-cols-1 gap-4">
@@ -516,9 +525,72 @@ const App = () => {
                       <span className="text-2xl font-black text-brand">Rp {totalAkhir.toLocaleString('id-ID')}</span>
                     </div>
                   </div>
-                  <button onClick={checkoutCartWA} className="w-full bg-black text-white py-4 rounded-xl font-bold shadow-xl hover:bg-zinc-800 transition-all active:scale-[0.98]">Checkout via WhatsApp</button>
+                  <button onClick={startCartCheckout} className="w-full bg-black text-white py-4 rounded-xl font-bold shadow-xl hover:bg-zinc-800 transition-all active:scale-[0.98]">Checkout via WhatsApp</button>
                 </div>
               )}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Checkout Modal */}
+      <AnimatePresence>
+        {checkoutItems && (
+          <>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setCheckoutItems(null)} className="fixed inset-0 bg-black/80 z-[150] backdrop-blur-md" />
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }} className="fixed inset-x-4 bottom-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:max-w-md bg-white z-[160] rounded-[2.5rem] p-8 shadow-2xl">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-black text-brand">Konfirmasi Pesanan</h3>
+                <button onClick={() => setCheckoutItems(null)} className="bg-gray-100 p-2 rounded-full"><LucideIcon name="x" className="w-5 h-5" /></button>
+              </div>
+
+              <div className="space-y-6">
+                <div className="bg-gray-50 rounded-2xl p-4 space-y-2">
+                  <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Metode Pembayaran</p>
+                  <p className="font-bold text-brand flex items-center gap-2"><LucideIcon name="truck" className="w-4 h-4 text-accent" /> COD (Cash on Delivery)</p>
+                  <p className="text-xs text-gray-500 italic">*Konfirmasi via WhatsApp</p>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Nama Lengkap</label>
+                    <input
+                      type="text" placeholder="Masukkan nama..."
+                      className="w-full bg-gray-50 border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
+                      value={userName} onChange={(e) => setUserName(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Email</label>
+                    <input
+                      type="email" placeholder="Masukkan email..."
+                      className="w-full bg-gray-50 border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
+                      value={userEmail} onChange={(e) => setUserEmail(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-bold text-brand uppercase tracking-widest mb-2 block">Kode Promo (Opsional)</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text" placeholder="Kode promo..."
+                        className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 ring-accent text-brand font-bold uppercase"
+                        value={promoInput} onChange={(e) => setPromoInput(e.target.value)}
+                      />
+                      <button onClick={handleApplyPromo} className="bg-black text-white px-4 rounded-xl font-bold text-sm">Pasang</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-6 border-t border-dashed">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-gray-400 font-medium">Total Pesanan</span>
+                    <span className="text-2xl font-black text-brand">Rp {(checkoutItems.reduce((acc, item) => acc + (item.harga * item.qty), 0) - (appliedPromo ? Math.floor(checkoutItems.reduce((acc, item) => acc + (item.harga * item.qty), 0) * (appliedPromo.discount/100)) : 0)).toLocaleString('id-ID')}</span>
+                  </div>
+                  <button onClick={handleFinalCheckout} className="w-full bg-green-500 text-white py-4 rounded-2xl font-bold shadow-lg hover:bg-green-600 transition-all flex items-center justify-center gap-2">
+                    <LucideIcon name="phone" className="w-5 h-5" /> Pesan via WhatsApp
+                  </button>
+                </div>
+              </div>
             </motion.div>
           </>
         )}
