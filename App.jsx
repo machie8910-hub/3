@@ -133,6 +133,8 @@ const App = () => {
   const [scrollPos, setScrollPos] = useState(0);
   const [notifications, setNotifications] = useState([]);
   const [userName, setUserName] = useState("");
+  const [promoInput, setPromoInput] = useState("");
+  const [appliedPromo, setAppliedPromo] = useState(null); // { code: string, discount: number }
 
   // Recommendations Loop Logic (3 items)
   const recs = useMemo(() => PRODUCTS.slice(0, 3), []);
@@ -198,13 +200,36 @@ const App = () => {
       return;
     }
     let list = cart.map(item => `- ${item.nama} (${item.qty}x)`).join('\n');
-    const total = totalHarga.toLocaleString('id-ID');
-    const message = `Halo TKTM, saya ingin memesan:\n\nNama Pembeli: ${userName}\n\n${list}\n\nTotal: Rp ${total}\n\nTerima kasih!`;
+    let message = `Halo TKTM, saya ingin memesan:\n\nNama Pembeli: ${userName}\n\n${list}\n\nTotal: Rp ${totalHarga.toLocaleString('id-ID')}`;
+
+    if (appliedPromo) {
+      message += `\nPromo: ${appliedPromo.code.toUpperCase()} (-${appliedPromo.discount}%)\nTotal Akhir: Rp ${totalAkhir.toLocaleString('id-ID')}`;
+    }
+
+    message += `\n\nTerima kasih!`;
     const url = `https://wa.me/${WA_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 
   const totalHarga = cart.reduce((acc, item) => acc + (item.harga * item.qty), 0);
+  const diskonNominal = appliedPromo ? Math.floor(totalHarga * (appliedPromo.discount / 100)) : 0;
+  const totalAkhir = totalHarga - diskonNominal;
+
+  const handleApplyPromo = () => {
+    const code = promoInput.toLowerCase().trim();
+    const promos = {
+      subur: 90,
+      eman: 50,
+      agus: 25
+    };
+
+    if (promos[code]) {
+      setAppliedPromo({ code, discount: promos[code] });
+      showNotification(`Promo ${code.toUpperCase()} berhasil dipasang!`);
+    } else {
+      showNotification("Kode promo tidak valid");
+    }
+  };
 
   const nextRec = () => setActiveRec((prev) => (prev + 1) % recs.length);
   const prevRec = () => setActiveRec((prev) => (prev - 1 + recs.length) % recs.length);
@@ -351,7 +376,15 @@ const App = () => {
       {/* Footer */}
       <footer className="bg-brand text-white py-16 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
-          <div><h4 className="text-3xl font-black mb-6">TKTM</h4><p className="text-gray-400">Topiku Topimu. Platform e-commerce topi nomor satu dengan kualitas tanpa kompromi.</p></div>
+          <div>
+            <h4 className="text-3xl font-black mb-6">TKTM</h4>
+            <p className="text-gray-400 mb-6">Topiku Topimu. Platform e-commerce topi nomor satu with kualitas tanpa kompromi.</p>
+            <div className="flex gap-4">
+              <a href="https://www.instagram.com/machie109?igsh=MXBwNDRqZzRpaTZycQ==" target="_blank" className="bg-white/10 p-3 rounded-full hover:bg-accent transition-all">
+                <LucideIcon name="instagram" className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
           <div>
             <h5 className="font-bold mb-6">Kontak</h5>
             <div className="space-y-4 text-gray-400 text-sm">
@@ -432,6 +465,19 @@ const App = () => {
               {cart.length > 0 && (
                 <div className="pt-6 border-t space-y-4">
                   <div>
+                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Kode Promo</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        placeholder="Punya kode promo?"
+                        className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 ring-accent"
+                        value={promoInput}
+                        onChange={(e) => setPromoInput(e.target.value)}
+                      />
+                      <button onClick={handleApplyPromo} className="bg-brand text-white px-4 rounded-xl font-bold text-sm">Pasang</button>
+                    </div>
+                  </div>
+                  <div>
                     <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Nama Lengkap</label>
                     <input
                       type="text"
@@ -441,9 +487,21 @@ const App = () => {
                       onChange={(e) => setUserName(e.target.value)}
                     />
                   </div>
-                  <div className="flex justify-between items-end pb-2">
-                    <span className="text-gray-400 text-sm">Total Pembayaran</span>
-                    <span className="text-2xl font-black text-brand">Rp {totalHarga.toLocaleString('id-ID')}</span>
+                  <div className="space-y-2 border-t pt-4">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-400">Subtotal</span>
+                      <span className="font-bold">Rp {totalHarga.toLocaleString('id-ID')}</span>
+                    </div>
+                    {appliedPromo && (
+                      <div className="flex justify-between text-sm text-green-600 font-bold">
+                        <span>Promo ({appliedPromo.code.toUpperCase()} -{appliedPromo.discount}%)</span>
+                        <span>- Rp {diskonNominal.toLocaleString('id-ID')}</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between items-end pt-2">
+                      <span className="text-gray-400 text-sm">Total Pembayaran</span>
+                      <span className="text-2xl font-black text-brand">Rp {totalAkhir.toLocaleString('id-ID')}</span>
+                    </div>
                   </div>
                   <button onClick={checkoutCartWA} className="w-full bg-black text-white py-4 rounded-xl font-bold shadow-xl hover:bg-zinc-800 transition-all active:scale-[0.98]">Checkout via WhatsApp</button>
                 </div>
