@@ -362,30 +362,40 @@ const App = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map(product => {
-              return (
-                <motion.div layout key={product.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col">
-                  <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
-                    <img src={product.gambar} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase">Best Seller</div>}
-                  </div>
-                  <div className="p-5 flex-1 flex flex-col">
-                    <p className="text-xs text-gray-500 mb-1">{product.kategori}</p>
-                    <h4 className="text-base font-bold text-brand mb-4 line-clamp-2">{product.nama}</h4>
-
-                    <div className="mt-auto">
-                      <p className="text-brand font-black text-xl mb-4">
-                        <span className="text-xs font-normal align-top mr-1">Rp</span>
-                        {product.harga.toLocaleString('id-ID')}
-                      </p>
-                      <button onClick={() => setSelectedProduct(product)} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2.5 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
+          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <AnimatePresence mode='popLayout'>
+              {filteredProducts.map(product => {
+                return (
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                    key={product.id}
+                    className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col"
+                  >
+                    <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
+                      <img src={product.gambar} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase">Best Seller</div>}
                     </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                    <div className="p-5 flex-1 flex flex-col">
+                      <p className="text-xs text-gray-500 mb-1">{product.kategori}</p>
+                      <h4 className="text-base font-bold text-brand mb-4 line-clamp-2">{product.nama}</h4>
+
+                      <div className="mt-auto">
+                        <p className="text-brand font-black text-xl mb-4">
+                          <span className="text-xs font-normal align-top mr-1">Rp</span>
+                          {product.harga.toLocaleString('id-ID')}
+                        </p>
+                        <button onClick={() => setSelectedProduct(product)} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2.5 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
@@ -611,41 +621,52 @@ const App = () => {
         {selectedProduct && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedProduct(null)} className="fixed inset-0 bg-black/80 z-[100] backdrop-blur-md" />
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed inset-0 md:inset-10 bg-white z-[110] md:rounded-3xl overflow-hidden flex flex-col md:flex-row">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed inset-0 lg:inset-10 bg-white z-[110] lg:rounded-3xl overflow-hidden flex flex-col lg:flex-row">
               {/* Product Info Section */}
-              <div className="flex-1 overflow-y-auto p-6 md:p-10">
-                <div className="flex flex-col md:flex-row gap-10">
-                  <div className="w-full md:w-1/2">
-                    <div className="relative aspect-square overflow-hidden rounded-2xl shadow-lg border border-gray-100">
-                      <img src={selectedProduct.gambar} className="w-full h-full object-cover" />
+              <div className="flex-1 overflow-y-auto p-6 md:p-12">
+                <div className="flex flex-col md:flex-row lg:flex-col xl:flex-row gap-8 md:gap-12">
+                  <div className="w-full md:w-1/2 lg:w-full xl:w-1/2">
+                    <div className="relative aspect-square overflow-hidden rounded-[2rem] shadow-2xl border border-gray-100 group">
+                      <img src={selectedProduct.gambar} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
                   </div>
-                  <div className="w-full md:w-1/2">
-                    <button onClick={() => setSelectedProduct(null)} className="mb-4 text-xs font-bold text-blue-600 hover:underline">‹ Kembali ke Koleksi</button>
-                    <h3 className="text-3xl font-black text-brand mb-6">{selectedProduct.nama}</h3>
+                  <div className="w-full md:w-1/2 lg:w-full xl:w-1/2">
+                    <button onClick={() => setSelectedProduct(null)} className="mb-6 inline-flex items-center gap-2 text-sm font-bold text-accent hover:underline">
+                      <LucideIcon name="arrow-left" className="w-4 h-4" /> Kembali ke Koleksi
+                    </button>
+                    <h3 className="text-4xl md:text-5xl font-black text-brand mb-6 tracking-tight leading-tight">{selectedProduct.nama}</h3>
 
-                    <div className="border-y border-gray-100 py-4 mb-6">
-                      <p className="text-sm text-gray-500 mb-1">Harga:</p>
-                      <p className="text-3xl font-bold text-red-700">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
+                    <div className="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Harga Spesial</p>
+                      <p className="text-4xl font-black text-red-600">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
                     </div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-8">
                       <div>
-                        <h5 className="font-bold text-sm mb-2">Deskripsi Produk:</h5>
-                        <p className="text-gray-600 text-sm leading-relaxed">{selectedProduct.deskripsi}</p>
+                        <h5 className="font-bold text-lg mb-3 text-brand border-l-4 border-accent pl-3">Deskripsi Produk</h5>
+                        <p className="text-gray-600 leading-relaxed text-base">{selectedProduct.deskripsi}</p>
                       </div>
-                      <ul className="space-y-2">
-                        <li className="text-sm text-gray-600 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-gray-400 rounded-full"/> <b>Bahan:</b> {selectedProduct.info.bahan}</li>
-                        <li className="text-sm text-gray-600 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-gray-400 rounded-full"/> <b>Ukuran:</b> {selectedProduct.info.ukuran}</li>
-                        <li className="text-sm text-gray-600 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-gray-400 rounded-full"/> <b>Fitur:</b> {selectedProduct.info.fitur}</li>
-                      </ul>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
+                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">Bahan</p>
+                          <p className="text-sm font-bold text-brand">{selectedProduct.info.bahan}</p>
+                        </div>
+                        <div className="bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
+                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">Ukuran</p>
+                          <p className="text-sm font-bold text-brand">{selectedProduct.info.ukuran}</p>
+                        </div>
+                        <div className="bg-white border border-gray-100 p-4 rounded-xl shadow-sm sm:col-span-2">
+                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">Fitur Utama</p>
+                          <p className="text-sm font-bold text-brand">{selectedProduct.info.fitur}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Purchase Box Section (Amazon Buy Box) */}
-              <div className="w-full md:w-[350px] bg-gray-50 border-l border-gray-100 p-6 md:p-8 overflow-y-auto">
+              <div className="w-full lg:w-[400px] bg-gray-50 border-t lg:border-t-0 lg:border-l border-gray-200 p-6 md:p-10 overflow-y-auto">
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm sticky top-0">
                   <p className="text-2xl font-bold text-brand mb-2">Rp {(selectedProduct.harga * (cart.find(i => i.id === selectedProduct.id)?.qty || 1)).toLocaleString('id-ID')}</p>
                   <p className="text-sm text-green-700 font-bold mb-6 flex items-center gap-1"><LucideIcon name="check-circle" className="w-4 h-4" /> Stok Tersedia</p>
