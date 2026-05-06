@@ -27,12 +27,7 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Flat brim, 6 panels, Adjustable snap closure"
     },
-    gambar: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
-    galeri: [
-      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1594932224828-b4b059b6f684?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1610471018873-a61f498c47f7?q=80&w=1000&auto=format&fit=crop"
-    ]
+    gambar: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 2,
@@ -45,11 +40,7 @@ const PRODUCTS = [
       ukuran: "Stretch (One size fits most)",
       fitur: "Soft texture, Breathable, Foldable cuff"
     },
-    gambar: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
-    galeri: [
-      "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1606132959648-f80e72c84ca1?q=80&w=1000&auto=format&fit=crop"
-    ]
+    gambar: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 3,
@@ -62,11 +53,7 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable mesh back, Curved brim, Snap closure"
     },
-    gambar: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
-    galeri: [
-      "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1521369625902-601e35182046?q=80&w=1000&auto=format&fit=crop"
-    ]
+    gambar: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 4,
@@ -79,11 +66,7 @@ const PRODUCTS = [
       ukuran: "All Size (Metal strap)",
       fitur: "Unstructured crown, Curved peak, Vintage look"
     },
-    gambar: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
-    galeri: [
-      "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1563212501-1b7787491795?q=80&w=1000&auto=format&fit=crop"
-    ]
+    gambar: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 5,
@@ -96,11 +79,7 @@ const PRODUCTS = [
       ukuran: "Medium/Large",
       fitur: "Wide brim, Foldable, Lightweight"
     },
-    gambar: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
-    galeri: [
-      "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1597519391039-4458931f82d2?q=80&w=1000&auto=format&fit=crop"
-    ]
+    gambar: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 6,
@@ -113,11 +92,7 @@ const PRODUCTS = [
       ukuran: "Fixed (58cm)",
       fitur: "Stiff brim, Ribbon band, Elegant lining"
     },
-    gambar: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
-    galeri: [
-      "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?q=80&w=1000&auto=format&fit=crop"
-    ]
+    gambar: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 7,
@@ -130,11 +105,7 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable, Sweatband, Reflective detail"
     },
-    gambar: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
-    galeri: [
-      "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1582142306909-195724d339aa?q=80&w=1000&auto=format&fit=crop"
-    ]
+    gambar: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 8,
@@ -147,11 +118,7 @@ const PRODUCTS = [
       ukuran: "All Size (Metal Buckle)",
       fitur: "Soft texture, Durable, Retro design"
     },
-    gambar: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
-    galeri: [
-      "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1520102181373-316279f53e6b?q=80&w=1000&auto=format&fit=crop"
-    ]
+    gambar: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
   }
 ];
 
@@ -163,7 +130,6 @@ const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [activeImg, setActiveImg] = useState(0);
   const [scrollPos, setScrollPos] = useState(0);
   const [notifications, setNotifications] = useState([]);
   const [userName, setUserName] = useState("");
@@ -640,33 +606,18 @@ const App = () => {
       <AnimatePresence>
         {selectedProduct && (
           <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => { setSelectedProduct(null); setActiveImg(0); }} className="fixed inset-0 bg-black/80 z-[100] backdrop-blur-md" />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedProduct(null)} className="fixed inset-0 bg-black/80 z-[100] backdrop-blur-md" />
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed inset-0 md:inset-10 bg-white z-[110] md:rounded-3xl overflow-hidden flex flex-col md:flex-row">
               {/* Product Info Section */}
               <div className="flex-1 overflow-y-auto p-6 md:p-10">
                 <div className="flex flex-col md:flex-row gap-10">
                   <div className="w-full md:w-1/2">
-                    <div className="relative aspect-square overflow-hidden rounded-2xl shadow-lg border border-gray-100 mb-4">
-                      <img src={selectedProduct.galeri ? selectedProduct.galeri[activeImg] : selectedProduct.gambar} className="w-full h-full object-cover transition-all duration-500" />
+                    <div className="relative aspect-square overflow-hidden rounded-2xl shadow-lg border border-gray-100">
+                      <img src={selectedProduct.gambar} className="w-full h-full object-cover" />
                     </div>
-                    {/* Sudut Pandang (Gallery) */}
-                    {selectedProduct.galeri && (
-                      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                        {selectedProduct.galeri.map((img, i) => (
-                          <button
-                            key={i}
-                            onClick={() => setActiveImg(i)}
-                            className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all shrink-0 ${activeImg === i ? 'border-accent shadow-md' : 'border-transparent opacity-60'}`}
-                          >
-                            <img src={img} className="w-full h-full object-cover" />
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                    <p className="text-[10px] text-gray-400 mt-2 text-center uppercase tracking-widest font-bold">Klik gambar untuk ganti sudut pandang</p>
                   </div>
                   <div className="w-full md:w-1/2">
-                    <button onClick={() => { setSelectedProduct(null); setActiveImg(0); }} className="mb-4 text-xs font-bold text-blue-600 hover:underline">‹ Kembali ke Koleksi</button>
+                    <button onClick={() => setSelectedProduct(null)} className="mb-4 text-xs font-bold text-blue-600 hover:underline">‹ Kembali ke Koleksi</button>
                     <h3 className="text-3xl font-black text-brand mb-6">{selectedProduct.nama}</h3>
 
                     <div className="border-y border-gray-100 py-4 mb-6">
