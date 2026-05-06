@@ -404,8 +404,12 @@ const App = () => {
           <div>
             <h5 className="font-bold mb-6">Kontak</h5>
             <div className="space-y-4 text-gray-400 text-sm">
-              <p className="flex items-center gap-2"><LucideIcon name="phone" className="w-4 h-4" /> {WA_NUMBER}</p>
-              <p className="flex items-center gap-2"><LucideIcon name="mail" className="w-4 h-4" /> machie8910@gmail.com</p>
+              <a href={`https://wa.me/${WA_NUMBER.replace('+', '')}`} className="flex items-center gap-2 hover:text-accent transition-colors">
+                <LucideIcon name="phone" className="w-4 h-4" /> {WA_NUMBER}
+              </a>
+              <a href="mailto:machie8910@gmail.com" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <LucideIcon name="mail" className="w-4 h-4" /> machie8910@gmail.com
+              </a>
               <p className="flex items-center gap-2"><LucideIcon name="map-pin" className="w-4 h-4" /> Banten, Indonesia</p>
             </div>
           </div>
@@ -438,9 +442,9 @@ const App = () => {
                   <a href={`https://wa.me/${WA_NUMBER.replace('+', '')}`} className="flex items-center gap-3 font-medium hover:text-accent">
                     <LucideIcon name="phone" className="w-5 h-5 text-accent" /> {WA_NUMBER}
                   </a>
-                  <p className="flex items-center gap-3 font-medium">
+                  <a href="mailto:machie8910@gmail.com" className="flex items-center gap-3 font-medium hover:text-accent">
                     <LucideIcon name="mail" className="w-5 h-5 text-accent" /> machie8910@gmail.com
-                  </p>
+                  </a>
                   <p className="flex items-center gap-3 font-medium">
                     <LucideIcon name="map-pin" className="w-5 h-5 text-accent" /> Banten, Indonesia
                   </p>
