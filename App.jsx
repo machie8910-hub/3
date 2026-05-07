@@ -126,6 +126,7 @@ const WA_NUMBER = "+6288973262022";
 
 const App = () => {
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("Semua");
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -138,6 +139,8 @@ const App = () => {
   const [checkoutItems, setCheckoutItems] = useState(null); // items to checkout
   const [appliedPromo, setAppliedPromo] = useState(null); // { code: string, discount: number }
 
+  const CATEGORIES = ["Semua", "Snapback", "Beanie", "Trucker", "Dad Hat", "Bucket Hat", "Fedora", "Sport", "Lifestyle"];
+
   // Recommendations Loop Logic (3 items)
   const recs = useMemo(() => PRODUCTS.slice(0, 3), []);
   const [activeRec, setActiveRec] = useState(0);
@@ -149,8 +152,12 @@ const App = () => {
   }, []);
 
   const filteredProducts = useMemo(() => {
-    return PRODUCTS.filter(p => p.nama.toLowerCase().includes(search.toLowerCase()));
-  }, [search]);
+    return PRODUCTS.filter(p => {
+      const matchSearch = p.nama.toLowerCase().includes(search.toLowerCase());
+      const matchCategory = category === "Semua" || p.kategori === category;
+      return matchSearch && matchCategory;
+    });
+  }, [search, category]);
 
   const showNotification = (message) => {
     const id = Date.now();
@@ -244,9 +251,9 @@ const App = () => {
 
     if (promos[code]) {
       setAppliedPromo({ code, discount: promos[code] });
-      showNotification(`Promo ${code.toUpperCase()} berhasil dipasang!`);
+      showNotification(`BERHASIL: Promo ${code.toUpperCase()} memberikan diskon ${promos[code]}%!`);
     } else {
-      showNotification("Kode promo tidak valid");
+      showNotification("GAGAL: Kode promo tidak valid atau sudah kedaluwarsa.");
     }
   };
 
@@ -351,15 +358,27 @@ const App = () => {
       {/* Katalog Produk (3 Kolom) */}
       <section id="produk" className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
             <h3 className="text-4xl font-black text-brand">Katalog Terbaru</h3>
             <div className="relative w-full md:w-96">
               <input
                 type="text" placeholder="Cari topi..."
-                className="w-full bg-white border border-gray-200 rounded-xl py-3 px-4 shadow-sm"
+                className="w-full bg-white border border-gray-200 rounded-xl py-3 px-4 shadow-sm focus:outline-none focus:ring-2 ring-accent"
                 value={search} onChange={(e) => setSearch(e.target.value)}
               />
             </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mb-10">
+            {CATEGORIES.map(cat => (
+              <button
+                key={cat}
+                onClick={() => setCategory(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${category === cat ? 'bg-brand text-white shadow-lg scale-105' : 'bg-white text-gray-500 border border-gray-100 hover:bg-gray-50'}`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
 
           <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -388,7 +407,7 @@ const App = () => {
                           <span className="text-xs font-normal align-top mr-1">Rp</span>
                           {product.harga.toLocaleString('id-ID')}
                         </p>
-                        <button onClick={() => setSelectedProduct(product)} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2.5 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
+                      <button onClick={() => setSelectedProduct(product)} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2.5 rounded-full font-bold text-sm transition-all shadow-sm">Lihat Detail</button>
                       </div>
                     </div>
                   </motion.div>
@@ -427,6 +446,9 @@ const App = () => {
             <h5 className="font-bold mb-6">Metode Pembayaran</h5>
             <p className="text-gray-400 text-sm">Pembayaran dilakukan secara aman melalui konfirmasi WhatsApp dengan berbagai pilihan Bank dan E-Wallet.</p>
           </div>
+        </div>
+        <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 text-center text-gray-500 text-xs">
+          <p>&copy; 2024 TKTM Official. Hak Cipta Dilindungi Undang-Undang.</p>
         </div>
       </footer>
 
@@ -481,7 +503,7 @@ const App = () => {
                     <img src={item.gambar} className="w-20 h-20 object-cover rounded-xl shadow-sm" />
                     <div className="flex-1">
                       <h5 className="font-bold text-brand">{item.nama}</h5>
-                      <p className="text-sm text-accent font-bold mb-2">Rp {(item.harga * item.qty).toLocaleString('id-ID')}</p>
+                      <p className="text-sm text-accent font-bold mb-2">Rp {item.harga.toLocaleString('id-ID')}</p>
                       <div className="flex items-center gap-3 bg-gray-100 w-fit rounded-lg p-1">
                         <button onClick={() => updateQuantity(item.id, -1)} className="p-1.5 bg-white rounded shadow-sm hover:text-red-500"><LucideIcon name="minus" className="w-3 h-3" /></button>
                         <span className="text-xs font-bold w-4 text-center">{item.qty}</span>
@@ -493,59 +515,53 @@ const App = () => {
                 ))}
               </div>
               {cart.length > 0 && (
-                <div className="pt-6 border-t space-y-4">
-                  <div>
-                    <label className="text-xs font-bold text-brand uppercase tracking-widest mb-2 block">Kode Promo</label>
-                    <div className="flex gap-2">
-                      <input
-                        type="text"
-                        placeholder="Punya kode promo?"
-                        className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 ring-accent text-brand font-bold"
-                        value={promoInput}
-                        onChange={(e) => setPromoInput(e.target.value)}
-                      />
-                      <button onClick={handleApplyPromo} className="bg-black text-white px-4 rounded-xl font-bold text-sm">Pasang</button>
+                <div className="pt-4 border-t space-y-3">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="col-span-2">
+                      <label className="text-[10px] font-bold text-brand uppercase tracking-widest mb-1 block">Kode Promo</label>
+                      <div className="flex gap-1">
+                        <input
+                          type="text"
+                          placeholder="Kode"
+                          className="flex-1 bg-gray-50 border border-gray-100 rounded-lg py-1.5 px-3 text-xs focus:outline-none ring-accent text-brand font-bold uppercase"
+                          value={promoInput}
+                          onChange={(e) => setPromoInput(e.target.value)}
+                        />
+                        <button onClick={handleApplyPromo} className="bg-black text-white px-3 rounded-lg font-bold text-[10px]">Pasang</button>
+                      </div>
                     </div>
-                  </div>
-                  <div className="grid grid-cols-1 gap-4">
                     <div>
-                      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Nama Lengkap</label>
+                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 block">Nama</label>
                       <input
                         type="text"
-                        placeholder="Masukkan nama Anda..."
-                        className="w-full bg-gray-50 border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
+                        placeholder="Nama"
+                        className="w-full bg-gray-50 border border-gray-100 rounded-lg py-1.5 px-3 text-xs focus:outline-none ring-accent"
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Email</label>
+                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 block">Email</label>
                       <input
                         type="email"
-                        placeholder="Masukkan email Anda..."
-                        className="w-full bg-gray-50 border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
+                        placeholder="Email"
+                        className="w-full bg-gray-50 border border-gray-100 rounded-lg py-1.5 px-3 text-xs focus:outline-none ring-accent"
                         value={userEmail}
                         onChange={(e) => setUserEmail(e.target.value)}
                       />
                     </div>
                   </div>
-                  <div className="space-y-2 border-t pt-4">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Subtotal</span>
-                      <span className="font-bold">Rp {totalHarga.toLocaleString('id-ID')}</span>
+
+                  <div className="space-y-1 border-t pt-3">
+                    <div className="flex justify-between text-[11px]">
+                      <span className="text-gray-400">Total Sementara ({cart.reduce((a,b)=>a+b.qty,0)} item)</span>
+                      <span className="font-bold text-brand text-lg">Rp {totalAkhir.toLocaleString('id-ID')}</span>
                     </div>
                     {appliedPromo && (
-                      <div className="flex justify-between text-sm text-green-600 font-bold">
-                        <span>Promo ({appliedPromo.code.toUpperCase()} -{appliedPromo.discount}%)</span>
-                        <span>- Rp {diskonNominal.toLocaleString('id-ID')}</span>
-                      </div>
+                      <p className="text-[10px] text-green-600 font-bold">Promo {appliedPromo.code.toUpperCase()} Terpasang! (-{appliedPromo.discount}%)</p>
                     )}
-                    <div className="flex justify-between items-end pt-2">
-                      <span className="text-gray-400 text-sm">Total Pembayaran</span>
-                      <span className="text-2xl font-black text-brand">Rp {totalAkhir.toLocaleString('id-ID')}</span>
-                    </div>
                   </div>
-                  <button onClick={startCartCheckout} className="w-full bg-black text-white py-4 rounded-xl font-bold shadow-xl hover:bg-zinc-800 transition-all active:scale-[0.98]">Checkout via WhatsApp</button>
+                  <button onClick={startCartCheckout} className="w-full bg-black text-white py-3 rounded-xl font-bold shadow-lg hover:bg-zinc-800 transition-all text-sm">Lanjut ke Checkout</button>
                 </div>
               )}
             </motion.div>
@@ -668,7 +684,7 @@ const App = () => {
               {/* Purchase Box Section (Amazon Buy Box) */}
               <div className="w-full lg:w-[400px] bg-gray-50 border-t lg:border-t-0 lg:border-l border-gray-200 p-6 md:p-10 overflow-y-auto">
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm sticky top-0">
-                  <p className="text-2xl font-bold text-brand mb-2">Rp {(selectedProduct.harga * (cart.find(i => i.id === selectedProduct.id)?.qty || 1)).toLocaleString('id-ID')}</p>
+                  <p className="text-2xl font-bold text-brand mb-2">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
                   <p className="text-sm text-green-700 font-bold mb-6 flex items-center gap-1"><LucideIcon name="check-circle" className="w-4 h-4" /> Stok Tersedia</p>
 
                   <div className="space-y-4">
