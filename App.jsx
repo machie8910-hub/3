@@ -402,12 +402,13 @@ const App = () => {
                       <p className="text-xs text-gray-500 mb-1">{product.kategori}</p>
                       <h4 className="text-base font-bold text-brand mb-4 line-clamp-2">{product.nama}</h4>
 
-                      <div className="mt-auto">
+                      <div className="mt-auto space-y-2">
                         <p className="text-brand font-black text-xl mb-4">
                           <span className="text-xs font-normal align-top mr-1">Rp</span>
                           {product.harga.toLocaleString('id-ID')}
                         </p>
-                      <button onClick={() => setSelectedProduct(product)} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2.5 rounded-full font-bold text-sm transition-all shadow-sm">Lihat Detail</button>
+                        <button onClick={() => addToCart(product)} className="w-full bg-white border border-gray-200 hover:bg-gray-50 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Tambah Keranjang</button>
+                        <button onClick={() => { setSelectedProduct(product); }} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
                       </div>
                     </div>
                   </motion.div>
@@ -519,15 +520,15 @@ const App = () => {
                   <div className="grid grid-cols-2 gap-2">
                     <div className="col-span-2">
                       <label className="text-[10px] font-bold text-brand uppercase tracking-widest mb-1 block">Kode Promo</label>
-                      <div className="flex gap-1">
+                      <div className="flex gap-1.5">
                         <input
                           type="text"
                           placeholder="Kode"
-                          className="flex-1 bg-gray-50 border border-gray-100 rounded-lg py-1.5 px-3 text-xs focus:outline-none ring-accent text-brand font-bold uppercase"
+                          className="flex-1 bg-gray-50 border border-gray-100 rounded-lg py-1.5 px-3 text-[11px] focus:outline-none ring-accent text-brand font-bold uppercase min-w-0"
                           value={promoInput}
                           onChange={(e) => setPromoInput(e.target.value)}
                         />
-                        <button onClick={handleApplyPromo} className="bg-black text-white px-3 rounded-lg font-bold text-[10px]">Pasang</button>
+                        <button onClick={handleApplyPromo} className="bg-black text-white px-3 rounded-lg font-bold text-[10px] whitespace-nowrap">Pasang</button>
                       </div>
                     </div>
                     <div>
@@ -606,13 +607,13 @@ const App = () => {
                   </div>
                   <div>
                     <label className="text-xs font-bold text-brand uppercase tracking-widest mb-2 block">Kode Promo (Opsional)</label>
-                    <div className="flex gap-2">
+                    <div className="flex gap-1.5">
                       <input
                         type="text" placeholder="Kode promo..."
-                        className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 ring-accent text-brand font-bold uppercase"
+                        className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-3 text-[11px] focus:outline-none focus:ring-2 ring-accent text-brand font-bold uppercase min-w-0"
                         value={promoInput} onChange={(e) => setPromoInput(e.target.value)}
                       />
-                      <button onClick={handleApplyPromo} className="bg-black text-white px-4 rounded-xl font-bold text-sm">Pasang</button>
+                      <button onClick={handleApplyPromo} className="bg-black text-white px-3 rounded-xl font-bold text-[10px] whitespace-nowrap">Pasang</button>
                     </div>
                   </div>
                 </div>
@@ -637,43 +638,43 @@ const App = () => {
         {selectedProduct && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedProduct(null)} className="fixed inset-0 bg-black/80 z-[100] backdrop-blur-md" />
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed inset-0 lg:inset-10 bg-white z-[110] lg:rounded-3xl overflow-hidden flex flex-col lg:flex-row">
-              {/* Product Info Section */}
-              <div className="flex-1 overflow-y-auto p-6 md:p-12">
-                <div className="flex flex-col md:flex-row lg:flex-col xl:flex-row gap-8 md:gap-12">
-                  <div className="w-full md:w-1/2 lg:w-full xl:w-1/2">
-                    <div className="relative aspect-square overflow-hidden rounded-[2rem] shadow-2xl border border-gray-100 group">
-                      <img src={selectedProduct.gambar} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed inset-0 lg:inset-20 bg-white z-[110] lg:rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-gray-100">
+              {/* Product Info Section (Left) */}
+              <div className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-10 border-r border-gray-100 bg-white">
+                <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-6 md:gap-10">
+                  <div className="w-full md:w-2/5 shrink-0">
+                    <div className="relative aspect-square overflow-hidden rounded-2xl shadow-xl border border-gray-50">
+                      <img src={selectedProduct.gambar} className="w-full h-full object-cover" />
                     </div>
                   </div>
-                  <div className="w-full md:w-1/2 lg:w-full xl:w-1/2">
-                    <button onClick={() => setSelectedProduct(null)} className="mb-6 inline-flex items-center gap-2 text-sm font-bold text-accent hover:underline">
-                      <LucideIcon name="arrow-left" className="w-4 h-4" /> Kembali ke Koleksi
+                  <div className="flex-1 min-w-0">
+                    <button onClick={() => setSelectedProduct(null)} className="mb-4 inline-flex items-center gap-1.5 text-[11px] font-bold text-accent hover:opacity-80 transition-opacity uppercase tracking-widest">
+                      <LucideIcon name="chevron-left" className="w-3 h-3" /> Kembali
                     </button>
-                    <h3 className="text-4xl md:text-5xl font-black text-brand mb-6 tracking-tight leading-tight">{selectedProduct.nama}</h3>
+                    <h3 className="text-3xl font-black text-brand mb-4 tracking-tight leading-none">{selectedProduct.nama}</h3>
 
-                    <div className="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Harga Spesial</p>
-                      <p className="text-4xl font-black text-red-600">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
+                    <div className="inline-block bg-red-50 text-red-600 px-4 py-2 rounded-xl mb-6">
+                      <p className="text-[10px] font-bold uppercase tracking-wider mb-0.5 opacity-70">Harga Spesial</p>
+                      <p className="text-2xl font-black">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
                     </div>
 
-                    <div className="space-y-8">
+                    <div className="space-y-6">
                       <div>
-                        <h5 className="font-bold text-lg mb-3 text-brand border-l-4 border-accent pl-3">Deskripsi Produk</h5>
-                        <p className="text-gray-600 leading-relaxed text-base">{selectedProduct.deskripsi}</p>
+                        <h5 className="font-bold text-xs uppercase tracking-widest text-gray-400 mb-2 border-b pb-2">Deskripsi</h5>
+                        <p className="text-gray-600 leading-relaxed text-sm">{selectedProduct.deskripsi}</p>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
-                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">Bahan</p>
-                          <p className="text-sm font-bold text-brand">{selectedProduct.info.bahan}</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-gray-50/50 p-3 rounded-xl">
+                          <p className="text-[9px] font-bold text-gray-400 uppercase mb-1">Bahan</p>
+                          <p className="text-xs font-bold text-brand">{selectedProduct.info.bahan}</p>
                         </div>
-                        <div className="bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
-                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">Ukuran</p>
-                          <p className="text-sm font-bold text-brand">{selectedProduct.info.ukuran}</p>
+                        <div className="bg-gray-50/50 p-3 rounded-xl">
+                          <p className="text-[9px] font-bold text-gray-400 uppercase mb-1">Ukuran</p>
+                          <p className="text-xs font-bold text-brand">{selectedProduct.info.ukuran}</p>
                         </div>
-                        <div className="bg-white border border-gray-100 p-4 rounded-xl shadow-sm sm:col-span-2">
-                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">Fitur Utama</p>
-                          <p className="text-sm font-bold text-brand">{selectedProduct.info.fitur}</p>
+                        <div className="col-span-2 bg-gray-50/50 p-3 rounded-xl">
+                          <p className="text-[9px] font-bold text-gray-400 uppercase mb-1">Fitur Utama</p>
+                          <p className="text-xs font-bold text-brand">{selectedProduct.info.fitur}</p>
                         </div>
                       </div>
                     </div>
@@ -681,8 +682,8 @@ const App = () => {
                 </div>
               </div>
 
-              {/* Purchase Box Section (Amazon Buy Box) */}
-              <div className="w-full lg:w-[400px] bg-gray-50 border-t lg:border-t-0 lg:border-l border-gray-200 p-6 md:p-10 overflow-y-auto">
+              {/* Purchase Box Section (Right) */}
+              <div className="w-full lg:w-[320px] xl:w-[360px] bg-gray-50 p-6 md:p-8 lg:p-10 shrink-0 flex flex-col justify-center border-t lg:border-t-0">
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm sticky top-0">
                   <p className="text-2xl font-bold text-brand mb-2">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
                   <p className="text-sm text-green-700 font-bold mb-6 flex items-center gap-1"><LucideIcon name="check-circle" className="w-4 h-4" /> Stok Tersedia</p>
@@ -726,13 +727,13 @@ const App = () => {
                         className="w-full bg-gray-50 border border-gray-100 rounded-xl py-2 px-4 text-sm focus:outline-none ring-accent"
                         value={userEmail} onChange={(e) => setUserEmail(e.target.value)}
                       />
-                      <div className="flex gap-2">
+                      <div className="flex gap-1.5">
                         <input
                           type="text" placeholder="Promo"
-                          className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-4 text-sm focus:outline-none text-brand font-bold uppercase"
+                          className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-3 text-[11px] focus:outline-none text-brand font-bold uppercase min-w-0"
                           value={promoInput} onChange={(e) => setPromoInput(e.target.value)}
                         />
-                        <button onClick={handleApplyPromo} className="bg-black text-white px-3 rounded-xl font-bold text-xs">Pasang</button>
+                        <button onClick={handleApplyPromo} className="bg-black text-white px-3 rounded-xl font-bold text-[10px] whitespace-nowrap">Pasang</button>
                       </div>
                     </div>
 
