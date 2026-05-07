@@ -499,71 +499,68 @@ const App = () => {
                 <h3 className="text-2xl font-bold">Keranjang</h3>
                 <button onClick={() => setIsCartOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
               </div>
-              <div className="flex-1 overflow-y-auto space-y-3">
+              <div className="flex-1 overflow-y-auto space-y-2">
                 {cart.length === 0 ? <p className="text-gray-400 text-center py-10">Keranjang kosong</p> : cart.map(item => (
-                  <div key={item.id} className="flex gap-3 items-center border-b border-gray-50 pb-3">
-                    <img src={item.gambar} className="w-14 h-14 object-cover rounded-lg shadow-sm" />
+                  <div key={item.id} className="flex gap-2 items-center border-b border-gray-50 pb-2">
+                    <img src={item.gambar} className="w-10 h-10 object-cover rounded-md shadow-sm" />
                     <div className="flex-1 min-w-0">
-                      <h5 className="font-bold text-brand text-xs truncate">{item.nama}</h5>
-                      <p className="text-[10px] text-accent font-bold mb-1">Rp {item.harga.toLocaleString('id-ID')}</p>
-                      <div className="flex items-center gap-2 bg-gray-100 w-fit rounded-md p-0.5">
-                        <button onClick={() => updateQuantity(item.id, -1)} className="p-1 bg-white rounded shadow-sm hover:text-red-500"><LucideIcon name="minus" className="w-2.5 h-2.5" /></button>
-                        <span className="text-[10px] font-bold w-3 text-center">{item.qty}</span>
-                        <button onClick={() => updateQuantity(item.id, 1)} className="p-1 bg-white rounded shadow-sm hover:text-accent"><LucideIcon name="plus" className="w-2.5 h-2.5" /></button>
+                      <h5 className="font-bold text-brand text-[10px] truncate leading-tight">{item.nama}</h5>
+                      <p className="text-[9px] text-accent font-bold mb-0.5">Rp {item.harga.toLocaleString('id-ID')}</p>
+                      <div className="flex items-center gap-1.5 bg-gray-100 w-fit rounded p-0.5">
+                        <button onClick={() => updateQuantity(item.id, -1)} className="p-0.5 bg-white rounded shadow-xs hover:text-red-500"><LucideIcon name="minus" className="w-2 h-2" /></button>
+                        <span className="text-[9px] font-bold w-2.5 text-center">{item.qty}</span>
+                        <button onClick={() => updateQuantity(item.id, 1)} className="p-0.5 bg-white rounded shadow-xs hover:text-accent"><LucideIcon name="plus" className="w-2 h-2" /></button>
                       </div>
                     </div>
-                    <button onClick={() => removeFromCart(item.id)} className="text-gray-300 hover:text-red-500 transition-colors p-1.5"><LucideIcon name="trash-2" className="w-4 h-4" /></button>
+                    <button onClick={() => removeFromCart(item.id)} className="text-gray-300 hover:text-red-500 transition-colors p-1"><LucideIcon name="trash-2" className="w-3.5 h-3.5" /></button>
                   </div>
                 ))}
               </div>
               {cart.length > 0 && (
-                <div className="pt-4 border-t space-y-3">
-                  <div className="grid grid-cols-2 gap-2">
+                <div className="pt-2 border-t space-y-2">
+                  <div className="grid grid-cols-2 gap-1.5">
                     <div className="col-span-2">
-                      <label className="text-[10px] font-bold text-brand uppercase tracking-widest mb-1 block">Kode Promo</label>
-                      <div className="flex gap-1.5">
+                      <div className="flex gap-1">
                         <input
                           type="text"
-                          placeholder="Kode"
-                          className="flex-1 bg-gray-50 border border-gray-100 rounded-lg py-1.5 px-3 text-[11px] focus:outline-none ring-accent text-brand font-bold uppercase min-w-0"
+                          placeholder="Kode Promo"
+                          className="flex-1 bg-gray-50 border border-gray-100 rounded-md py-1 px-2 text-[10px] focus:outline-none ring-accent text-brand font-bold uppercase min-w-0"
                           value={promoInput}
                           onChange={(e) => setPromoInput(e.target.value)}
                         />
-                        <button onClick={handleApplyPromo} className="bg-black text-white px-3 rounded-lg font-bold text-[10px] whitespace-nowrap">Pasang</button>
+                        <button onClick={handleApplyPromo} className="bg-black text-white px-2 rounded-md font-bold text-[9px] whitespace-nowrap">Pasang</button>
                       </div>
                     </div>
                     <div>
-                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 block">Nama</label>
                       <input
                         type="text"
                         placeholder="Nama"
-                        className="w-full bg-gray-50 border border-gray-100 rounded-lg py-1.5 px-3 text-xs focus:outline-none ring-accent"
+                        className="w-full bg-gray-50 border border-gray-100 rounded-md py-1 px-2 text-[10px] focus:outline-none ring-accent"
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 block">Email</label>
                       <input
                         type="email"
                         placeholder="Email"
-                        className="w-full bg-gray-50 border border-gray-100 rounded-lg py-1.5 px-3 text-xs focus:outline-none ring-accent"
+                        className="w-full bg-gray-50 border border-gray-100 rounded-md py-1 px-2 text-[10px] focus:outline-none ring-accent"
                         value={userEmail}
                         onChange={(e) => setUserEmail(e.target.value)}
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-1 border-t pt-3">
-                    <div className="flex justify-between text-[11px]">
-                      <span className="text-gray-400">Total Sementara ({cart.reduce((a,b)=>a+b.qty,0)} item)</span>
-                      <span className="font-bold text-brand text-lg">Rp {totalAkhir.toLocaleString('id-ID')}</span>
+                  <div className="space-y-0.5 border-t pt-2">
+                    <div className="flex justify-between text-[10px]">
+                      <span className="text-gray-400">Total ({cart.reduce((a,b)=>a+b.qty,0)} item)</span>
+                      <span className="font-bold text-brand text-sm">Rp {totalAkhir.toLocaleString('id-ID')}</span>
                     </div>
                     {appliedPromo && (
-                      <p className="text-[10px] text-green-600 font-bold">Promo {appliedPromo.code.toUpperCase()} Terpasang! (-{appliedPromo.discount}%)</p>
+                      <p className="text-[9px] text-green-600 font-bold">Promo {appliedPromo.code.toUpperCase()} (-{appliedPromo.discount}%)</p>
                     )}
                   </div>
-                  <button onClick={startCartCheckout} className="w-full bg-black text-white py-3 rounded-xl font-bold shadow-lg hover:bg-zinc-800 transition-all text-sm">Lanjut ke Checkout</button>
+                  <button onClick={startCartCheckout} className="w-full bg-black text-white py-2.5 rounded-lg font-bold shadow hover:bg-zinc-800 transition-all text-xs">Checkout</button>
                 </div>
               )}
             </motion.div>
@@ -647,20 +644,21 @@ const App = () => {
                     <LucideIcon name="chevron-left" className="w-3 h-3" /> Kembali ke Katalog
                   </button>
 
-                  <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
-                    <div className="w-full md:w-1/2 shrink-0">
-                      <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl border border-gray-50">
+                  <div className="flex flex-col gap-8">
+                    <div className="w-full">
+                      <div className="relative aspect-video md:aspect-[21/9] overflow-hidden rounded-3xl shadow-2xl border border-gray-50">
                         <img src={selectedProduct.gambar} className="w-full h-full object-cover" />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="mb-6">
+                      <div className="mb-8">
                         <p className="text-accent font-black uppercase tracking-widest text-xs mb-2">{selectedProduct.kategori}</p>
-                        <h3 className="text-4xl lg:text-5xl font-black text-brand mb-4 tracking-tight leading-tight">{selectedProduct.nama}</h3>
-                        <p className="text-gray-500 leading-relaxed text-base">{selectedProduct.deskripsi}</p>
+                        <h3 className="text-5xl lg:text-6xl font-black text-brand mb-6 tracking-tight leading-none">{selectedProduct.nama}</h3>
+                        <div className="h-1 w-20 bg-accent mb-6" />
+                        <p className="text-gray-600 leading-relaxed text-lg md:text-xl max-w-2xl">{selectedProduct.deskripsi}</p>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
                           <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Material</p>
                           <p className="text-sm font-bold text-brand">{selectedProduct.info.bahan}</p>
