@@ -27,7 +27,12 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Flat brim, 6 panels, Adjustable snap closure"
     },
-    gambar: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop"
+    gambar: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
+    galeri: [
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop"
+    ]
   },
   {
     id: 2,
@@ -40,7 +45,12 @@ const PRODUCTS = [
       ukuran: "Stretch (One size fits most)",
       fitur: "Soft texture, Breathable, Foldable cuff"
     },
-    gambar: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop"
+    gambar: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
+    galeri: [
+      "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1605341234120-e4b2d189196b?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1576135898375-f93539744c80?q=80&w=1000&auto=format&fit=crop"
+    ]
   },
   {
     id: 3,
@@ -53,7 +63,12 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable mesh back, Curved brim, Snap closure"
     },
-    gambar: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop"
+    gambar: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
+    galeri: [
+      "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1523380744952-b7e00e6da373?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop"
+    ]
   },
   {
     id: 4,
@@ -66,7 +81,12 @@ const PRODUCTS = [
       ukuran: "All Size (Metal strap)",
       fitur: "Unstructured crown, Curved peak, Vintage look"
     },
-    gambar: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop"
+    gambar: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
+    galeri: [
+      "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?q=80&w=1000&auto=format&fit=crop"
+    ]
   },
   {
     id: 5,
@@ -79,7 +99,12 @@ const PRODUCTS = [
       ukuran: "Medium/Large",
       fitur: "Wide brim, Foldable, Lightweight"
     },
-    gambar: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
+    gambar: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
+    galeri: [
+      "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1589487391730-58f20eb2c308?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?q=80&w=1000&auto=format&fit=crop"
+    ]
   },
   {
     id: 6,
@@ -92,7 +117,12 @@ const PRODUCTS = [
       ukuran: "Fixed (58cm)",
       fitur: "Stiff brim, Ribbon band, Elegant lining"
     },
-    gambar: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
+    gambar: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
+    galeri: [
+      "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1490427712608-588e68359ad0?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1000&auto=format&fit=crop"
+    ]
   },
   {
     id: 7,
@@ -105,7 +135,12 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable, Sweatband, Reflective detail"
     },
-    gambar: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
+    gambar: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
+    galeri: [
+      "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?q=80&w=1000&auto=format&fit=crop"
+    ]
   },
   {
     id: 8,
@@ -118,7 +153,12 @@ const PRODUCTS = [
       ukuran: "All Size (Metal Buckle)",
       fitur: "Soft texture, Durable, Retro design"
     },
-    gambar: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
+    gambar: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
+    galeri: [
+      "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?q=80&w=1000&auto=format&fit=crop"
+    ]
   }
 ];
 
@@ -131,6 +171,7 @@ const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [activeAngleIndex, setActiveAngleIndex] = useState(0);
   const [scrollPos, setScrollPos] = useState(0);
   const [notifications, setNotifications] = useState([]);
   const [userName, setUserName] = useState("");
@@ -220,6 +261,7 @@ const App = () => {
     if (msg) {
       window.open(`https://wa.me/${WA_NUMBER.replace('+', '')}?text=${msg}`, '_blank');
       setSelectedProduct(null);
+      setActiveAngleIndex(0);
     }
   };
 
@@ -301,6 +343,15 @@ const App = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 opacity-50" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`, backgroundPosition: 'center', backgroundSize: 'cover', transform: `translateY(${scrollPos * 0.5}px)` }} />
+
+        {/* Decorative Foreground Parallax Layer */}
+        <div
+          className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none select-none opacity-10"
+          style={{ transform: `translateY(${scrollPos * -0.2}px)` }}
+        >
+          <span className="text-[25vw] font-black text-white leading-none">TKTM</span>
+        </div>
+
         <div className="relative z-10 text-center px-4">
           <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-white text-5xl md:text-8xl font-black mb-4">TOPIKU TOPIMU</motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-gray-300 text-lg md:text-2xl max-w-2xl mx-auto">Koleksi eksklusif untuk melengkapi gaya harianmu. TKTM hadir untuk kenyamanan dan estetika.</motion.p>
@@ -327,7 +378,7 @@ const App = () => {
                 transition={{ type: "spring", stiffness: 200, damping: 25 }}
               >
                 {recs.map((product) => (
-                  <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
+                  <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); setActiveAngleIndex(0); }}>
                     <img src={product.gambar} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <div className="absolute bottom-10 left-10 text-white">
@@ -395,7 +446,7 @@ const App = () => {
                     key={product.id}
                     className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col"
                   >
-                    <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
+                    <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); setActiveAngleIndex(0); }}>
                       <img src={product.gambar} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                       {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase">Best Seller</div>}
                     </div>
@@ -409,7 +460,7 @@ const App = () => {
                           {product.harga.toLocaleString('id-ID')}
                         </p>
                         <button onClick={() => addToCart(product)} className="w-full bg-white border border-gray-200 hover:bg-gray-50 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Tambah Keranjang</button>
-                        <button onClick={() => { setSelectedProduct(product); }} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
+                        <button onClick={() => { setSelectedProduct(product); setActiveAngleIndex(0); }} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
                       </div>
                     </div>
                   </motion.div>
@@ -635,20 +686,55 @@ const App = () => {
       <AnimatePresence>
         {selectedProduct && (
           <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedProduct(null)} className="fixed inset-0 bg-black/80 z-[100] backdrop-blur-md" />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => { setSelectedProduct(null); setActiveAngleIndex(0); }} className="fixed inset-0 bg-black/80 z-[100] backdrop-blur-md" />
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed inset-0 lg:inset-20 bg-white z-[110] lg:rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-gray-100">
               {/* Product Info Section (Left) */}
               <div className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-12 bg-white">
                 <div className="max-w-4xl mx-auto">
-                  <button onClick={() => setSelectedProduct(null)} className="mb-6 inline-flex items-center gap-1.5 text-[11px] font-bold text-accent hover:opacity-80 transition-opacity uppercase tracking-widest">
+                  <button onClick={() => { setSelectedProduct(null); setActiveAngleIndex(0); }} className="mb-6 inline-flex items-center gap-1.5 text-[11px] font-bold text-accent hover:opacity-80 transition-opacity uppercase tracking-widest">
                     <LucideIcon name="chevron-left" className="w-3 h-3" /> Kembali ke Katalog
                   </button>
 
                   <div className="flex flex-col gap-8">
                     <div className="w-full">
                       <div className="relative aspect-video md:aspect-[21/9] overflow-hidden rounded-3xl shadow-2xl border border-gray-50">
-                        <img src={selectedProduct.gambar} className="w-full h-full object-cover" />
+                        <AnimatePresence mode='wait'>
+                          <motion.img
+                            key={activeAngleIndex}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            src={selectedProduct.galeri ? selectedProduct.galeri[activeAngleIndex] : selectedProduct.gambar}
+                            className="w-full h-full object-cover"
+                          />
+                        </AnimatePresence>
                       </div>
+
+                      {/* Ganti Sudut Pandang Gallery */}
+                      {selectedProduct.galeri && (
+                        <div className="mt-6">
+                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 text-center">Pilih Sudut Pandang</p>
+                          <div className="flex justify-center gap-4">
+                            {selectedProduct.galeri.map((img, idx) => (
+                              <button
+                                key={idx}
+                                onClick={() => setActiveAngleIndex(idx)}
+                                className={`relative w-20 h-20 rounded-xl overflow-hidden border-2 transition-all ${activeAngleIndex === idx ? 'border-accent scale-110 shadow-lg' : 'border-transparent opacity-60 hover:opacity-100'}`}
+                              >
+                                <img src={img} className="w-full h-full object-cover" />
+                                {activeAngleIndex === idx && (
+                                  <div className="absolute inset-0 bg-accent/10 flex items-center justify-center">
+                                    <div className="bg-accent text-white rounded-full p-1">
+                                      <LucideIcon name="check" className="w-3 h-3" />
+                                    </div>
+                                  </div>
+                                )}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="mb-8">
@@ -664,11 +750,11 @@ const App = () => {
                           <p className="text-sm font-bold text-brand">{selectedProduct.info.bahan}</p>
                         </div>
                         <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Size</p>
+                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Ukuran</p>
                           <p className="text-sm font-bold text-brand">{selectedProduct.info.ukuran}</p>
                         </div>
                         <div className="col-span-2 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Highlight</p>
+                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Keunggulan</p>
                           <p className="text-sm font-bold text-brand">{selectedProduct.info.fitur}</p>
                         </div>
                       </div>
