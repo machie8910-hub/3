@@ -14,7 +14,7 @@ const Motion = window.Motion || {
 };
 const { motion, AnimatePresence } = Motion;
 
-// Mock Data Produk
+// Mock Data Produk dengan Multi-Angle
 const PRODUCTS = [
   {
     id: 1,
@@ -23,11 +23,15 @@ const PRODUCTS = [
     kategori: "Snapback",
     deskripsi: "Topi snapback klasik dengan desain minimalis namun elegan. Cocok untuk penggunaan sehari-hari maupun acara kasual.",
     info: {
-      bahan: "Cotton Twill Premium",
-      ukuran: "All Size (Adjustable)",
-      fitur: "Flat brim, 6 panels, Adjustable snap closure"
+      bahan: "Katun Twill Premium",
+      ukuran: "Semua Ukuran (Dapat Disesuaikan)",
+      fitur: "Brim datar, 6 panel, Penutup snap yang dapat disesuaikan"
     },
-    gambar: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 2,
@@ -36,11 +40,15 @@ const PRODUCTS = [
     kategori: "Beanie",
     deskripsi: "Beanie rajut hangat dengan material lembut yang tidak gatal di kulit. Pilihan tepat untuk cuaca dingin atau gaya streetwear.",
     info: {
-      bahan: "Acrylic Knit Wool",
-      ukuran: "Stretch (One size fits most)",
-      fitur: "Soft texture, Breathable, Foldable cuff"
+      bahan: "Wol Rajut Akrilik",
+      ukuran: "Elastis (Satu ukuran untuk semua)",
+      fitur: "Tekstur lembut, Dingin, Manset dapat dilipat"
     },
-    gambar: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 3,
@@ -49,11 +57,15 @@ const PRODUCTS = [
     kategori: "Trucker",
     deskripsi: "Topi trucker dengan jaring di bagian belakang untuk sirkulasi udara maksimal. Nyaman digunakan di bawah sinar matahari.",
     info: {
-      bahan: "Polyester Mesh & Cotton",
-      ukuran: "All Size (Adjustable)",
-      fitur: "Breathable mesh back, Curved brim, Snap closure"
+      bahan: "Jaring Poliester & Katun",
+      ukuran: "Semua Ukuran (Dapat Disesuaikan)",
+      fitur: "Bagian belakang jaring, Brim melengkung, Penutup snap"
     },
-    gambar: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 4,
@@ -62,11 +74,15 @@ const PRODUCTS = [
     kategori: "Dad Hat",
     deskripsi: "Topi bergaya vintage dengan kesan 'washed' yang memberikan karakter unik. Material katun berkualitas tinggi.",
     info: {
-      bahan: "Washed Cotton",
-      ukuran: "All Size (Metal strap)",
-      fitur: "Unstructured crown, Curved peak, Vintage look"
+      bahan: "Katun Washed",
+      ukuran: "Semua Ukuran (Tali Logam)",
+      fitur: "Mahkota tidak terstruktur, Puncak melengkung, Tampilan Vintage"
     },
-    gambar: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 5,
@@ -75,11 +91,15 @@ const PRODUCTS = [
     kategori: "Bucket Hat",
     deskripsi: "Topi bucket yang trendi dan serbaguna, memberikan perlindungan maksimal dari sinar matahari dengan gaya yang santai.",
     info: {
-      bahan: "Canvas Cotton",
-      ukuran: "Medium/Large",
-      fitur: "Wide brim, Foldable, Lightweight"
+      bahan: "Katun Kanvas",
+      ukuran: "Sedang/Besar",
+      fitur: "Brim lebar, Dapat dilipat, Ringan"
     },
-    gambar: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 6,
@@ -88,11 +108,15 @@ const PRODUCTS = [
     kategori: "Fedora",
     deskripsi: "Sentuhan klasik untuk penampilan formal maupun semi-formal. Dibuat dengan presisi untuk kenyamanan sepanjang hari.",
     info: {
-      bahan: "Wool Felt",
-      ukuran: "Fixed (58cm)",
-      fitur: "Stiff brim, Ribbon band, Elegant lining"
+      bahan: "Wol Felt",
+      ukuran: "Tetap (58cm)",
+      fitur: "Brim kaku, Pita pita, Lapisan elegan"
     },
-    gambar: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 7,
@@ -101,11 +125,15 @@ const PRODUCTS = [
     kategori: "Sport",
     deskripsi: "Topi olahraga dengan teknologi 'moisture-wicking' untuk menjaga kepala tetap kering saat beraktivitas berat.",
     info: {
-      bahan: "Micro-Polyester",
-      ukuran: "All Size (Adjustable)",
-      fitur: "Breathable, Sweatband, Reflective detail"
+      bahan: "Mikro-Poliester",
+      ukuran: "Semua Ukuran (Dapat Disesuaikan)",
+      fitur: "Dingin, Penahan keringat, Detail reflektif"
     },
-    gambar: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop"
+    }
   },
   {
     id: 8,
@@ -114,11 +142,15 @@ const PRODUCTS = [
     kategori: "Lifestyle",
     deskripsi: "Topi corduroy dengan tekstur unik yang memberikan kesan retro namun tetap modern. Pilihan gaya untuk semua musim.",
     info: {
-      bahan: "Premium Corduroy",
-      ukuran: "All Size (Metal Buckle)",
-      fitur: "Soft texture, Durable, Retro design"
+      bahan: "Corduroy Premium",
+      ukuran: "Semua Ukuran (Gesper Logam)",
+      fitur: "Tekstur lembut, Tahan lama, Desain Retro"
     },
-    gambar: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
+      belakang: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop"
+    }
   }
 ];
 
@@ -131,6 +163,7 @@ const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [activeAngle, setActiveAngle] = useState("depan");
   const [scrollPos, setScrollPos] = useState(0);
   const [notifications, setNotifications] = useState([]);
   const [userName, setUserName] = useState("");
@@ -299,9 +332,9 @@ const App = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        <div className="absolute inset-0 opacity-50" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`, backgroundPosition: 'center', backgroundSize: 'cover', transform: `translateY(${scrollPos * 0.5}px)` }} />
-        <div className="relative z-10 text-center px-4">
+      <section className="relative h-[110vh] flex items-center justify-center overflow-hidden bg-black parallax-wrapper">
+        <div className="absolute inset-0 opacity-60 scale-110" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`, backgroundPosition: 'center', backgroundSize: 'cover', transform: `translateY(${scrollPos * 0.4}px) translateZ(-10px) scale(1.5)` }} />
+        <div className="relative z-10 text-center px-4" style={{ transform: `translateY(${scrollPos * -0.1}px)` }}>
           <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-white text-5xl md:text-8xl font-black mb-4">TOPIKU TOPIMU</motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-gray-300 text-lg md:text-2xl max-w-2xl mx-auto">Koleksi eksklusif untuk melengkapi gaya harianmu. TKTM hadir untuk kenyamanan dan estetika.</motion.p>
           <div className="mt-8">
@@ -327,8 +360,8 @@ const App = () => {
                 transition={{ type: "spring", stiffness: 200, damping: 25 }}
               >
                 {recs.map((product) => (
-                  <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
-                    <img src={product.gambar} className="w-full h-full object-cover" />
+                  <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); setActiveAngle("depan"); }}>
+                    <img src={product.images.depan} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <div className="absolute bottom-10 left-10 text-white">
                       <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">{product.kategori}</p>
@@ -395,9 +428,9 @@ const App = () => {
                     key={product.id}
                     className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col"
                   >
-                    <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
-                      <img src={product.gambar} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                      {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase">Best Seller</div>}
+                    <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); setActiveAngle("depan"); }}>
+                      <img src={product.images.depan} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase">Terlaris</div>}
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
                       <p className="text-xs text-gray-500 mb-1">{product.kategori}</p>
@@ -409,7 +442,7 @@ const App = () => {
                           {product.harga.toLocaleString('id-ID')}
                         </p>
                         <button onClick={() => addToCart(product)} className="w-full bg-white border border-gray-200 hover:bg-gray-50 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Tambah Keranjang</button>
-                        <button onClick={() => { setSelectedProduct(product); }} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
+                        <button onClick={() => { setSelectedProduct(product); setActiveAngle("depan"); }} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
                       </div>
                     </div>
                   </motion.div>
@@ -425,7 +458,7 @@ const App = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
           <div>
             <h4 className="text-3xl font-black mb-6">TKTM</h4>
-            <p className="text-gray-400 mb-6">Topiku Topimu. Platform e-commerce topi nomor satu with kualitas tanpa kompromi.</p>
+            <p className="text-gray-400 mb-6">Topiku Topimu. Platform e-commerce topi nomor satu dengan kualitas tanpa kompromi.</p>
             <div className="flex gap-4">
               <a href="https://www.instagram.com/machie109?igsh=MXBwNDRqZzRpaTZycQ==" target="_blank" className="bg-white/10 p-3 rounded-full hover:bg-accent transition-all">
                 <LucideIcon name="instagram" className="w-5 h-5" />
@@ -502,7 +535,7 @@ const App = () => {
               <div className="flex-1 overflow-y-auto space-y-2">
                 {cart.length === 0 ? <p className="text-gray-400 text-center py-10">Keranjang kosong</p> : cart.map(item => (
                   <div key={item.id} className="flex gap-2 items-center border-b border-gray-50 pb-2">
-                    <img src={item.gambar} className="w-10 h-10 object-cover rounded-md shadow-sm" />
+                    <img src={item.images.depan} className="w-10 h-10 object-cover rounded-md shadow-sm" />
                     <div className="flex-1 min-w-0">
                       <h5 className="font-bold text-brand text-[10px] truncate leading-tight">{item.nama}</h5>
                       <p className="text-[9px] text-accent font-bold mb-0.5">Rp {item.harga.toLocaleString('id-ID')}</p>
@@ -647,7 +680,37 @@ const App = () => {
                   <div className="flex flex-col gap-8">
                     <div className="w-full">
                       <div className="relative aspect-video md:aspect-[21/9] overflow-hidden rounded-3xl shadow-2xl border border-gray-50">
-                        <img src={selectedProduct.gambar} className="w-full h-full object-cover" />
+                        <AnimatePresence mode="wait">
+                          <motion.img
+                            key={activeAngle}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            src={selectedProduct.images[activeAngle]}
+                            className="w-full h-full object-cover"
+                          />
+                        </AnimatePresence>
+
+                        {/* Angle Toggle UI */}
+                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+                          {["depan", "belakang", "samping"].map((angle) => (
+                            <button
+                              key={angle}
+                              onClick={() => setActiveAngle(angle)}
+                              className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
+                                activeAngle === angle
+                                  ? "bg-accent text-white shadow-lg scale-110"
+                                  : "bg-white/80 text-brand hover:bg-white"
+                              }`}
+                            >
+                              {angle}
+                            </button>
+                          ))}
+                        </div>
+
+                        <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-white/30">
+                          <p className="text-[9px] font-bold text-white uppercase tracking-tighter">Ganti Sudut Pandang</p>
+                        </div>
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -664,11 +727,11 @@ const App = () => {
                           <p className="text-sm font-bold text-brand">{selectedProduct.info.bahan}</p>
                         </div>
                         <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Size</p>
+                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Ukuran</p>
                           <p className="text-sm font-bold text-brand">{selectedProduct.info.ukuran}</p>
                         </div>
                         <div className="col-span-2 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Highlight</p>
+                          <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Unggulan</p>
                           <p className="text-sm font-bold text-brand">{selectedProduct.info.fitur}</p>
                         </div>
                       </div>
