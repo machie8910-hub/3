@@ -21,104 +21,144 @@ const PRODUCTS = [
     nama: "Classic Snapback",
     harga: 150000,
     kategori: "Snapback",
+    terjual: 1200,
     deskripsi: "Topi snapback klasik dengan desain minimalis namun elegan. Cocok untuk penggunaan sehari-hari maupun acara kasual.",
     info: {
       bahan: "Cotton Twill Premium",
       ukuran: "All Size (Adjustable)",
       fitur: "Flat brim, 6 panels, Adjustable snap closure"
     },
-    gambar: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 2,
     nama: "Urban Beanie",
     harga: 120000,
     kategori: "Beanie",
+    terjual: 850,
     deskripsi: "Beanie rajut hangat dengan material lembut yang tidak gatal di kulit. Pilihan tepat untuk cuaca dingin atau gaya streetwear.",
     info: {
       bahan: "Acrylic Knit Wool",
       ukuran: "Stretch (One size fits most)",
       fitur: "Soft texture, Breathable, Foldable cuff"
     },
-    gambar: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 3,
     nama: "Trucker Mesh",
     harga: 135000,
     kategori: "Trucker",
+    terjual: 1500,
     deskripsi: "Topi trucker dengan jaring di bagian belakang untuk sirkulasi udara maksimal. Nyaman digunakan di bawah sinar matahari.",
     info: {
       bahan: "Polyester Mesh & Cotton",
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable mesh back, Curved brim, Snap closure"
     },
-    gambar: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 4,
     nama: "Vintage Dad Hat",
     harga: 145000,
     kategori: "Dad Hat",
+    terjual: 900,
     deskripsi: "Topi bergaya vintage dengan kesan 'washed' yang memberikan karakter unik. Material katun berkualitas tinggi.",
     info: {
       bahan: "Washed Cotton",
       ukuran: "All Size (Metal strap)",
       fitur: "Unstructured crown, Curved peak, Vintage look"
     },
-    gambar: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 5,
     nama: "Explorer Bucket Hat",
     harga: 160000,
     kategori: "Bucket Hat",
+    terjual: 1100,
     deskripsi: "Topi bucket yang trendi dan serbaguna, memberikan perlindungan maksimal dari sinar matahari dengan gaya yang santai.",
     info: {
       bahan: "Canvas Cotton",
       ukuran: "Medium/Large",
       fitur: "Wide brim, Foldable, Lightweight"
     },
-    gambar: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 6,
     nama: "Classic Fedora",
     harga: 250000,
     kategori: "Fedora",
+    terjual: 300,
     deskripsi: "Sentuhan klasik untuk penampilan formal maupun semi-formal. Dibuat dengan presisi untuk kenyamanan sepanjang hari.",
     info: {
       bahan: "Wool Felt",
       ukuran: "Fixed (58cm)",
       fitur: "Stiff brim, Ribbon band, Elegant lining"
     },
-    gambar: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 7,
     nama: "Performance Sport Cap",
     harga: 175000,
     kategori: "Sport",
+    terjual: 2000,
     deskripsi: "Topi olahraga dengan teknologi 'moisture-wicking' untuk menjaga kepala tetap kering saat beraktivitas berat.",
     info: {
       bahan: "Micro-Polyester",
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable, Sweatband, Reflective detail"
     },
-    gambar: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 8,
     nama: "Premium Corduroy",
     harga: 185000,
     kategori: "Lifestyle",
+    terjual: 500,
     deskripsi: "Topi corduroy dengan tekstur unik yang memberikan kesan retro namun tetap modern. Pilihan gaya untuk semua musim.",
     info: {
       bahan: "Premium Corduroy",
       ukuran: "All Size (Metal Buckle)",
       fitur: "Soft texture, Durable, Retro design"
     },
-    gambar: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   }
 ];
 
@@ -138,6 +178,7 @@ const App = () => {
   const [promoInput, setPromoInput] = useState("");
   const [checkoutItems, setCheckoutItems] = useState(null); // items to checkout
   const [appliedPromo, setAppliedPromo] = useState(null); // { code: string, discount: number }
+  const [activeAngle, setActiveAngle] = useState("depan");
 
   const CATEGORIES = ["Semua", "Snapback", "Beanie", "Trucker", "Dad Hat", "Bucket Hat", "Fedora", "Sport", "Lifestyle"];
 
@@ -150,6 +191,10 @@ const App = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (selectedProduct) setActiveAngle("depan");
+  }, [selectedProduct]);
 
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter(p => {
@@ -173,7 +218,7 @@ const App = () => {
       if (existing) {
         return prev.map(item => item.id === product.id ? { ...item, qty: item.qty + 1 } : item);
       }
-      return [...prev, { ...product, qty: 1 }];
+      return [...prev, { ...product, qty: 1, currentImage: product.images.depan }];
     });
     showNotification(`${product.nama} ditambahkan ke keranjang!`);
   };
@@ -299,8 +344,16 @@ const App = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        <div className="absolute inset-0 opacity-50" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`, backgroundPosition: 'center', backgroundSize: 'cover', transform: `translateY(${scrollPos * 0.5}px)` }} />
+      <section className="relative h-[110vh] flex items-center justify-center overflow-hidden bg-black">
+        <div
+          className="absolute inset-0 opacity-50"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            transform: `translateY(${scrollPos * 0.4}px) scale(${1 + scrollPos * 0.0005})`
+          }}
+        />
         <div className="relative z-10 text-center px-4">
           <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-white text-5xl md:text-8xl font-black mb-4">TOPIKU TOPIMU</motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-gray-300 text-lg md:text-2xl max-w-2xl mx-auto">Koleksi eksklusif untuk melengkapi gaya harianmu. TKTM hadir untuk kenyamanan dan estetika.</motion.p>
@@ -328,7 +381,7 @@ const App = () => {
               >
                 {recs.map((product) => (
                   <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
-                    <img src={product.gambar} className="w-full h-full object-cover" />
+                    <img src={product.images.depan} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <div className="absolute bottom-10 left-10 text-white">
                       <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">{product.kategori}</p>
@@ -396,8 +449,8 @@ const App = () => {
                     className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col"
                   >
                     <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
-                      <img src={product.gambar} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                      {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase">Best Seller</div>}
+                      <img src={product.images.depan} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase tracking-wider">TERLARIS</div>}
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
                       <p className="text-xs text-gray-500 mb-1">{product.kategori}</p>
@@ -502,10 +555,10 @@ const App = () => {
               <div className="flex-1 overflow-y-auto space-y-2">
                 {cart.length === 0 ? <p className="text-gray-400 text-center py-10">Keranjang kosong</p> : cart.map(item => (
                   <div key={item.id} className="flex gap-2 items-center border-b border-gray-50 pb-2">
-                    <img src={item.gambar} className="w-10 h-10 object-cover rounded-md shadow-sm" />
+                    <img src={item.currentImage} className="w-10 h-10 object-cover rounded-md shadow-sm" />
                     <div className="flex-1 min-w-0">
-                      <h5 className="font-bold text-brand text-[10px] truncate leading-tight">{item.nama}</h5>
-                      <p className="text-[9px] text-accent font-bold mb-0.5">Rp {item.harga.toLocaleString('id-ID')}</p>
+                      <h5 className="font-bold text-brand text-xs truncate leading-tight">{item.nama}</h5>
+                      <p className="text-[10px] text-accent font-bold mb-0.5">Rp {item.harga.toLocaleString('id-ID')}</p>
                       <div className="flex items-center gap-1.5 bg-gray-100 w-fit rounded p-0.5">
                         <button onClick={() => updateQuantity(item.id, -1)} className="p-0.5 bg-white rounded shadow-xs hover:text-red-500"><LucideIcon name="minus" className="w-2 h-2" /></button>
                         <span className="text-[9px] font-bold w-2.5 text-center">{item.qty}</span>
@@ -645,9 +698,33 @@ const App = () => {
                   </button>
 
                   <div className="flex flex-col gap-8">
-                    <div className="w-full">
-                      <div className="relative aspect-video md:aspect-[21/9] overflow-hidden rounded-3xl shadow-2xl border border-gray-50">
-                        <img src={selectedProduct.gambar} className="w-full h-full object-cover" />
+                    <div className="w-full space-y-4">
+                      <div className="relative aspect-video md:aspect-[21/9] overflow-hidden rounded-3xl shadow-2xl border border-gray-50 bg-gray-100">
+                        <AnimatePresence mode="wait">
+                          <motion.img
+                            key={activeAngle}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.3 }}
+                            src={selectedProduct.images[activeAngle]}
+                            className="w-full h-full object-cover"
+                          />
+                        </AnimatePresence>
+                      </div>
+                      <div className="flex justify-center gap-4">
+                        {Object.keys(selectedProduct.images).map((angle) => (
+                          <button
+                            key={angle}
+                            onClick={() => setActiveAngle(angle)}
+                            className={`group relative w-20 h-20 rounded-xl overflow-hidden border-2 transition-all ${activeAngle === angle ? 'border-accent scale-105 shadow-lg' : 'border-transparent hover:border-gray-300'}`}
+                          >
+                            <img src={selectedProduct.images[angle]} className="w-full h-full object-cover" />
+                            <div className={`absolute inset-0 bg-black/20 flex items-center justify-center transition-opacity ${activeAngle === angle ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'}`}>
+                              <span className="text-[10px] text-white font-bold uppercase">{angle}</span>
+                            </div>
+                          </button>
+                        ))}
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
