@@ -1,3 +1,8 @@
+@theme {
+  --color-brand: #1a1a1a;
+  --color-accent: #f59e0b;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
