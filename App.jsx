@@ -21,104 +21,144 @@ const PRODUCTS = [
     nama: "Classic Snapback",
     harga: 150000,
     kategori: "Snapback",
+    terjual: 1250,
     deskripsi: "Topi snapback klasik dengan desain minimalis namun elegan. Cocok untuk penggunaan sehari-hari maupun acara kasual.",
     info: {
       bahan: "Cotton Twill Premium",
       ukuran: "All Size (Adjustable)",
       fitur: "Flat brim, 6 panels, Adjustable snap closure"
     },
-    gambar: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 2,
     nama: "Urban Beanie",
     harga: 120000,
     kategori: "Beanie",
+    terjual: 850,
     deskripsi: "Beanie rajut hangat dengan material lembut yang tidak gatal di kulit. Pilihan tepat untuk cuaca dingin atau gaya streetwear.",
     info: {
       bahan: "Acrylic Knit Wool",
       ukuran: "Stretch (One size fits most)",
       fitur: "Soft texture, Breathable, Foldable cuff"
     },
-    gambar: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 3,
     nama: "Trucker Mesh",
     harga: 135000,
     kategori: "Trucker",
+    terjual: 1100,
     deskripsi: "Topi trucker dengan jaring di bagian belakang untuk sirkulasi udara maksimal. Nyaman digunakan di bawah sinar matahari.",
     info: {
       bahan: "Polyester Mesh & Cotton",
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable mesh back, Curved brim, Snap closure"
     },
-    gambar: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 4,
     nama: "Vintage Dad Hat",
     harga: 145000,
     kategori: "Dad Hat",
+    terjual: 450,
     deskripsi: "Topi bergaya vintage dengan kesan 'washed' yang memberikan karakter unik. Material katun berkualitas tinggi.",
     info: {
       bahan: "Washed Cotton",
       ukuran: "All Size (Metal strap)",
       fitur: "Unstructured crown, Curved peak, Vintage look"
     },
-    gambar: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 5,
     nama: "Explorer Bucket Hat",
     harga: 160000,
     kategori: "Bucket Hat",
+    terjual: 1500,
     deskripsi: "Topi bucket yang trendi dan serbaguna, memberikan perlindungan maksimal dari sinar matahari dengan gaya yang santai.",
     info: {
       bahan: "Canvas Cotton",
       ukuran: "Medium/Large",
       fitur: "Wide brim, Foldable, Lightweight"
     },
-    gambar: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 6,
     nama: "Classic Fedora",
     harga: 250000,
     kategori: "Fedora",
+    terjual: 320,
     deskripsi: "Sentuhan klasik untuk penampilan formal maupun semi-formal. Dibuat dengan presisi untuk kenyamanan sepanjang hari.",
     info: {
       bahan: "Wool Felt",
       ukuran: "Fixed (58cm)",
       fitur: "Stiff brim, Ribbon band, Elegant lining"
     },
-    gambar: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 7,
     nama: "Performance Sport Cap",
     harga: 175000,
     kategori: "Sport",
+    terjual: 2100,
     deskripsi: "Topi olahraga dengan teknologi 'moisture-wicking' untuk menjaga kepala tetap kering saat beraktivitas berat.",
     info: {
       bahan: "Micro-Polyester",
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable, Sweatband, Reflective detail"
     },
-    gambar: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   },
   {
     id: 8,
     nama: "Premium Corduroy",
     harga: 185000,
     kategori: "Lifestyle",
+    terjual: 670,
     deskripsi: "Topi corduroy dengan tekstur unik yang memberikan kesan retro namun tetap modern. Pilihan gaya untuk semua musim.",
     info: {
       bahan: "Premium Corduroy",
       ukuran: "All Size (Metal Buckle)",
       fitur: "Soft texture, Durable, Retro design"
     },
-    gambar: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    }
   }
 ];
 
@@ -131,6 +171,8 @@ const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [activeAngle, setActiveAngle] = useState('depan');
+  const [modalQty, setModalQty] = useState(1);
   const [scrollPos, setScrollPos] = useState(0);
   const [notifications, setNotifications] = useState([]);
   const [userName, setUserName] = useState("");
@@ -167,20 +209,26 @@ const App = () => {
     }, 3000);
   };
 
-  const addToCart = (product) => {
+  const openProductModal = (product) => {
+    setSelectedProduct(product);
+    setActiveAngle('depan');
+    setModalQty(1);
+  };
+
+  const addToCart = (product, angle = 'depan', qty = 1) => {
     setCart(prev => {
-      const existing = prev.find(item => item.id === product.id);
+      const existing = prev.find(item => item.id === product.id && item.angle === angle);
       if (existing) {
-        return prev.map(item => item.id === product.id ? { ...item, qty: item.qty + 1 } : item);
+        return prev.map(item => (item.id === product.id && item.angle === angle) ? { ...item, qty: item.qty + qty } : item);
       }
-      return [...prev, { ...product, qty: 1 }];
+      return [...prev, { ...product, angle, qty }];
     });
     showNotification(`${product.nama} ditambahkan ke keranjang!`);
   };
 
-  const updateQuantity = (id, delta) => {
+  const updateQuantityWithAngle = (id, angle, delta) => {
     setCart(prev => prev.map(item => {
-      if (item.id === id) {
+      if (item.id === id && item.angle === angle) {
         const newQty = Math.max(0, item.qty + delta);
         return { ...item, qty: newQty };
       }
@@ -188,8 +236,8 @@ const App = () => {
     }).filter(item => item.qty > 0));
   };
 
-  const removeFromCart = (id) => {
-    setCart(prev => prev.filter(item => item.id !== id));
+  const removeFromCart = (id, angle) => {
+    setCart(prev => prev.filter(item => !(item.id === id && item.angle === angle)));
   };
 
   const generateWAMessage = (items) => {
@@ -202,7 +250,7 @@ const App = () => {
     const discount = appliedPromo ? Math.floor(itemsTotal * (appliedPromo.discount / 100)) : 0;
     const finalTotal = itemsTotal - discount;
 
-    let list = items.map(item => `- ${item.nama} (${item.qty || 1}x)`).join('\n');
+    let list = items.map(item => `- ${item.nama} [${item.angle}] (${item.qty || 1}x)`).join('\n');
     let message = `Halo TKTM, saya ingin memesan (Metode: COD):\n\nNama Pembeli: ${userName}\nEmail: ${userEmail}\n\n${list}\n\nSubtotal: Rp ${itemsTotal.toLocaleString('id-ID')}`;
 
     if (appliedPromo) {
@@ -213,10 +261,8 @@ const App = () => {
     return encodeURIComponent(message);
   };
 
-  const buyNowWA = (product) => {
-    const inCart = cart.find(item => item.id === product.id);
-    const qty = inCart ? inCart.qty : 1;
-    const msg = generateWAMessage([{ ...product, qty }]);
+  const buyNowWA = (product, angle, qty) => {
+    const msg = generateWAMessage([{ ...product, angle, qty }]);
     if (msg) {
       window.open(`https://wa.me/${WA_NUMBER.replace('+', '')}?text=${msg}`, '_blank');
       setSelectedProduct(null);
@@ -299,8 +345,17 @@ const App = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        <div className="absolute inset-0 opacity-50" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`, backgroundPosition: 'center', backgroundSize: 'cover', transform: `translateY(${scrollPos * 0.5}px)` }} />
+      <section className="relative h-[110vh] flex items-center justify-center overflow-hidden bg-black">
+        <motion.div
+          className="absolute inset-0 opacity-50"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            y: scrollPos * 0.4,
+            scale: 1 + scrollPos * 0.0005
+          }}
+        />
         <div className="relative z-10 text-center px-4">
           <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-white text-5xl md:text-8xl font-black mb-4">TOPIKU TOPIMU</motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-gray-300 text-lg md:text-2xl max-w-2xl mx-auto">Koleksi eksklusif untuk melengkapi gaya harianmu. TKTM hadir untuk kenyamanan dan estetika.</motion.p>
@@ -327,8 +382,8 @@ const App = () => {
                 transition={{ type: "spring", stiffness: 200, damping: 25 }}
               >
                 {recs.map((product) => (
-                  <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
-                    <img src={product.gambar} className="w-full h-full object-cover" />
+                  <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { openProductModal(product); }}>
+                    <img src={product.images.depan} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <div className="absolute bottom-10 left-10 text-white">
                       <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">{product.kategori}</p>
@@ -395,9 +450,9 @@ const App = () => {
                     key={product.id}
                     className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col"
                   >
-                    <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
-                      <img src={product.gambar} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                      {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase">Best Seller</div>}
+                    <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { openProductModal(product); }}>
+                      <img src={product.images.depan} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase">TERLARIS</div>}
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
                       <p className="text-xs text-gray-500 mb-1">{product.kategori}</p>
@@ -409,7 +464,7 @@ const App = () => {
                           {product.harga.toLocaleString('id-ID')}
                         </p>
                         <button onClick={() => addToCart(product)} className="w-full bg-white border border-gray-200 hover:bg-gray-50 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Tambah Keranjang</button>
-                        <button onClick={() => { setSelectedProduct(product); }} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
+                        <button onClick={() => { openProductModal(product); }} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
                       </div>
                     </div>
                   </motion.div>
@@ -425,7 +480,7 @@ const App = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
           <div>
             <h4 className="text-3xl font-black mb-6">TKTM</h4>
-            <p className="text-gray-400 mb-6">Topiku Topimu. Platform e-commerce topi nomor satu with kualitas tanpa kompromi.</p>
+            <p className="text-gray-400 mb-6">Topiku Topimu. Platform e-commerce topi nomor satu dengan kualitas tanpa kompromi.</p>
             <div className="flex gap-4">
               <a href="https://www.instagram.com/machie109?igsh=MXBwNDRqZzRpaTZycQ==" target="_blank" className="bg-white/10 p-3 rounded-full hover:bg-accent transition-all">
                 <LucideIcon name="instagram" className="w-5 h-5" />
@@ -457,9 +512,9 @@ const App = () => {
       {/* Menu Drawer (Mobile) */}
       <AnimatePresence>
         {isMenuOpen && (
-          <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsMenuOpen(false)} className="fixed inset-0 bg-black/60 z-[80] backdrop-blur-sm md:hidden" />
-            <motion.div initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} className="fixed left-0 top-0 h-full w-full max-w-xs bg-white z-[90] shadow-2xl p-8 flex flex-col md:hidden">
+          <motion.div key="menu-overlay" className="fixed inset-0 z-[80] md:hidden">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsMenuOpen(false)} className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+            <motion.div initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} className="absolute left-0 top-0 h-full w-full max-w-xs bg-white shadow-2xl p-8 flex flex-col">
               <div className="flex justify-between items-center mb-10">
                 <h1 className="text-2xl font-black tracking-tighter text-brand">TKTM</h1>
                 <button onClick={() => setIsMenuOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
@@ -485,34 +540,35 @@ const App = () => {
                 </div>
               </div>
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
 
       {/* Cart Drawer */}
       <AnimatePresence>
         {isCartOpen && (
-          <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsCartOpen(false)} className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm" />
-            <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} className="fixed right-0 top-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl p-8 flex flex-col">
+          <motion.div key="cart-overlay" className="fixed inset-0 z-[60]">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsCartOpen(false)} className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+            <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl p-8 flex flex-col">
               <div className="flex justify-between items-center mb-8">
                 <h3 className="text-2xl font-bold">Keranjang</h3>
                 <button onClick={() => setIsCartOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
               </div>
               <div className="flex-1 overflow-y-auto space-y-2">
                 {cart.length === 0 ? <p className="text-gray-400 text-center py-10">Keranjang kosong</p> : cart.map(item => (
-                  <div key={item.id} className="flex gap-2 items-center border-b border-gray-50 pb-2">
-                    <img src={item.gambar} className="w-10 h-10 object-cover rounded-md shadow-sm" />
+                  <div key={`${item.id}-${item.angle}`} className="flex gap-2 items-center border-b border-gray-50 pb-2">
+                    <img src={item.images[item.angle]} className="w-10 h-10 object-cover rounded-md shadow-sm" />
                     <div className="flex-1 min-w-0">
                       <h5 className="font-bold text-brand text-[10px] truncate leading-tight">{item.nama}</h5>
+                      <p className="text-[8px] text-gray-400 uppercase font-bold">Sudut: {item.angle}</p>
                       <p className="text-[9px] text-accent font-bold mb-0.5">Rp {item.harga.toLocaleString('id-ID')}</p>
                       <div className="flex items-center gap-1.5 bg-gray-100 w-fit rounded p-0.5">
-                        <button onClick={() => updateQuantity(item.id, -1)} className="p-0.5 bg-white rounded shadow-xs hover:text-red-500"><LucideIcon name="minus" className="w-2 h-2" /></button>
+                        <button onClick={() => updateQuantityWithAngle(item.id, item.angle, -1)} className="p-0.5 bg-white rounded shadow-xs hover:text-red-500"><LucideIcon name="minus" className="w-2 h-2" /></button>
                         <span className="text-[9px] font-bold w-2.5 text-center">{item.qty}</span>
-                        <button onClick={() => updateQuantity(item.id, 1)} className="p-0.5 bg-white rounded shadow-xs hover:text-accent"><LucideIcon name="plus" className="w-2 h-2" /></button>
+                        <button onClick={() => updateQuantityWithAngle(item.id, item.angle, 1)} className="p-0.5 bg-white rounded shadow-xs hover:text-accent"><LucideIcon name="plus" className="w-2 h-2" /></button>
                       </div>
                     </div>
-                    <button onClick={() => removeFromCart(item.id)} className="text-gray-300 hover:text-red-500 transition-colors p-1"><LucideIcon name="trash-2" className="w-3.5 h-3.5" /></button>
+                    <button onClick={() => removeFromCart(item.id, item.angle)} className="text-gray-300 hover:text-red-500 transition-colors p-1"><LucideIcon name="trash-2" className="w-3.5 h-3.5" /></button>
                   </div>
                 ))}
               </div>
@@ -564,16 +620,16 @@ const App = () => {
                 </div>
               )}
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
 
       {/* Checkout Modal */}
       <AnimatePresence>
         {checkoutItems && (
-          <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setCheckoutItems(null)} className="fixed inset-0 bg-black/80 z-[150] backdrop-blur-md" />
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }} className="fixed inset-x-4 bottom-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:max-w-md bg-white z-[160] rounded-[2.5rem] p-8 shadow-2xl">
+          <motion.div key="checkout-modal" className="fixed inset-0 z-[150]">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setCheckoutItems(null)} className="absolute inset-0 bg-black/80 backdrop-blur-md" />
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }} className="absolute inset-x-4 bottom-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:max-w-md bg-white rounded-[2.5rem] p-8 shadow-2xl">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-black text-brand">Konfirmasi Pesanan</h3>
                 <button onClick={() => setCheckoutItems(null)} className="bg-gray-100 p-2 rounded-full"><LucideIcon name="x" className="w-5 h-5" /></button>
@@ -621,22 +677,22 @@ const App = () => {
                     <span className="text-gray-400 font-medium">Total Pesanan</span>
                     <span className="text-2xl font-black text-brand">Rp {(checkoutItems.reduce((acc, item) => acc + (item.harga * item.qty), 0) - (appliedPromo ? Math.floor(checkoutItems.reduce((acc, item) => acc + (item.harga * item.qty), 0) * (appliedPromo.discount/100)) : 0)).toLocaleString('id-ID')}</span>
                   </div>
-                  <button onClick={handleFinalCheckout} className="w-full bg-green-500 text-white py-4 rounded-2xl font-bold shadow-lg hover:bg-green-600 transition-all flex items-center justify-center gap-2">
+                  <button onClick={handleFinalCheckout} className="w-full bg-black text-white py-4 rounded-2xl font-bold shadow-lg hover:bg-zinc-800 transition-all flex items-center justify-center gap-2">
                     <LucideIcon name="phone" className="w-5 h-5" /> Pesan via WhatsApp
                   </button>
                 </div>
               </div>
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
 
       {/* Product Modal (Amazon Style) */}
       <AnimatePresence>
         {selectedProduct && (
-          <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedProduct(null)} className="fixed inset-0 bg-black/80 z-[100] backdrop-blur-md" />
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed inset-0 lg:inset-20 bg-white z-[110] lg:rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-gray-100">
+          <motion.div key="product-modal" className="fixed inset-0 z-[100]">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedProduct(null)} className="absolute inset-0 bg-black/80 backdrop-blur-md" />
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="absolute inset-0 lg:inset-20 bg-white lg:rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-gray-100">
               {/* Product Info Section (Left) */}
               <div className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-12 bg-white">
                 <div className="max-w-4xl mx-auto">
@@ -647,7 +703,28 @@ const App = () => {
                   <div className="flex flex-col gap-8">
                     <div className="w-full">
                       <div className="relative aspect-video md:aspect-[21/9] overflow-hidden rounded-3xl shadow-2xl border border-gray-50">
-                        <img src={selectedProduct.gambar} className="w-full h-full object-cover" />
+                        <AnimatePresence mode="wait">
+                          <motion.img
+                            key={activeAngle}
+                            src={selectedProduct.images[activeAngle]}
+                            initial={{ opacity: 0, scale: 1.1 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.3 }}
+                            className="w-full h-full object-cover"
+                          />
+                        </AnimatePresence>
+                      </div>
+                      <div className="flex justify-center gap-4 mt-6">
+                        {['depan', 'samping', 'belakang'].map(angle => (
+                          <button
+                            key={angle}
+                            onClick={() => setActiveAngle(angle)}
+                            className={`px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest transition-all ${activeAngle === angle ? 'bg-brand text-white' : 'bg-gray-100 text-gray-400 hover:bg-gray-200'}`}
+                          >
+                            {angle}
+                          </button>
+                        ))}
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -688,22 +765,14 @@ const App = () => {
                       <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 block">Jumlah</label>
                       <div className="flex items-center justify-between bg-gray-50 border border-gray-100 rounded-xl p-1">
                         <button
-                          onClick={() => {
-                            const inCart = cart.find(i => i.id === selectedProduct.id);
-                            if (inCart) updateQuantity(selectedProduct.id, -1);
-                          }}
-                          className="p-2 bg-white rounded-lg shadow-sm hover:text-red-500 disabled:opacity-30"
-                          disabled={!cart.find(i => i.id === selectedProduct.id)}
+                          onClick={() => setModalQty(prev => Math.max(1, prev - 1))}
+                          className="p-2 bg-white rounded-lg shadow-sm hover:text-red-500"
                         >
                           <LucideIcon name="minus" className="w-4 h-4" />
                         </button>
-                        <span className="font-bold text-brand">{cart.find(i => i.id === selectedProduct.id)?.qty || 0}</span>
+                        <span className="font-bold text-brand">{modalQty}</span>
                         <button
-                          onClick={() => {
-                            const inCart = cart.find(i => i.id === selectedProduct.id);
-                            if (inCart) updateQuantity(selectedProduct.id, 1);
-                            else addToCart(selectedProduct);
-                          }}
+                          onClick={() => setModalQty(prev => prev + 1)}
                           className="p-2 bg-white rounded-lg shadow-sm hover:text-accent"
                         >
                           <LucideIcon name="plus" className="w-4 h-4" />
@@ -734,14 +803,14 @@ const App = () => {
 
                     <div className="pt-4 space-y-2">
                       <button
-                        onClick={() => addToCart(selectedProduct)}
-                        className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-3 rounded-full font-bold text-sm shadow-sm transition-all"
+                        onClick={() => addToCart(selectedProduct, activeAngle, modalQty)}
+                        className="w-full bg-brand text-white hover:bg-zinc-800 py-3 rounded-full font-bold text-sm shadow-sm transition-all"
                       >
                         Tambah ke Keranjang
                       </button>
                       <button
-                        onClick={() => buyNowWA(selectedProduct)}
-                        className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold text-sm shadow-sm transition-all flex items-center justify-center gap-2"
+                        onClick={() => buyNowWA(selectedProduct, activeAngle, modalQty)}
+                        className="w-full bg-brand text-white hover:bg-zinc-800 py-3 rounded-full font-bold text-sm shadow-sm transition-all flex items-center justify-center gap-2"
                       >
                         Beli Sekarang (COD)
                       </button>
@@ -756,7 +825,7 @@ const App = () => {
                 </div>
               </div>
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
 
