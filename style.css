@@ -65,3 +65,8 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--color-brand);
 }
+
+@theme {
+  --color-brand: #1a1a1a;
+  --color-accent: #f59e0b;
+}
