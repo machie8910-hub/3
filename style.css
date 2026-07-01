@@ -1,16 +1,21 @@
+@theme {
+  --color-brand: #1a1a1a;
+  --color-accent: #f59e0b;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #111;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: var(--color-accent);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #888;
+  background: #d97706;
 }
 
 /* Modal Scrollbar */
@@ -34,12 +39,19 @@
   overflow-y: auto;
 }
 
-/* Glassmorphism */
+/* Black & Gold Glassmorphism */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Animations */
@@ -64,4 +76,5 @@ html {
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--color-brand);
+  background-color: #0a0a0a;
 }
