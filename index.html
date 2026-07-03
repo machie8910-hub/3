@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TKTM - Topiku Topimu</title>
-    <!-- Tailwind CSS v4 -->
+    <!-- Tailwind CSS v4 Browser Script -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
       @theme {
-        --color-brand: #1a1a1a;
+        --color-brand: #09090b;
         --color-accent: #f59e0b;
+        --color-gold: #f59e0b;
       }
     </style>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-zinc-950 text-white">
     <div id="root"></div>
 
     <!-- React & ReactDOM -->
@@ -26,10 +27,7 @@
     <!-- Babel for JSX transpilation in browser -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Framer Motion (via ESM or UMD if available) -->
-    <!-- Note: Framer Motion is hard to use via UMD. We might use a simpler animation library if needed,
-         but I will try to find a way or use CSS transitions where possible if Framer Motion CDN fails.
-         Actually, there is a production UMD build for framer-motion on some CDNs. -->
+    <!-- Framer Motion (UMD) -->
     <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
 
     <!-- Lucide Icons -->
