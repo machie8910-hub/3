@@ -27,7 +27,12 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Flat brim, 6 panels, Adjustable snap closure"
     },
-    gambar: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    },
+    terjual: 1250
   },
   {
     id: 2,
@@ -40,7 +45,12 @@ const PRODUCTS = [
       ukuran: "Stretch (One size fits most)",
       fitur: "Soft texture, Breathable, Foldable cuff"
     },
-    gambar: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    },
+    terjual: 850
   },
   {
     id: 3,
@@ -53,7 +63,12 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable mesh back, Curved brim, Snap closure"
     },
-    gambar: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    },
+    terjual: 1520
   },
   {
     id: 4,
@@ -66,7 +81,12 @@ const PRODUCTS = [
       ukuran: "All Size (Metal strap)",
       fitur: "Unstructured crown, Curved peak, Vintage look"
     },
-    gambar: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    },
+    terjual: 450
   },
   {
     id: 5,
@@ -79,7 +99,12 @@ const PRODUCTS = [
       ukuran: "Medium/Large",
       fitur: "Wide brim, Foldable, Lightweight"
     },
-    gambar: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    },
+    terjual: 1100
   },
   {
     id: 6,
@@ -92,7 +117,12 @@ const PRODUCTS = [
       ukuran: "Fixed (58cm)",
       fitur: "Stiff brim, Ribbon band, Elegant lining"
     },
-    gambar: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    },
+    terjual: 320
   },
   {
     id: 7,
@@ -105,7 +135,12 @@ const PRODUCTS = [
       ukuran: "All Size (Adjustable)",
       fitur: "Breathable, Sweatband, Reflective detail"
     },
-    gambar: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    },
+    terjual: 980
   },
   {
     id: 8,
@@ -118,7 +153,12 @@ const PRODUCTS = [
       ukuran: "All Size (Metal Buckle)",
       fitur: "Soft texture, Durable, Retro design"
     },
-    gambar: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop"
+    images: {
+      depan: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop",
+      samping: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop&hue=200",
+      belakang: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=1000&auto=format&fit=crop&sat=-100"
+    },
+    terjual: 1350
   }
 ];
 
@@ -131,6 +171,8 @@ const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [activeAngle, setActiveAngle] = useState('depan');
+  const [modalQty, setModalQty] = useState(1);
   const [scrollPos, setScrollPos] = useState(0);
   const [notifications, setNotifications] = useState([]);
   const [userName, setUserName] = useState("");
@@ -167,20 +209,26 @@ const App = () => {
     }, 3000);
   };
 
-  const addToCart = (product) => {
+  const openProduct = (product) => {
+    setSelectedProduct(product);
+    setActiveAngle('depan');
+    setModalQty(1);
+  };
+
+  const addToCart = (product, angle = 'depan', qty = 1) => {
     setCart(prev => {
-      const existing = prev.find(item => item.id === product.id);
+      const existing = prev.find(item => item.id === product.id && item.angle === angle);
       if (existing) {
-        return prev.map(item => item.id === product.id ? { ...item, qty: item.qty + 1 } : item);
+        return prev.map(item => (item.id === product.id && item.angle === angle) ? { ...item, qty: item.qty + qty } : item);
       }
-      return [...prev, { ...product, qty: 1 }];
+      return [...prev, { ...product, angle, qty }];
     });
     showNotification(`${product.nama} ditambahkan ke keranjang!`);
   };
 
-  const updateQuantity = (id, delta) => {
+  const updateQuantity = (id, angle, delta) => {
     setCart(prev => prev.map(item => {
-      if (item.id === id) {
+      if (item.id === id && item.angle === angle) {
         const newQty = Math.max(0, item.qty + delta);
         return { ...item, qty: newQty };
       }
@@ -188,8 +236,8 @@ const App = () => {
     }).filter(item => item.qty > 0));
   };
 
-  const removeFromCart = (id) => {
-    setCart(prev => prev.filter(item => item.id !== id));
+  const removeFromCart = (id, angle) => {
+    setCart(prev => prev.filter(item => !(item.id === id && item.angle === angle)));
   };
 
   const generateWAMessage = (items) => {
@@ -202,7 +250,7 @@ const App = () => {
     const discount = appliedPromo ? Math.floor(itemsTotal * (appliedPromo.discount / 100)) : 0;
     const finalTotal = itemsTotal - discount;
 
-    let list = items.map(item => `- ${item.nama} (${item.qty || 1}x)`).join('\n');
+    let list = items.map(item => `- ${item.nama}${item.angle ? ` (Sudut: ${item.angle})` : ''} (${item.qty || 1}x)`).join('\n');
     let message = `Halo TKTM, saya ingin memesan (Metode: COD):\n\nNama Pembeli: ${userName}\nEmail: ${userEmail}\n\n${list}\n\nSubtotal: Rp ${itemsTotal.toLocaleString('id-ID')}`;
 
     if (appliedPromo) {
@@ -213,10 +261,8 @@ const App = () => {
     return encodeURIComponent(message);
   };
 
-  const buyNowWA = (product) => {
-    const inCart = cart.find(item => item.id === product.id);
-    const qty = inCart ? inCart.qty : 1;
-    const msg = generateWAMessage([{ ...product, qty }]);
+  const buyNowWA = (product, angle = 'depan', qty = 1) => {
+    const msg = generateWAMessage([{ ...product, angle, qty }]);
     if (msg) {
       window.open(`https://wa.me/${WA_NUMBER.replace('+', '')}?text=${msg}`, '_blank');
       setSelectedProduct(null);
@@ -269,8 +315,8 @@ const App = () => {
             <LucideIcon name="menu" className="w-6 h-6" />
           </button>
           <div className="flex flex-col">
-            <h1 className="text-2xl font-black tracking-tighter text-brand leading-none">TKTM</h1>
-            <div className="flex items-center gap-1 text-[10px] text-gray-500 font-bold mt-1">
+            <h1 className="text-2xl font-black tracking-tighter text-white leading-none">TKTM</h1>
+            <div className="flex items-center gap-1 text-[10px] text-zinc-400 font-bold mt-1">
               <LucideIcon name="map-pin" className="w-3 h-3 text-accent" />
               <span>Kirim ke Banten</span>
             </div>
@@ -282,7 +328,7 @@ const App = () => {
             <input
               type="text"
               placeholder="Cari topi..."
-              className="bg-gray-100 rounded-full py-1 px-4 text-sm focus:outline-none focus:ring-2 ring-accent"
+              className="bg-zinc-800 rounded-full py-1 px-4 text-sm focus:outline-none focus:ring-2 ring-accent"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -299,8 +345,17 @@ const App = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        <div className="absolute inset-0 opacity-50" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`, backgroundPosition: 'center', backgroundSize: 'cover', transform: `translateY(${scrollPos * 0.5}px)` }} />
+      <section className="relative h-[110vh] flex items-center justify-center overflow-hidden bg-black">
+        <motion.div
+          className="absolute inset-0 opacity-50"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1920&auto=format&fit=crop')`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            y: scrollPos * 0.4,
+            scale: 1 + (scrollPos * 0.0005)
+          }}
+        />
         <div className="relative z-10 text-center px-4">
           <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-white text-5xl md:text-8xl font-black mb-4">TOPIKU TOPIMU</motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-gray-300 text-lg md:text-2xl max-w-2xl mx-auto">Koleksi eksklusif untuk melengkapi gaya harianmu. TKTM hadir untuk kenyamanan dan estetika.</motion.p>
@@ -311,24 +366,23 @@ const App = () => {
       </section>
 
       {/* Rekomendasi 3 - Loop Slider */}
-      <section className="py-24 px-6 bg-white overflow-hidden">
+      <section className="py-24 px-6 bg-zinc-900 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-accent font-bold tracking-widest uppercase text-sm">Pilihan Terbaik</span>
-            <h3 className="text-4xl md:text-5xl font-black mt-3 text-brand">Rekomendasi Minggu Ini</h3>
+            <h3 className="text-4xl md:text-5xl font-black mt-3 text-white">Rekomendasi Minggu Ini</h3>
           </div>
 
           <div className="relative group max-w-4xl mx-auto">
             <div className="overflow-hidden rounded-[2.5rem] shadow-2xl">
               <motion.div
-                className="flex transition-transform duration-700 ease-in-out"
-                style={{ transform: `translateX(-${activeRec * 100}%)` }}
+                className="flex"
                 animate={{ x: `-${activeRec * 100}%` }}
                 transition={{ type: "spring", stiffness: 200, damping: 25 }}
               >
                 {recs.map((product) => (
-                  <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
-                    <img src={product.gambar} className="w-full h-full object-cover" />
+                  <div key={product.id} className="min-w-full relative aspect-[16/9] md:aspect-[2/1] overflow-hidden cursor-pointer" onClick={() => { openProduct(product); }}>
+                    <img src={product.images.depan} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <div className="absolute bottom-10 left-10 text-white">
                       <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">{product.kategori}</p>
@@ -340,10 +394,10 @@ const App = () => {
               </motion.div>
             </div>
 
-            <button onClick={prevRec} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition-all">
+            <button onClick={prevRec} className="absolute left-4 top-1/2 -translate-y-1/2 bg-zinc-900/20 hover:bg-zinc-900/40 backdrop-blur-md p-3 rounded-full text-white transition-all">
               <LucideIcon name="chevron-left" className="w-6 h-6" />
             </button>
-            <button onClick={nextRec} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition-all">
+            <button onClick={nextRec} className="absolute right-4 top-1/2 -translate-y-1/2 bg-zinc-900/20 hover:bg-zinc-900/40 backdrop-blur-md p-3 rounded-full text-white transition-all">
               <LucideIcon name="chevron-right" className="w-6 h-6" />
             </button>
 
@@ -357,14 +411,14 @@ const App = () => {
       </section>
 
       {/* Katalog Produk (3 Kolom) */}
-      <section id="produk" className="py-20 px-6 bg-gray-50">
+      <section id="produk" className="py-20 px-6 bg-zinc-950">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
-            <h3 className="text-4xl font-black text-brand">Katalog Terbaru</h3>
+            <h3 className="text-4xl font-black text-white">Katalog Terbaru</h3>
             <div className="relative w-full md:w-96">
               <input
                 type="text" placeholder="Cari topi..."
-                className="w-full bg-white border border-gray-200 rounded-xl py-3 px-4 shadow-sm focus:outline-none focus:ring-2 ring-accent"
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-xl py-3 px-4 shadow-sm focus:outline-none focus:ring-2 ring-accent"
                 value={search} onChange={(e) => setSearch(e.target.value)}
               />
             </div>
@@ -375,7 +429,7 @@ const App = () => {
               <button
                 key={cat}
                 onClick={() => setCategory(cat)}
-                className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${category === cat ? 'bg-brand text-white shadow-lg scale-105' : 'bg-white text-gray-500 border border-gray-100 hover:bg-gray-50'}`}
+                className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${category === cat ? 'bg-accent text-white shadow-lg scale-105' : 'bg-zinc-900 text-zinc-400 border border-zinc-800 hover:bg-zinc-800'}`}
               >
                 {cat}
               </button>
@@ -393,23 +447,23 @@ const App = () => {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                     key={product.id}
-                    className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col"
+                    className="bg-zinc-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col"
                   >
-                    <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { setSelectedProduct(product); }}>
-                      <img src={product.gambar} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                      {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase">Best Seller</div>}
+                    <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => { openProduct(product); }}>
+                      <img src={product.images.depan} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      {product.terjual > 1000 && <div className="absolute top-4 left-4 bg-accent text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase">TERLARIS</div>}
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
-                      <p className="text-xs text-gray-500 mb-1">{product.kategori}</p>
-                      <h4 className="text-base font-bold text-brand mb-4 line-clamp-2">{product.nama}</h4>
+                      <p className="text-xs text-zinc-400 mb-1">{product.kategori}</p>
+                      <h4 className="text-base font-bold text-white mb-4 line-clamp-2">{product.nama}</h4>
 
                       <div className="mt-auto space-y-2">
-                        <p className="text-brand font-black text-xl mb-4">
+                        <p className="text-white font-black text-xl mb-4">
                           <span className="text-xs font-normal align-top mr-1">Rp</span>
                           {product.harga.toLocaleString('id-ID')}
                         </p>
-                        <button onClick={() => addToCart(product)} className="w-full bg-white border border-gray-200 hover:bg-gray-50 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Tambah Keranjang</button>
-                        <button onClick={() => { setSelectedProduct(product); }} className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-2 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
+                        <button onClick={() => addToCart(product)} className="w-full bg-transparent border border-zinc-800 hover:bg-zinc-900 text-white py-2 rounded-full font-bold text-sm transition-all shadow-sm">Tambah Keranjang</button>
+                        <button onClick={() => { openProduct(product); }} className="w-full bg-accent hover:bg-yellow-500 text-white py-2 rounded-full font-bold text-sm transition-all shadow-sm">Beli Sekarang</button>
                       </div>
                     </div>
                   </motion.div>
@@ -427,7 +481,7 @@ const App = () => {
             <h4 className="text-3xl font-black mb-6">TKTM</h4>
             <p className="text-gray-400 mb-6">Topiku Topimu. Platform e-commerce topi nomor satu with kualitas tanpa kompromi.</p>
             <div className="flex gap-4">
-              <a href="https://www.instagram.com/machie109?igsh=MXBwNDRqZzRpaTZycQ==" target="_blank" className="bg-white/10 p-3 rounded-full hover:bg-accent transition-all">
+              <a href="https://www.instagram.com/machie109?igsh=MXBwNDRqZzRpaTZycQ==" target="_blank" className="bg-zinc-900/10 p-3 rounded-full hover:bg-accent transition-all">
                 <LucideIcon name="instagram" className="w-5 h-5" />
               </a>
             </div>
@@ -449,7 +503,7 @@ const App = () => {
             <p className="text-gray-400 text-sm">Pembayaran dilakukan secara aman melalui konfirmasi WhatsApp dengan berbagai pilihan Bank dan E-Wallet.</p>
           </div>
         </div>
-        <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 text-center text-gray-500 text-xs">
+        <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 text-center text-zinc-400 text-xs">
           <p>&copy; 2024 TKTM Official. Hak Cipta Dilindungi Undang-Undang.</p>
         </div>
       </footer>
@@ -459,10 +513,10 @@ const App = () => {
         {isMenuOpen && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsMenuOpen(false)} className="fixed inset-0 bg-black/60 z-[80] backdrop-blur-sm md:hidden" />
-            <motion.div initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} className="fixed left-0 top-0 h-full w-full max-w-xs bg-white z-[90] shadow-2xl p-8 flex flex-col md:hidden">
+            <motion.div initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} className="fixed left-0 top-0 h-full w-full max-w-xs bg-zinc-900 z-[90] shadow-2xl p-8 flex flex-col md:hidden">
               <div className="flex justify-between items-center mb-10">
-                <h1 className="text-2xl font-black tracking-tighter text-brand">TKTM</h1>
-                <button onClick={() => setIsMenuOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
+                <h1 className="text-2xl font-black tracking-tighter text-white">TKTM</h1>
+                <button onClick={() => setIsMenuOpen(false)} className="bg-zinc-800 p-2 rounded-full"><LucideIcon name="x" className="w-5 h-5" /></button>
               </div>
 
               <nav className="flex flex-col gap-6 mb-auto">
@@ -472,7 +526,7 @@ const App = () => {
 
               <div className="pt-10 border-t">
                 <h5 className="font-bold mb-4 text-sm uppercase tracking-widest text-gray-400">Hubungi Kami</h5>
-                <div className="space-y-4 text-brand">
+                <div className="space-y-4 text-white">
                   <a href={`https://wa.me/${WA_NUMBER.replace('+', '')}`} className="flex items-center gap-3 font-medium hover:text-accent">
                     <LucideIcon name="phone" className="w-5 h-5 text-accent" /> {WA_NUMBER}
                   </a>
@@ -494,25 +548,25 @@ const App = () => {
         {isCartOpen && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsCartOpen(false)} className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm" />
-            <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} className="fixed right-0 top-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl p-8 flex flex-col">
+            <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} className="fixed right-0 top-0 h-full w-full max-w-md bg-zinc-900 z-[70] shadow-2xl p-8 flex flex-col">
               <div className="flex justify-between items-center mb-8">
-                <h3 className="text-2xl font-bold">Keranjang</h3>
-                <button onClick={() => setIsCartOpen(false)}><LucideIcon name="x" className="w-6 h-6" /></button>
+                <h3 className="text-2xl font-black text-white">Keranjang</h3>
+                <button onClick={() => setIsCartOpen(false)} className="bg-zinc-800 p-2 rounded-full"><LucideIcon name="x" className="w-5 h-5" /></button>
               </div>
               <div className="flex-1 overflow-y-auto space-y-2">
                 {cart.length === 0 ? <p className="text-gray-400 text-center py-10">Keranjang kosong</p> : cart.map(item => (
-                  <div key={item.id} className="flex gap-2 items-center border-b border-gray-50 pb-2">
-                    <img src={item.gambar} className="w-10 h-10 object-cover rounded-md shadow-sm" />
+                  <div key={`${item.id}-${item.angle}`} className="flex gap-2 items-center border-b border-zinc-900 pb-2">
+                    <img src={item.images[item.angle]} className="w-10 h-10 object-cover rounded-md shadow-sm" />
                     <div className="flex-1 min-w-0">
-                      <h5 className="font-bold text-brand text-[10px] truncate leading-tight">{item.nama}</h5>
+                      <h5 className="font-bold text-white text-[10px] truncate leading-tight">{item.nama} <span className="text-[8px] font-normal text-gray-400 capitalize">({item.angle})</span></h5>
                       <p className="text-[9px] text-accent font-bold mb-0.5">Rp {item.harga.toLocaleString('id-ID')}</p>
-                      <div className="flex items-center gap-1.5 bg-gray-100 w-fit rounded p-0.5">
-                        <button onClick={() => updateQuantity(item.id, -1)} className="p-0.5 bg-white rounded shadow-xs hover:text-red-500"><LucideIcon name="minus" className="w-2 h-2" /></button>
+                      <div className="flex items-center gap-1.5 bg-zinc-800 w-fit rounded p-0.5">
+                        <button onClick={() => updateQuantity(item.id, item.angle, -1)} className="p-0.5 bg-zinc-900 rounded shadow-xs hover:text-red-500"><LucideIcon name="minus" className="w-2 h-2" /></button>
                         <span className="text-[9px] font-bold w-2.5 text-center">{item.qty}</span>
-                        <button onClick={() => updateQuantity(item.id, 1)} className="p-0.5 bg-white rounded shadow-xs hover:text-accent"><LucideIcon name="plus" className="w-2 h-2" /></button>
+                        <button onClick={() => updateQuantity(item.id, item.angle, 1)} className="p-0.5 bg-zinc-900 rounded shadow-xs hover:text-accent"><LucideIcon name="plus" className="w-2 h-2" /></button>
                       </div>
                     </div>
-                    <button onClick={() => removeFromCart(item.id)} className="text-gray-300 hover:text-red-500 transition-colors p-1"><LucideIcon name="trash-2" className="w-3.5 h-3.5" /></button>
+                    <button onClick={() => removeFromCart(item.id, item.angle)} className="text-gray-300 hover:text-red-500 transition-colors p-1"><LucideIcon name="trash-2" className="w-3.5 h-3.5" /></button>
                   </div>
                 ))}
               </div>
@@ -524,7 +578,7 @@ const App = () => {
                         <input
                           type="text"
                           placeholder="Kode Promo"
-                          className="flex-1 bg-gray-50 border border-gray-100 rounded-md py-1 px-2 text-[10px] focus:outline-none ring-accent text-brand font-bold uppercase min-w-0"
+                          className="flex-1 bg-zinc-950 border border-zinc-800 rounded-md py-1 px-2 text-[10px] focus:outline-none ring-accent text-white font-bold uppercase min-w-0"
                           value={promoInput}
                           onChange={(e) => setPromoInput(e.target.value)}
                         />
@@ -535,7 +589,7 @@ const App = () => {
                       <input
                         type="text"
                         placeholder="Nama"
-                        className="w-full bg-gray-50 border border-gray-100 rounded-md py-1 px-2 text-[10px] focus:outline-none ring-accent"
+                        className="w-full bg-zinc-950 border border-zinc-800 rounded-md py-1 px-2 text-[10px] focus:outline-none ring-accent"
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
                       />
@@ -544,7 +598,7 @@ const App = () => {
                       <input
                         type="email"
                         placeholder="Email"
-                        className="w-full bg-gray-50 border border-gray-100 rounded-md py-1 px-2 text-[10px] focus:outline-none ring-accent"
+                        className="w-full bg-zinc-950 border border-zinc-800 rounded-md py-1 px-2 text-[10px] focus:outline-none ring-accent"
                         value={userEmail}
                         onChange={(e) => setUserEmail(e.target.value)}
                       />
@@ -554,7 +608,7 @@ const App = () => {
                   <div className="space-y-0.5 border-t pt-2">
                     <div className="flex justify-between text-[10px]">
                       <span className="text-gray-400">Total ({cart.reduce((a,b)=>a+b.qty,0)} item)</span>
-                      <span className="font-bold text-brand text-sm">Rp {totalAkhir.toLocaleString('id-ID')}</span>
+                      <span className="font-bold text-white text-sm">Rp {totalAkhir.toLocaleString('id-ID')}</span>
                     </div>
                     {appliedPromo && (
                       <p className="text-[9px] text-green-600 font-bold">Promo {appliedPromo.code.toUpperCase()} (-{appliedPromo.discount}%)</p>
@@ -573,17 +627,17 @@ const App = () => {
         {checkoutItems && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setCheckoutItems(null)} className="fixed inset-0 bg-black/80 z-[150] backdrop-blur-md" />
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }} className="fixed inset-x-4 bottom-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:max-w-md bg-white z-[160] rounded-[2.5rem] p-8 shadow-2xl">
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }} className="fixed inset-x-4 bottom-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:max-w-md bg-zinc-900 z-[160] rounded-[2.5rem] p-8 shadow-2xl">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-black text-brand">Konfirmasi Pesanan</h3>
-                <button onClick={() => setCheckoutItems(null)} className="bg-gray-100 p-2 rounded-full"><LucideIcon name="x" className="w-5 h-5" /></button>
+                <h3 className="text-2xl font-black text-white">Konfirmasi Pesanan</h3>
+                <button onClick={() => setCheckoutItems(null)} className="bg-zinc-800 p-2 rounded-full"><LucideIcon name="x" className="w-5 h-5" /></button>
               </div>
 
               <div className="space-y-6">
-                <div className="bg-gray-50 rounded-2xl p-4 space-y-2">
+                <div className="bg-zinc-950 rounded-2xl p-4 space-y-2">
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Metode Pembayaran</p>
-                  <p className="font-bold text-brand flex items-center gap-2"><LucideIcon name="truck" className="w-4 h-4 text-accent" /> COD (Cash on Delivery)</p>
-                  <p className="text-xs text-gray-500 italic">*Konfirmasi via WhatsApp</p>
+                  <p className="font-bold text-white flex items-center gap-2"><LucideIcon name="truck" className="w-4 h-4 text-accent" /> COD (Cash on Delivery)</p>
+                  <p className="text-xs text-zinc-400 italic">*Konfirmasi via WhatsApp</p>
                 </div>
 
                 <div className="space-y-4">
@@ -591,7 +645,7 @@ const App = () => {
                     <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Nama Lengkap</label>
                     <input
                       type="text" placeholder="Masukkan nama..."
-                      className="w-full bg-gray-50 border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
+                      className="w-full bg-zinc-950 border border-zinc-800 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
                       value={userName} onChange={(e) => setUserName(e.target.value)}
                     />
                   </div>
@@ -599,16 +653,16 @@ const App = () => {
                     <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Email</label>
                     <input
                       type="email" placeholder="Masukkan email..."
-                      className="w-full bg-gray-50 border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
+                      className="w-full bg-zinc-950 border border-zinc-800 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 ring-accent"
                       value={userEmail} onChange={(e) => setUserEmail(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-bold text-brand uppercase tracking-widest mb-2 block">Kode Promo (Opsional)</label>
+                    <label className="text-xs font-bold text-white uppercase tracking-widest mb-2 block">Kode Promo (Opsional)</label>
                     <div className="flex gap-1.5">
                       <input
                         type="text" placeholder="Kode promo..."
-                        className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-3 text-[11px] focus:outline-none focus:ring-2 ring-accent text-brand font-bold uppercase min-w-0"
+                        className="flex-1 bg-zinc-950 border border-zinc-800 rounded-xl py-2 px-3 text-[11px] focus:outline-none focus:ring-2 ring-accent text-white font-bold uppercase min-w-0"
                         value={promoInput} onChange={(e) => setPromoInput(e.target.value)}
                       />
                       <button onClick={handleApplyPromo} className="bg-black text-white px-3 rounded-xl font-bold text-[10px] whitespace-nowrap">Pasang</button>
@@ -619,10 +673,10 @@ const App = () => {
                 <div className="pt-6 border-t border-dashed">
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-gray-400 font-medium">Total Pesanan</span>
-                    <span className="text-2xl font-black text-brand">Rp {(checkoutItems.reduce((acc, item) => acc + (item.harga * item.qty), 0) - (appliedPromo ? Math.floor(checkoutItems.reduce((acc, item) => acc + (item.harga * item.qty), 0) * (appliedPromo.discount/100)) : 0)).toLocaleString('id-ID')}</span>
+                    <span className="text-2xl font-black text-white">Rp {(checkoutItems.reduce((acc, item) => acc + (item.harga * item.qty), 0) - (appliedPromo ? Math.floor(checkoutItems.reduce((acc, item) => acc + (item.harga * item.qty), 0) * (appliedPromo.discount/100)) : 0)).toLocaleString('id-ID')}</span>
                   </div>
-                  <button onClick={handleFinalCheckout} className="w-full bg-green-500 text-white py-4 rounded-2xl font-bold shadow-lg hover:bg-green-600 transition-all flex items-center justify-center gap-2">
-                    <LucideIcon name="phone" className="w-5 h-5" /> Pesan via WhatsApp
+                  <button onClick={handleFinalCheckout} className="w-full bg-black text-white py-4 rounded-2xl font-bold shadow-lg hover:bg-zinc-800 transition-all flex items-center justify-center gap-2">
+                    <LucideIcon name="phone" className="w-5 h-5" /> Pesan Sekarang
                   </button>
                 </div>
               </div>
@@ -636,9 +690,9 @@ const App = () => {
         {selectedProduct && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedProduct(null)} className="fixed inset-0 bg-black/80 z-[100] backdrop-blur-md" />
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed inset-0 lg:inset-20 bg-white z-[110] lg:rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-gray-100">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed inset-0 lg:inset-20 bg-zinc-900 z-[110] lg:rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-zinc-800">
               {/* Product Info Section (Left) */}
-              <div className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-12 bg-white">
+              <div className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-12 bg-zinc-900">
                 <div className="max-w-4xl mx-auto">
                   <button onClick={() => setSelectedProduct(null)} className="mb-6 inline-flex items-center gap-1.5 text-[11px] font-bold text-accent hover:opacity-80 transition-opacity uppercase tracking-widest">
                     <LucideIcon name="chevron-left" className="w-3 h-3" /> Kembali ke Katalog
@@ -646,30 +700,53 @@ const App = () => {
 
                   <div className="flex flex-col gap-8">
                     <div className="w-full">
-                      <div className="relative aspect-video md:aspect-[21/9] overflow-hidden rounded-3xl shadow-2xl border border-gray-50">
-                        <img src={selectedProduct.gambar} className="w-full h-full object-cover" />
+                      <div className="relative aspect-video md:aspect-[21/9] overflow-hidden rounded-3xl shadow-2xl border border-zinc-900 bg-zinc-800">
+                        <AnimatePresence mode="wait">
+                          <motion.img
+                            key={activeAngle}
+                            initial={{ opacity: 0, scale: 1.1 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.4 }}
+                            src={selectedProduct.images[activeAngle]}
+                            className="w-full h-full object-cover"
+                          />
+                        </AnimatePresence>
+
+                        {/* Ganti Sudut Gallery */}
+                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+                          {['depan', 'samping', 'belakang'].map((angle) => (
+                            <button
+                              key={angle}
+                              onClick={() => setActiveAngle(angle)}
+                              className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all shadow-lg ${activeAngle === angle ? 'bg-accent text-white scale-110' : 'bg-zinc-900/80 text-white hover:bg-zinc-900'}`}
+                            >
+                              {angle}
+                            </button>
+                          ))}
+                        </div>
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="mb-8">
                         <p className="text-accent font-black uppercase tracking-widest text-xs mb-2">{selectedProduct.kategori}</p>
-                        <h3 className="text-5xl lg:text-6xl font-black text-brand mb-6 tracking-tight leading-none">{selectedProduct.nama}</h3>
+                        <h3 className="text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-none">{selectedProduct.nama}</h3>
                         <div className="h-1 w-20 bg-accent mb-6" />
-                        <p className="text-gray-600 leading-relaxed text-lg md:text-xl max-w-2xl">{selectedProduct.deskripsi}</p>
+                        <p className="text-zinc-300 leading-relaxed text-lg md:text-xl max-w-2xl">{selectedProduct.deskripsi}</p>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                        <div className="bg-zinc-950 p-4 rounded-2xl border border-zinc-800">
                           <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Material</p>
-                          <p className="text-sm font-bold text-brand">{selectedProduct.info.bahan}</p>
+                          <p className="text-sm font-bold text-white">{selectedProduct.info.bahan}</p>
                         </div>
-                        <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                        <div className="bg-zinc-950 p-4 rounded-2xl border border-zinc-800">
                           <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Size</p>
-                          <p className="text-sm font-bold text-brand">{selectedProduct.info.ukuran}</p>
+                          <p className="text-sm font-bold text-white">{selectedProduct.info.ukuran}</p>
                         </div>
-                        <div className="col-span-2 bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                        <div className="col-span-2 bg-zinc-950 p-4 rounded-2xl border border-zinc-800">
                           <p className="text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-widest">Highlight</p>
-                          <p className="text-sm font-bold text-brand">{selectedProduct.info.fitur}</p>
+                          <p className="text-sm font-bold text-white">{selectedProduct.info.fitur}</p>
                         </div>
                       </div>
                     </div>
@@ -678,54 +755,46 @@ const App = () => {
               </div>
 
               {/* Purchase Box Section (Right) */}
-              <div className="w-full lg:w-[320px] xl:w-[360px] bg-gray-50 p-6 md:p-8 lg:p-10 shrink-0 flex flex-col justify-center border-t lg:border-t-0">
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm sticky top-0">
-                  <p className="text-2xl font-bold text-brand mb-2">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
+              <div className="w-full lg:w-[320px] xl:w-[360px] bg-zinc-950 p-6 md:p-8 lg:p-10 shrink-0 flex flex-col justify-center border-t lg:border-t-0">
+                <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-sm sticky top-0">
+                  <p className="text-2xl font-bold text-white mb-2">Rp {selectedProduct.harga.toLocaleString('id-ID')}</p>
                   <p className="text-sm text-green-700 font-bold mb-6 flex items-center gap-1"><LucideIcon name="check-circle" className="w-4 h-4" /> Stok Tersedia</p>
 
                   <div className="space-y-4">
                     <div>
                       <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 block">Jumlah</label>
-                      <div className="flex items-center justify-between bg-gray-50 border border-gray-100 rounded-xl p-1">
+                      <div className="flex items-center justify-between bg-zinc-950 border border-zinc-800 rounded-xl p-1">
                         <button
-                          onClick={() => {
-                            const inCart = cart.find(i => i.id === selectedProduct.id);
-                            if (inCart) updateQuantity(selectedProduct.id, -1);
-                          }}
-                          className="p-2 bg-white rounded-lg shadow-sm hover:text-red-500 disabled:opacity-30"
-                          disabled={!cart.find(i => i.id === selectedProduct.id)}
+                          onClick={() => setModalQty(prev => Math.max(1, prev - 1))}
+                          className="p-2 bg-zinc-900 rounded-lg shadow-sm hover:text-red-500"
                         >
                           <LucideIcon name="minus" className="w-4 h-4" />
                         </button>
-                        <span className="font-bold text-brand">{cart.find(i => i.id === selectedProduct.id)?.qty || 0}</span>
+                        <span className="font-bold text-white">{modalQty}</span>
                         <button
-                          onClick={() => {
-                            const inCart = cart.find(i => i.id === selectedProduct.id);
-                            if (inCart) updateQuantity(selectedProduct.id, 1);
-                            else addToCart(selectedProduct);
-                          }}
-                          className="p-2 bg-white rounded-lg shadow-sm hover:text-accent"
+                          onClick={() => setModalQty(prev => prev + 1)}
+                          className="p-2 bg-zinc-900 rounded-lg shadow-sm hover:text-accent"
                         >
                           <LucideIcon name="plus" className="w-4 h-4" />
                         </button>
                       </div>
                     </div>
 
-                    <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="pt-4 border-t border-zinc-800 space-y-3">
                       <input
                         type="text" placeholder="Nama Lengkap"
-                        className="w-full bg-gray-50 border border-gray-100 rounded-xl py-2 px-4 text-sm focus:outline-none ring-accent"
+                        className="w-full bg-zinc-950 border border-zinc-800 rounded-xl py-2 px-4 text-sm focus:outline-none ring-accent"
                         value={userName} onChange={(e) => setUserName(e.target.value)}
                       />
                       <input
                         type="email" placeholder="Email"
-                        className="w-full bg-gray-50 border border-gray-100 rounded-xl py-2 px-4 text-sm focus:outline-none ring-accent"
+                        className="w-full bg-zinc-950 border border-zinc-800 rounded-xl py-2 px-4 text-sm focus:outline-none ring-accent"
                         value={userEmail} onChange={(e) => setUserEmail(e.target.value)}
                       />
                       <div className="flex gap-1.5">
                         <input
                           type="text" placeholder="Promo"
-                          className="flex-1 bg-gray-50 border border-gray-100 rounded-xl py-2 px-3 text-[11px] focus:outline-none text-brand font-bold uppercase min-w-0"
+                          className="flex-1 bg-zinc-950 border border-zinc-800 rounded-xl py-2 px-3 text-[11px] focus:outline-none text-white font-bold uppercase min-w-0"
                           value={promoInput} onChange={(e) => setPromoInput(e.target.value)}
                         />
                         <button onClick={handleApplyPromo} className="bg-black text-white px-3 rounded-xl font-bold text-[10px] whitespace-nowrap">Pasang</button>
@@ -734,14 +803,14 @@ const App = () => {
 
                     <div className="pt-4 space-y-2">
                       <button
-                        onClick={() => addToCart(selectedProduct)}
-                        className="w-full bg-yellow-400 hover:bg-yellow-500 text-brand py-3 rounded-full font-bold text-sm shadow-sm transition-all"
+                        onClick={() => addToCart(selectedProduct, activeAngle, modalQty)}
+                        className="w-full bg-transparent border border-zinc-800 hover:bg-zinc-800 text-white py-3 rounded-full font-bold text-sm shadow-sm transition-all"
                       >
                         Tambah ke Keranjang
                       </button>
                       <button
-                        onClick={() => buyNowWA(selectedProduct)}
-                        className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold text-sm shadow-sm transition-all flex items-center justify-center gap-2"
+                        onClick={() => buyNowWA(selectedProduct, activeAngle, modalQty)}
+                        className="w-full bg-accent hover:bg-yellow-600 text-white py-3 rounded-full font-bold text-sm shadow-sm transition-all flex items-center justify-center gap-2"
                       >
                         Beli Sekarang (COD)
                       </button>

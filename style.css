@@ -3,14 +3,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #09090b;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: #27272a;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #888;
+  background: #3f3f46;
 }
 
 /* Modal Scrollbar */
@@ -36,10 +36,10 @@
 
 /* Glassmorphism */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(9, 9, 11, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Animations */
@@ -63,5 +63,6 @@ html {
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: var(--color-brand);
+  color: #fff;
+  background-color: #09090b;
 }
