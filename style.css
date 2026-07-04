@@ -1,67 +1,49 @@
-/* Custom Scrollbar */
+/* Custom scrollbar and utilities that are not easily done via Tailwind attributes */
 ::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+    background: #000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 10px;
+    background: #222;
+    border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #888;
+    background: #333;
 }
 
-/* Modal Scrollbar */
-.overflow-y-auto::-webkit-scrollbar {
-  width: 4px;
+/* Glassmorphism Classes */
+.glass {
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Scrollbar Hide Utility */
+.glass-card {
+    background: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Parallax Background Helper */
+.hero-parallax {
+    height: 110vh;
+}
+
+/* Hide scrollbar but keep functionality */
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 .scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* Parallax Container */
-.parallax-wrapper {
-  perspective: 1000px;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-/* Glassmorphism */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Aspect Ratio */
-.aspect-square {
-  aspect-ratio: 1 / 1;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: var(--color-brand);
+/* Selection color */
+::selection {
+    background: #f59e0b;
+    color: black;
 }
