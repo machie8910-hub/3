@@ -1,24 +1,64 @@
+/* Global Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f8f9fa;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 10px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  border: 2px solid #f8f9fa;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #888;
+  background: #d1d5db;
 }
 
-/* Modal Scrollbar */
-.overflow-y-auto::-webkit-scrollbar {
-  width: 4px;
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Scrollbar Hide Utility */
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Aspect Ratio */
+.aspect-square { aspect-ratio: 1 / 1; }
+.aspect-video { aspect-ratio: 16 / 9; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5 {
+  letter-spacing: -0.04em;
+}
+
+/* Hide Scrollbar for specific containers */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -27,41 +67,14 @@
   scrollbar-width: none;
 }
 
-/* Parallax Container */
-.parallax-wrapper {
-  perspective: 1000px;
-  overflow-x: hidden;
-  overflow-y: auto;
+/* Transitions */
+.transition-all {
+  transition-duration: 300ms;
 }
 
-/* Glassmorphism */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Aspect Ratio */
-.aspect-square {
-  aspect-ratio: 1 / 1;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: var(--color-brand);
+/* Catalog Grid Adjustments */
+@media (min-width: 1024px) {
+  .product-modal-container {
+    height: 90vh;
+  }
 }
